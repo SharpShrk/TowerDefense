@@ -7,12 +7,9 @@ namespace GameLogic
     public class Wave
     {
         [SerializeField] private EnemyCount[] _enemyCounts;
-        [SerializeField] private float _rate;
-        [SerializeField] private Transform[] _wayPoints;
+        [SerializeField] private Transform _startPoint;
 
-        public float Rate => _rate;
-
-        public Transform[] WayPoints => _wayPoints;
+        public Transform StartPoint => _startPoint;
 
         public EnemyCount[] EnemyCounts => _enemyCounts;
     }
