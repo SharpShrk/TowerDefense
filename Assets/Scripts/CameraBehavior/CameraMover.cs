@@ -8,8 +8,8 @@ namespace CameraBehavior
         [SerializeField] private CameraBorder _leftBorder;
         [SerializeField] private CameraBorder _rightBorder;
 
-        private float _speed = 47f;
-        private float _zOffset = 23f;
+        private float _speed = 60f;
+        private float _zOffset = 20f;
         private Vector3 _origin;
         private Vector3 _currentPosition;
         private Camera _camera;
