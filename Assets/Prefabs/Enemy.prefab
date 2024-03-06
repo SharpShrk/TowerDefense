@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6145395675555518613}
   - component: {fileID: -3390124045423575259}
   - component: {fileID: -7232826951288382637}
-  - component: {fileID: 293451812478806227}
+ Dmitry_Main
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -102,7 +102,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f210c5087f87634e93276b860a1c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startSpeed: 10
+  _startSpeed: 1
   _startHealth: 100
   _worth: 2
   _deathEffect: {fileID: 858419457769973232, guid: a946dd34f30783841b19724e782118bc, type: 3}
@@ -138,8 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5b878e65033b34e88a7750b836527c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+Dmitry_Test_Enemy
   _speed: 5
 --- !u!54 &293451812478806227
+=======
+Dmitry_Main
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

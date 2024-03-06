@@ -133,6 +133,7 @@
       },
       "url": "https://packages.unity.com"
     },
+     Dmitry_Test_Enemy
     "com.unity.render-pipelines.core": {
       "version": "14.0.8",
       "depth": 1,
@@ -162,6 +163,8 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+=======
+     Dmitry_Main
     "com.unity.settings-manager": {
       "version": "2.0.1",
       "depth": 2,
