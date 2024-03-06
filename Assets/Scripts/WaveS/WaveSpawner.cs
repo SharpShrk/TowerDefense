@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using EnemyLogic;
 using UnityEngine;
 
@@ -7,80 +6,77 @@ namespace GameLogic
 {
     public class WaveSpawner : MonoBehaviour
     {
-        public int EnemiesAlive = 0;
-
         [SerializeField] private EnemyHandler _enemyHandler;
         [SerializeField] private float _timeBetweenWaves = 5f;
         [SerializeField] private Wave[] _waves;
         [SerializeField] private Transform _container;
+        [SerializeField] private EnemyTarget _enemyTarget;
+        [SerializeField] private EnemyPool _enemyPool;
+        [SerializeField] private GameObject _fdf;
 
         private EnemyCount[] _enemyCounts;
-        private float _countdown = 2.0f;
-        private int _waveIndex;
-        private List<Enemy> _enemies = new List<Enemy>();
+        private Coroutine _spawnWaveCoroutine;
+        private WaitForSeconds _waitForSecoundsWave;
+        private WaitForSeconds _waitForSecoundsEnemy;
 
-        public List<Enemy> Enemies => _enemies;
+        public Wave[] Waves => _waves;
 
-        private void Update()
+        private void Start()
         {
-            //if (EnemiesAlive > 0)
-            //{
-            //    return;
-            //}
-
-            if (_waveIndex == _waves.Length)
-            {
-                this.enabled = false;
-            }
-
-            if (_countdown <= 0)
-            {
-                StartCoroutine(SpawnWaves());
-                _countdown = _timeBetweenWaves;
-                return;
-            }
-
-            _countdown -= Time.deltaTime;
+            _waitForSecoundsWave = new WaitForSeconds(_timeBetweenWaves);
+            _enemyPool.InitializeEnemyPool();
+            StartSpawn();
         }
 
         private IEnumerator SpawnWaves()
         {
-            Wave wave = _waves[_waveIndex];
-            
-            for (int i = 0; i < wave.EnemyCounts.Length; i++)
+            foreach (var wave in _waves)
             {
+                yield return _waitForSecoundsWave;
                 StartCoroutine(SpawnEnemis(wave));
-                yield return new WaitForSeconds(1f / wave.Rate);
             }
-
-            _waveIndex++;
         }
 
         private IEnumerator SpawnEnemis(Wave wave)
         {
             _enemyCounts = wave.EnemyCounts;
-
+            
             foreach (var enemy in _enemyCounts)
             {
                 int countEnemies = enemy.Count;
-                EnemiesAlive = countEnemies;
+                _waitForSecoundsEnemy = new WaitForSeconds(enemy.Delay);
 
                 while (countEnemies > 0)
                 {
                     SpawnEnemy(wave, enemy);
-                    yield return new WaitForSeconds(1f / wave.Rate);
                     countEnemies--;
+                    yield return _waitForSecoundsEnemy;
                 }
             }
         }
 
         private void SpawnEnemy(Wave wave, EnemyCount enemy)
         {
-            Enemy EnemySpawn = null;
-            EnemySpawn = Instantiate(enemy.Enemy, wave.WayPoints[0].position, Quaternion.identity, _container);
-            EnemySpawn.GetComponent<EnemyMove>().Init(wave.WayPoints);
-            EnemySpawn.Init(_enemyHandler);
-            _enemyHandler.AddEnemy(EnemySpawn);
+            if (_enemyPool.TryGetObject(enemy.EnemyCard.Id, out Enemy enemySpawn))
+            {
+                enemySpawn.GetComponent<EnemyHealth>().Initialize();
+                enemySpawn.Init(_enemyTarget, _enemyTarget.GetPoint());
+                enemySpawn.transform.position = wave.StartPoint.position;
+                enemySpawn.enabled = true;
+                enemySpawn.TrnasitFirstState();
+                enemySpawn.gameObject.SetActive(true);
+                //_enemyHandler.AddEnemy(enemySpawn);
+            }
+        }
+
+        private void StartSpawn()
+        {
+            if (_spawnWaveCoroutine != null)
+            {
+                StopCoroutine(_spawnWaveCoroutine);
+            }
+
+            _spawnWaveCoroutine = StartCoroutine(SpawnWaves());
         }
     }
 }

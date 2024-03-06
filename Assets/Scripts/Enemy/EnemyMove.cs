@@ -21,13 +21,14 @@ namespace EnemyLogic
         {
             Vector3 direction = _targer.position - transform.position;
             transform.Translate(_speed * Time.deltaTime * direction.normalized);
+            transform.LookAt(_targer.position);
 
             if (Vector3.Distance(transform.position, _targer.position) <= 0.4f)
             {
                 GetNextWayPoint();
             }
 
-            _enemy.ResetSpeed();
+            //_enemy.ResetSpeed();
         }
 
         public void Init(Transform[] wayPoints)
@@ -50,7 +51,7 @@ namespace EnemyLogic
 
         private void EndPath()
         {
-            _enemy.Die();
+            //_enemy.Die();
         }
     }
 }
