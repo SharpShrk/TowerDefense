@@ -12,19 +12,19 @@ namespace EnemyLogic
 
         public Animator Animator { get; private set; }
 
-        public Rigidbody Rigidbody { get; private set; }
+       // public Rigidbody Rigidbody { get; private set; }
 
         public Transform Target { get; private set; }
 
         public EnemyTransition[] Transitions => _transitions;
 
-        public void Enter(EnemyTarget enemyTarget, Animator animator, Rigidbody rigidbody, Transform target)
+        public void Enter(EnemyTarget enemyTarget, Animator animator, Transform target)
         {
             if (enabled == false)
             {
                 EnemyTarget = enemyTarget;
                 Animator = animator;
-                Rigidbody = rigidbody;
+                //Rigidbody = rigidbody;
                 Target = target;
 
                 enabled = true;

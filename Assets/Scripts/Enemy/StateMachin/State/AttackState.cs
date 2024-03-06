@@ -1,18 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnemyLogic
 {
+    [RequireComponent(typeof(Enemy))]
     public class AttackState : EnemyState
     {
         private const string Attack = "Attack";
 
-        [SerializeField] private float _attackForce;
-        [SerializeField] private float _attackDelay;
-
+        private Enemy _enemy;
         private Coroutine _attackCoroutine;
         private WaitForSeconds _waitForSecounds;
+
+        private void Awake()
+        {
+            _enemy = GetComponent<Enemy>();
+        }
 
         private void OnEnable()
         {
@@ -30,7 +33,7 @@ namespace EnemyLogic
 
         private void Start()
         {
-            _waitForSecounds = new WaitForSeconds(_attackDelay);
+            _waitForSecounds = new WaitForSeconds(_enemy.EnemyCard.AttackSpeed);
         }
 
         private void StartAttack()
@@ -46,11 +49,11 @@ namespace EnemyLogic
         private IEnumerator AttackCoroutine()
         {
             Animator.SetTrigger(Attack);
-            //EnemyTarget.ApplyDamage(_attackForce);
+            EnemyTarget.GetComponent<EnemyTargetHealth>().TakeDamage(_enemy.EnemyCard.Damage);
             yield return _waitForSecounds;
 
-            //if (EnemyTarget.IsAlive())
-            //    StartAttack();
+            if (EnemyTarget.IsAlive())
+                StartAttack();
         }
     }
 }

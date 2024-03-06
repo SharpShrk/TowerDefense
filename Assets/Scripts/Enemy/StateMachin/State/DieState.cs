@@ -1,22 +1,25 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnemyLogic
 {
+    [RequireComponent(typeof(Animator), typeof(Enemy))]
     public class DieState : EnemyState
     {
         private const string Die = "Die";
 
         private float _delayBeforeDeath = 3f;
         private Animator _animator;
+        private Enemy _enemy;
+        private ParticleSystem _particleSystemDie;
         private WaitForSeconds _waitForSecounds;
 
         public event Action Died;
 
         private void Awake()
         {
+            _enemy = GetComponent<Enemy>();
             _animator = GetComponent<Animator>();
         }
 
@@ -27,9 +30,9 @@ namespace EnemyLogic
 
         public void DieEnemy()
         {
-            //Vector3 impactDirection = (attachedBody.position - transform.position).normalized;
             _animator.SetTrigger(Die);
-            //_rigidbody.AddForce(impactDirection * force, ForceMode.Impulse);
+            _particleSystemDie = Instantiate(_enemy.EnemyCard.ParticleSystemDie, transform.position, transform.rotation, transform);
+            _particleSystemDie.Play();
             StartCoroutine(WaitForDieAnimationEnd());
             Died?.Invoke();
         }
@@ -38,7 +41,7 @@ namespace EnemyLogic
         {
             yield return _waitForSecounds;
 
-            Destroy(gameObject);
+            Destroy(_particleSystemDie.gameObject);
             gameObject.SetActive(false);
         }
     }

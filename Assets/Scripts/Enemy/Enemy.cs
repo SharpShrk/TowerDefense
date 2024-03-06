@@ -3,14 +3,15 @@ using UnityEngine;
 
 namespace EnemyLogic
 {
+    [RequireComponent(typeof(Animator), typeof(EnemyHealth), typeof(Collider))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private EnemyState _firstState;
         [SerializeField] private DieState _dieState;
+        [SerializeField] private EnemyCard _enemyCard;
 
         private EnemyState _currentState;
         private Animator _animator;
-        private Rigidbody _rigidbody;
         private EnemyHealth _enemyHealth;
         private EnemyTarget _targetPoint;
         private Transform _target;
@@ -22,6 +23,15 @@ namespace EnemyLogic
 
         public EnemyState DieState => _dieState;
 
+        public EnemyCard EnemyCard => _enemyCard;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            _enemyHealth = GetComponent<EnemyHealth>();
+            _collider = GetComponent<Collider>();
+        }
+
         private void OnEnable()
         {
             _enemyHealth.Died += OnEnemyDied;
@@ -32,19 +42,11 @@ namespace EnemyLogic
             _enemyHealth.Died -= OnEnemyDied;
         }
 
-        private void Awake()
-        {
-            _animator = GetComponent<Animator>();
-            _rigidbody = GetComponent<Rigidbody>();
-            _enemyHealth = GetComponent<EnemyHealth>();
-            _collider = GetComponent<Collider>();
-        }
-
         private void Start()
         {
             _currentState = _firstState;
-            _currentState.Enter(_targetPoint, _animator, _rigidbody, _target);
-            _dieState.Enter(_targetPoint, _animator, _rigidbody, _target);
+            _currentState.Enter(_targetPoint, _animator, _target);
+            _dieState.Enter(_targetPoint, _animator, _target);
         }
 
         private void Update()
@@ -62,11 +64,13 @@ namespace EnemyLogic
 
             if (nextState != null)
                 Transit(nextState);
+        }
 
-            if (_enemyHealth.Health <= 0 && _currentState != _dieState)
-            {
-                Transit(_dieState);
-            }
+        public void TrnasitFirstState()
+        {
+            Transit(_firstState);
+            _currentState.Enter(_targetPoint, _animator, _target);
+            _dieState.Enter(_targetPoint, _animator, _target);
         }
 
         public void Init(EnemyTarget targetPoint, Transform target)
@@ -92,7 +96,8 @@ namespace EnemyLogic
             _currentState = nextState;
 
             if (_currentState != null)
-                _currentState.Enter(_targetPoint, _animator, _rigidbody, _target);
+                _currentState.Enter(_targetPoint, _animator, _target);
         }
+
     }
 }

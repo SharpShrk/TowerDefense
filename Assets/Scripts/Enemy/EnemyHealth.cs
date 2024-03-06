@@ -1,56 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnemyLogic
 {
-    public class EnemyHealth : MonoBehaviour, IDamageable
+    [RequireComponent(typeof(Enemy))]
+    public class EnemyHealth : HealthContainer
     {
-        [SerializeField] private int _health;
+        private Enemy _enemy;
 
-        private int _maxHealth;
-
-        public event Action<int> HealthChanged;
-
-        public event Action MaxHealthChanged;
-
-        public event Action Died;
-
-        public int Health => _health;
-
-        public int MaxHealth => _maxHealth;
-
-        public void Initialize(int health)
+        private void Awake()
         {
-            _health = health;
-            _maxHealth = health;
-            //_isDied = false;
-            gameObject.GetComponent<Collider>().enabled = true;
+            _enemy = GetComponent<Enemy>();
         }
 
-        public void TakeDamage(int damage)
+        public void Initialize()
         {
-            if (damage < 0)
-            {
-                return;
-            }
-
-            _health -= damage;
-
-            if (_health <= 0)
-            {
-                _health = 0;
-                Died?.Invoke();
-            }
-
-            HealthChanged?.Invoke(_health);
-        }
-
-        public void OnResetHealth()
-        {
+            _maxHealth = _enemy.EnemyCard.Health;
             _health = _maxHealth;
-            MaxHealthChanged?.Invoke();
+            gameObject.GetComponent<Collider>().enabled = true;
         }
     }
 }

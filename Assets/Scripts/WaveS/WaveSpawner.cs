@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using EnemyLogic;
 using UnityEngine;
 
@@ -12,15 +11,20 @@ namespace GameLogic
         [SerializeField] private Wave[] _waves;
         [SerializeField] private Transform _container;
         [SerializeField] private EnemyTarget _enemyTarget;
+        [SerializeField] private EnemyPool _enemyPool;
+        [SerializeField] private GameObject _fdf;
 
         private EnemyCount[] _enemyCounts;
         private Coroutine _spawnWaveCoroutine;
         private WaitForSeconds _waitForSecoundsWave;
         private WaitForSeconds _waitForSecoundsEnemy;
 
+        public Wave[] Waves => _waves;
+
         private void Start()
         {
             _waitForSecoundsWave = new WaitForSeconds(_timeBetweenWaves);
+            _enemyPool.InitializeEnemyPool();
             StartSpawn();
         }
 
@@ -28,8 +32,8 @@ namespace GameLogic
         {
             foreach (var wave in _waves)
             {
-                StartCoroutine(SpawnEnemis(wave));
                 yield return _waitForSecoundsWave;
+                StartCoroutine(SpawnEnemis(wave));
             }
         }
 
@@ -44,21 +48,25 @@ namespace GameLogic
 
                 while (countEnemies > 0)
                 {
-                    yield return _waitForSecoundsEnemy;
                     SpawnEnemy(wave, enemy);
                     countEnemies--;
+                    yield return _waitForSecoundsEnemy;
                 }
             }
         }
 
         private void SpawnEnemy(Wave wave, EnemyCount enemy)
         {
-            Enemy enemySpawn = null;
-            enemySpawn = Instantiate(enemy.Enemy, wave.StartPoint.position, Quaternion.identity, _container);
-            enemySpawn.Init(_enemyTarget, _enemyTarget.GetPoint());
-            //EnemySpawn.GetComponent<EnemyMove>().Init(wave.WayPoints);
-            // EnemySpawn.Init(_enemyHandler);
-            _enemyHandler.AddEnemy(enemySpawn);
+            if (_enemyPool.TryGetObject(enemy.EnemyCard.Id, out Enemy enemySpawn))
+            {
+                enemySpawn.GetComponent<EnemyHealth>().Initialize();
+                enemySpawn.Init(_enemyTarget, _enemyTarget.GetPoint());
+                enemySpawn.transform.position = wave.StartPoint.position;
+                enemySpawn.enabled = true;
+                enemySpawn.TrnasitFirstState();
+                enemySpawn.gameObject.SetActive(true);
+                //_enemyHandler.AddEnemy(enemySpawn);
+            }
         }
 
         private void StartSpawn()

@@ -5,11 +5,11 @@ namespace EnemyLogic
     [System.Serializable]
     public class EnemyCount
     {
-        [SerializeField] private Enemy _enemy;
+        [SerializeField] private EnemyCard _enemyCard;
         [SerializeField] private int _count;
         [SerializeField] private float _delay;
 
-        public Enemy Enemy => _enemy;
+        public EnemyCard EnemyCard => _enemyCard;
 
         public int Count => _count;
 
