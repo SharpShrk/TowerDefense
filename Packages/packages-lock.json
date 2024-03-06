@@ -1,16 +1,18 @@
 {
   "dependencies": {
     "com.agava.webutility": {
-      "version": "file:C:/Users/ilyav/Desktop/Новая папка/web util/com.agava.webutility-master",
+      "version": "https://github.com/forcepusher/com.agava.webutility.git#3.1.0",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "32d39130ea78dce0c3ea0ed83ec5f022efefde42"
     },
     "com.agava.yandexgames": {
-      "version": "file:C:/Users/ilyav/Desktop/Новая папка/com.agava.yandexgames-master",
+      "version": "https://github.com/forcepusher/com.agava.yandexgames.git#16.0.0",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "faf20595c0f18f4a471e6b27fbd5fbf5fd05d7a2"
     },
     "com.unity.ai.navigation": {
       "version": "1.1.5",
