@@ -12,8 +12,7 @@ namespace GameLogic
         [SerializeField] private Transform _container;
         [SerializeField] private EnemyTarget _enemyTarget;
         [SerializeField] private EnemyPool _enemyPool;
-        [SerializeField] private GameObject _fdf;
-
+        
         private EnemyCount[] _enemyCounts;
         private Coroutine _spawnWaveCoroutine;
         private WaitForSeconds _waitForSecoundsWave;

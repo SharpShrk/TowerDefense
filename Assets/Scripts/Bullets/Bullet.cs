@@ -33,8 +33,7 @@ public abstract class Bullet : MonoBehaviour
     protected void OnCollisionEnter(Collision collision)
     {
         //var damageable = collision.gameObject.GetComponent<IDamageable>();
-        var damageable = collision.gameObject.GetComponent<Enemy>();
-
+        var damageable = collision.gameObject.GetComponent<EnemyHealth>();
 
         if (damageable != null)
         {
