@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Turret : MonoBehaviour
+public abstract class Turret : MonoBehaviour, IBuilding
 {
     [SerializeField] protected float AttackRange;
     [SerializeField] protected float AttackCooldown;
@@ -18,6 +18,7 @@ public abstract class Turret : MonoBehaviour
     protected float Damage;
     protected float RotationSpeed = 500f;
 
+    public BuildType Type { get; protected set; }
     public bool IsPlaced { get; private set; }
 
     protected void Start()

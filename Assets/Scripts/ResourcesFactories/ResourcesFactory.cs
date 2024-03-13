@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ResourcesFactories
 {
-    public abstract class ResourcesFactory : MonoBehaviour
+    public abstract class ResourcesFactory : MonoBehaviour, IBuilding
     {
         [SerializeField] private Resource _spawningResource;
         [SerializeField] private ResourcePool _pool;
@@ -16,6 +16,8 @@ namespace ResourcesFactories
         private Resource _currentResource;
         private Coroutine _createResource;
         private bool _isCreating = false;
+
+        public BuildType Type { get; protected set; }
 
         private void OnEnable()
         {

@@ -12,6 +12,11 @@ public class LargeCaliberTurret : Turret
     _pool = bulletPool;
 }*/
 
+    private void OnEnable()
+    {
+        Type = BuildType.LargeCaliber;
+    }
+
     protected override void Shoot()
     {
         GameObject bullet = _pool.GetBullet();

@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingsPlace : MonoBehaviour
+public class BuildingPlace : MonoBehaviour
 {
-    [SerializeField] private GameObject _cellImage;
+    //[SerializeField] private GameObject _cellImage;
+    [SerializeField] private Transform _installationPoint;
+
     private bool _isCellFree;
+
+    public Transform InstallationPoint => _installationPoint;
 
     public bool IsCellFree => _isCellFree;
 
@@ -17,12 +21,12 @@ public class BuildingsPlace : MonoBehaviour
     public void OpenCell()
     {
         _isCellFree = true;
-        _cellImage.SetActive(true);
+        //_cellImage.SetActive(true);
     }
 
     public void CloseCell()
     {
         _isCellFree = false;
-        _cellImage.SetActive(false);
+        //_cellImage.SetActive(false);
     }
 }
