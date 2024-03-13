@@ -5,7 +5,7 @@ using UnityEngine;
 public class MachinegunTurret : Turret
 {
     [SerializeField] private MachinegunBulletPool _pool;
-    [SerializeField] private Transform[] _shootPoints = new Transform[3];
+    [SerializeField] private Transform[] _shootPoints = new Transform[3];    
 
     private int _currentShootPointIndex = 0;
 
@@ -13,6 +13,10 @@ public class MachinegunTurret : Turret
     {
         _pool = bulletPool;
     }*/
+    private void OnEnable()
+    {
+        Type = BuildType.MachineGun;
+    }
 
     protected override void Shoot()
     {

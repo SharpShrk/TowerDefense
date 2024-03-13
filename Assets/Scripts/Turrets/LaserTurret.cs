@@ -15,6 +15,11 @@ public class LaserTurret : Turret
         _pool = bulletPool;
     }*/
 
+    private void OnEnable()
+    {
+        Type = BuildType.LaserGun;
+    }
+
     protected override void Shoot()
     {
         if (_isLeftShootPointActive)
