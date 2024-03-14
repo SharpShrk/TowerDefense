@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 4862344741448170356}
   - component: {fileID: 1675645637008131646}
   - component: {fileID: 8785548790433651968}
+  - component: {fileID: 7796026853556938131}
   m_Layer: 0
   m_Name: LargeCaliber Turret
   m_TagString: Untagged
@@ -138,6 +139,26 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7796026853556938131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530057712791385096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9ced581615a8544910423e7ac68bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 1
+  _label: {fileID: 0}
+  _type: 2
+  _prefab: {fileID: 5530057712791385096}
+  _attackRange: 15
+  _attackCooldown: 0.3
+  _damage: 10
+  _rotationSpeed: 500
 --- !u!1001 &7515153307583824537
 PrefabInstance:
   m_ObjectHideFlags: 0

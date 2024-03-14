@@ -3,33 +3,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Turret : MonoBehaviour, IBuilding
+public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
 {
-    [SerializeField] protected float AttackRange;
-    [SerializeField] protected float AttackCooldown;
     [SerializeField] protected GameObject RotatingPlatform;
     [SerializeField] protected GameObject Gun;
-    [SerializeField] protected float StartDamage = 10f;
 
-    //protected BulletPool _bulletPool;
     protected Transform ShootPoint;
+    protected TurretData Data;
     protected GameObject Target;
+    protected BulletPool Pool;
+    protected float AttackRange;
+    protected float AttackCooldown;
     protected float CurrentAttackCooldown;
     protected float Damage;
-    protected float RotationSpeed = 500f;
+    protected float RotationSpeed;
 
-    public BuildType Type { get; protected set; }
+    public BuildType Type { get; private set; }
     public bool IsPlaced { get; private set; }
 
     protected void Start()
     {
-        IsPlaced = false;
+        Data = GetComponent<TurretData>();
+
         PlaceTurret(); //временное решение для инициализации
-        Damage = StartDamage;
-        CurrentAttackCooldown = AttackCooldown;
+
+        IsPlaced = false;
+        AttackRange = Data.AttackRange;
+        CurrentAttackCooldown = Data.AttackCooldown;
+        Damage = Data.Damage;
+        Type = Data.Type;
+        RotationSpeed = Data.RotationSpeed;
     }
 
-    //protected abstract void Init(BulletPool bulletPool);
+    public void SetPool(object pool)
+    {
+        Pool = pool as BulletPool;
+    }
 
     public void PlaceTurret()
     {
@@ -80,8 +89,6 @@ public abstract class Turret : MonoBehaviour, IBuilding
 
             if (enemy != null)
             {
-                Debug.Log(collider.name);
-
                 float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position);
                 if (distanceToEnemy < closestDistance)
                 {

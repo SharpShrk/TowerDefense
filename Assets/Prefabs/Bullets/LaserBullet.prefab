@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4369203107854815195}
   - component: {fileID: 6756313763999919255}
   - component: {fileID: 5692168752085548417}
-  - component: {fileID: -8720853919880600490}
   - component: {fileID: -8316926341042565700}
   - component: {fileID: 8064357825636821948}
+  - component: {fileID: 8442926229859388974}
   m_Layer: 0
   m_Name: LaserBullet
   m_TagString: Untagged
@@ -108,21 +108,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8720853919880600490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3618220365746569902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a963d023760b514e81f6699a704d3b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 50
-  _lifetime: 0.2
-  _defaultDamage: 10
 --- !u!54 &-8316926341042565700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -254,3 +239,18 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &8442926229859388974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618220365746569902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45af70afb98659442bf120d7a4fc7f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _lifetime: 3
+  _defaultDamage: 10
