@@ -1,15 +1,16 @@
 using System.Collections;
 using Resources;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace ResourcesFactories
 {
-    public abstract class ResourcesFactory : MonoBehaviour, IBuilding
+    public abstract class ResourcesFactory : MonoBehaviour, IBuilding, IPoolable
     {
         [SerializeField] private Resource _spawningResource;
-        [SerializeField] private ResourcePool _pool;
         [SerializeField] private SpawnPoint _spawnPoint;
-
+        
+        private ResourcePool _pool;
         private float _iterationTime;
         private float _minIterationTime = 9;
         private float _maxIterationTime = 13;
@@ -34,9 +35,9 @@ namespace ResourcesFactories
             }
         }
 
-        public void Init()
+        public void SetPool(object pool)
         {
-            // сюда прокидывать нужно пул, пока пусто так как нет системы постройки 
+            _pool = pool as ResourcePool;
         }
 
         private IEnumerator CreateResource()

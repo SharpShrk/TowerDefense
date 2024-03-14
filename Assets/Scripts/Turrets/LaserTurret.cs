@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class LaserTurret : Turret
 {
-    [SerializeField] private LaserBulletPool _pool;
     [SerializeField] private Transform _shootPointLeft;
     [SerializeField] private Transform _shootPointRight;
 
     private bool _isLeftShootPointActive = true;
-
-    /*protected override void Init(LaserBulletPool bulletPool)
-    {
-        _pool = bulletPool;
-    }*/
-
-    private void OnEnable()
-    {
-        Type = BuildType.LaserGun;
-    }
 
     protected override void Shoot()
     {
@@ -33,11 +22,11 @@ public class LaserTurret : Turret
             _isLeftShootPointActive = true;
         }
 
-        GameObject bullet = _pool.GetBullet();
+        GameObject bullet = Pool.GetBullet();
         bullet.transform.position = ShootPoint.position;
         bullet.transform.rotation = ShootPoint.rotation;
 
-        LaserBullet bulletScript = bullet.GetComponent<LaserBullet>();
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetDamage((int)Damage);
     }
 }

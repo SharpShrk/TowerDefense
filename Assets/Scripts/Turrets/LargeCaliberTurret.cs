@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class LargeCaliberTurret : Turret
 {
-    [SerializeField] private LargeCaliberBulletPool _pool;
     [SerializeField] private Transform _shootPoint;
-
-    /*protected override void Init(LaserBulletPool bulletPool)
-{
-    _pool = bulletPool;
-}*/
-
-    private void OnEnable()
-    {
-        Type = BuildType.LargeCaliber;
-    }
 
     protected override void Shoot()
     {
-        GameObject bullet = _pool.GetBullet();
+        GameObject bullet = Pool.GetBullet();
         bullet.transform.position = _shootPoint.position;
         bullet.transform.rotation = _shootPoint.rotation;
 
-        LargeCaliberBullet bulletScript = bullet.GetComponent<LargeCaliberBullet>();
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetDamage((int)Damage);
     }
 }
