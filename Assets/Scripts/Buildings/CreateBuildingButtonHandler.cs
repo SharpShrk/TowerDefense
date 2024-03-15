@@ -6,6 +6,7 @@ public class CreateBuildingButtonHandler : MonoBehaviour
     [SerializeField] private BuildFactory _buildFactory;
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private BuildType _buildType;
+    [SerializeField] private ConstructionZone _constructionZone;
 
     private bool _waitingForPlacement = false;
 
@@ -17,7 +18,9 @@ public class CreateBuildingButtonHandler : MonoBehaviour
 
     private IEnumerator WaitForPlacementCoroutine()
     {
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0)); //добавить обработку для мобильных девайсов
+        _constructionZone.HighlightAvailablePlaces();
+
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
         RaycastHit hit;
         Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -26,12 +29,14 @@ public class CreateBuildingButtonHandler : MonoBehaviour
         {
             BuildingPlace buildingPlace = hit.collider.GetComponent<BuildingPlace>();
 
-            if (buildingPlace != null)
+            if (buildingPlace != null && buildingPlace.IsCellFree)
             {
                 _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
+                buildingPlace.CloseCell();
             }
         }
 
+        _constructionZone.ClearHighlights();
         _waitingForPlacement = false;
     }
 }
