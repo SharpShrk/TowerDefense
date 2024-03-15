@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildingPlace : MonoBehaviour
 {
-    //[SerializeField] private GameObject _cellImage;
+    [SerializeField] private GameObject _cellImage;
     [SerializeField] private Transform _installationPoint;
 
     private bool _isCellFree;
@@ -21,12 +21,20 @@ public class BuildingPlace : MonoBehaviour
     public void OpenCell()
     {
         _isCellFree = true;
-        //_cellImage.SetActive(true);
     }
 
     public void CloseCell()
     {
         _isCellFree = false;
-        //_cellImage.SetActive(false);
+    }
+
+    public void Highlight()
+    {
+        _cellImage.SetActive(true);
+    }
+
+    public void ClearHighlight()
+    {
+        _cellImage.SetActive(false);
     }
 }
