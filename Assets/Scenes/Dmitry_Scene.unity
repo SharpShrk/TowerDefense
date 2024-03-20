@@ -1384,7 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHandler: {fileID: 491067117}
-  _timeBetweenWaves: 17
+  _timeBetweenWaves: 5
   _waves:
   - _enemyCounts:
     - _enemyCard: {fileID: 11400000, guid: f9960422eab0c8a4987a751c698cd850, type: 2}
@@ -1395,11 +1395,14 @@ MonoBehaviour:
     - _enemyCard: {fileID: 11400000, guid: 9571d348fa71c934eb2177f370d40690, type: 2}
       _count: 5
       _delay: 1
+    - _enemyCard: {fileID: 11400000, guid: 7fe4e8c68ce00414c8c1f6ae3d287db3, type: 2}
+      _count: 5
+      _delay: 1
     _startPoint: {fileID: 1446935603}
   - _enemyCounts:
     - _enemyCard: {fileID: 11400000, guid: ab2ffb681a719bb42b543ac2889ebfa8, type: 2}
       _count: 4
-      _delay: 1
+      _delay: 1.5
     _startPoint: {fileID: 1446935603}
   _container: {fileID: 116173588}
   _enemyTarget: {fileID: 7744696248365284400}
@@ -6502,6 +6505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyTarget: {fileID: 7744696248365284400}
+  _enemiesIsAleve: 0
 --- !u!4 &491067118
 Transform:
   m_ObjectHideFlags: 0

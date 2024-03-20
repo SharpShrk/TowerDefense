@@ -66,7 +66,7 @@ namespace EnemyLogic
                 Transit(nextState);
         }
 
-        public void TrnasitFirstState()
+        public void TransitFirstState()
         {
             Transit(_firstState);
             _currentState.Enter(_targetPoint, _animator, _target);

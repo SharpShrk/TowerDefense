@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GameLogic;
 using UnityEngine;
 
 namespace EnemyLogic
@@ -9,8 +10,11 @@ namespace EnemyLogic
         [SerializeField] private EnemyTarget _enemyTarget;
 
         private List<Enemy> _enemies;
+        private int _enemiesIsAlive;
 
         public event Action AllEnemiesKilled;
+
+        public int EnemiesIsAlive => _enemiesIsAlive;
 
         private void Awake()
         {
@@ -36,11 +40,20 @@ namespace EnemyLogic
         public void OnEnemyDeath(Enemy enemy)
         {
             _enemies.Remove(enemy);
+            _enemiesIsAlive--;
             enemy.Died -= OnEnemyDeath;
 
             if (_enemies.Count <= 0)
             {
                 AllEnemiesKilled?.Invoke();
+            }
+        }
+
+        public void InitEnemisIsWave(Wave wave)
+        {
+            foreach (var enemy in wave.EnemyCounts)
+            {
+                _enemiesIsAlive += enemy.Count;
             }
         }
 

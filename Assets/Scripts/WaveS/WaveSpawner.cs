@@ -20,20 +20,60 @@ namespace GameLogic
 
         public Wave[] Waves => _waves;
 
+        private float _countdown = 10f;
+        private int _waveIndex = 0;
+
         private void Start()
         {
             _waitForSecoundsWave = new WaitForSeconds(_timeBetweenWaves);
             _enemyPool.InitializeEnemyPool();
-            StartSpawn();
+            //StartSpawn();
         }
 
-        private IEnumerator SpawnWaves()
+        private void Update()
         {
-            foreach (var wave in _waves)
+            if (_enemyHandler.EnemiesIsAlive > 0)
             {
-                yield return _waitForSecoundsWave;
-                StartCoroutine(SpawnEnemis(wave));
+                return;
             }
+
+            if (_waveIndex == _waves.Length)
+            { ;
+                this.enabled = false;
+            }
+
+            if (_countdown <= 0)
+            {
+                SpawnWaves();
+                //StartCoroutine(SpawnWaves());
+                _countdown = _timeBetweenWaves;
+                return;
+            }
+
+            _countdown -= Time.deltaTime;
+        }
+
+        //private IEnumerator SpawnWaves()
+        //{
+        //    foreach (var wave in _waves)
+        //    {
+        //        yield return _waitForSecoundsWave;
+
+        //        foreach (var enemy in wave.EnemyCounts)
+        //        {
+        //            _enemyHandler._enemiesIsAlive += enemy.Count;
+        //        }
+
+        //        StartCoroutine(SpawnEnemis(wave));
+        //    }
+        //}
+
+        private void SpawnWaves()
+        {
+            Wave wave = _waves[_waveIndex];
+            _enemyHandler.InitEnemisIsWave(wave);
+            StartCoroutine(SpawnEnemis(wave));
+            _waveIndex++;
         }
 
         private IEnumerator SpawnEnemis(Wave wave)
@@ -62,20 +102,20 @@ namespace GameLogic
                 enemySpawn.Init(_enemyTarget, _enemyTarget.GetPoint());
                 enemySpawn.transform.position = wave.StartPoint.position;
                 enemySpawn.enabled = true;
-                enemySpawn.TrnasitFirstState();
+                enemySpawn.TransitFirstState();
                 enemySpawn.gameObject.SetActive(true);
                 //_enemyHandler.AddEnemy(enemySpawn);
             }
         }
 
-        private void StartSpawn()
-        {
-            if (_spawnWaveCoroutine != null)
-            {
-                StopCoroutine(_spawnWaveCoroutine);
-            }
+        //private void StartSpawn()
+        //{
+        //    if (_spawnWaveCoroutine != null)
+        //    {
+        //        StopCoroutine(_spawnWaveCoroutine);
+        //    }
 
-            _spawnWaveCoroutine = StartCoroutine(SpawnWaves());
-        }
+        //    _spawnWaveCoroutine = StartCoroutine(SpawnWaves());
+        //}
     }
 }
