@@ -25,9 +25,9 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
     {
         Data = GetComponent<TurretData>();
 
-        PlaceTurret(); //временное решение для инициализации
-
         IsPlaced = false;
+
+        PlaceTurret(); //временное решение для инициализации
         AttackRange = Data.AttackRange;
         CurrentAttackCooldown = Data.AttackCooldown;
         Damage = Data.Damage;
@@ -83,19 +83,20 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, AttackRange);
 
+        float closestDistanceSqr = AttackRange * AttackRange;
+
         foreach (Collider collider in colliders)
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
-
-            if (enemy != null)
+            if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position);
-                if (distanceToEnemy < closestDistance)
+                float distanceToEnemySqr = (transform.position - collider.transform.position).sqrMagnitude;
+
+                if (distanceToEnemySqr < closestDistanceSqr)
                 {
-                    closestDistance = distanceToEnemy;
+                    closestDistanceSqr = distanceToEnemySqr;
                     Target = collider.gameObject;
                 }
-            }   
+            }
         }
 
         return Target;
@@ -139,5 +140,5 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
         }
     }
 
-    protected abstract void Shoot();    
+    protected abstract void Shoot();
 }
