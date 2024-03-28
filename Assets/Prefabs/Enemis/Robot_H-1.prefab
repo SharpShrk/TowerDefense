@@ -1790,6 +1790,7 @@ GameObject:
   - component: {fileID: 2229783129467969677}
   - component: {fileID: 5815546806593765679}
   - component: {fileID: 4455626304543821709}
+  - component: {fileID: 8900501630638846195}
   m_Layer: 0
   m_Name: Robot_H-1
   m_TagString: Untagged
@@ -1855,10 +1856,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22650655
-  m_Height: 1.6872575
+  m_Radius: 0.38476267
+  m_Height: 1.9185112
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9685159, z: -0.029553097}
+  m_Center: {x: 0.041944347, y: 0.9126195, z: 0.008230289}
 --- !u!54 &7000276108641480557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1911,7 +1912,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1988,6 +1989,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e72b8a9593f0808449e4fafc5a0badc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8900501630638846195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861573303539525761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda443fddf3d26d4b9825321677b7e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8338194471420014017

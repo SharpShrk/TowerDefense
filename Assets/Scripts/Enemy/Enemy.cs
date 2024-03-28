@@ -83,9 +83,9 @@ namespace EnemyLogic
         {
             Died?.Invoke(this);
             enabled = false;
+            _collider.enabled = false;
             Transit(_dieState);
             _dieState.DieEnemy();
-            _collider.enabled = false;
         }
 
         private void Transit(EnemyState nextState)
@@ -98,6 +98,5 @@ namespace EnemyLogic
             if (_currentState != null)
                 _currentState.Enter(_targetPoint, _animator, _target);
         }
-
     }
 }

@@ -12,63 +12,57 @@ namespace GameLogic
         [SerializeField] private Transform _container;
         [SerializeField] private EnemyTarget _enemyTarget;
         [SerializeField] private EnemyPool _enemyPool;
+        [SerializeField] private PointerHandler _pointerHandler;
         
         private EnemyCount[] _enemyCounts;
         private Coroutine _spawnWaveCoroutine;
         private WaitForSeconds _waitForSecoundsWave;
         private WaitForSeconds _waitForSecoundsEnemy;
+        private float _countdown = 10f;
+        private int _waveIndex;
 
         public Wave[] Waves => _waves;
 
-        private float _countdown = 10f;
-        private int _waveIndex = 0;
+        private void OnEnable()
+        {
+            _enemyHandler.AliveEnemiesKilled += OnSpawnWaves;
+        }
+
+        private void OnDisable()
+        {
+            _enemyHandler.AliveEnemiesKilled -= OnSpawnWaves;
+        }
 
         private void Start()
         {
-            _waitForSecoundsWave = new WaitForSeconds(_timeBetweenWaves);
+            _waitForSecoundsWave = new WaitForSeconds(_countdown);
             _enemyPool.InitializeEnemyPool();
-            //StartSpawn();
         }
 
-        private void Update()
+        private void OnSpawnWaves()
         {
             if (_enemyHandler.EnemiesIsAlive > 0)
             {
                 return;
             }
 
-            if (_waveIndex == _waves.Length)
-            { ;
-                this.enabled = false;
-            }
-
-            if (_countdown <= 0)
+            if (_waveIndex == _waves.Length-1)
             {
-                SpawnWaves();
-                //StartCoroutine(SpawnWaves());
-                _countdown = _timeBetweenWaves;
-                return;
+                enabled = false;
             }
 
-            _countdown -= Time.deltaTime;
+            StartSpawn();
         }
 
-        //private IEnumerator SpawnWaves()
-        //{
-        //    foreach (var wave in _waves)
-        //    {
-        //        yield return _waitForSecoundsWave;
+        private IEnumerator SpawnWaves()
+        {
+            yield return _waitForSecoundsWave;
+            SpawnWave();
+            _waitForSecoundsWave = new WaitForSeconds(_timeBetweenWaves);
 
-        //        foreach (var enemy in wave.EnemyCounts)
-        //        {
-        //            _enemyHandler._enemiesIsAlive += enemy.Count;
-        //        }
+        }
 
-        //        StartCoroutine(SpawnEnemis(wave));
-        //    }
-        //}
-
-        private void SpawnWaves()
+        private void SpawnWave()
         {
             Wave wave = _waves[_waveIndex];
             _enemyHandler.InitEnemisIsWave(wave);
@@ -98,7 +92,9 @@ namespace GameLogic
         {
             if (_enemyPool.TryGetObject(enemy.EnemyCard.Id, out Enemy enemySpawn))
             {
+                _pointerHandler.AddToList(enemySpawn.GetComponent<EnemyPointer>());
                 enemySpawn.GetComponent<EnemyHealth>().Initialize();
+                enemySpawn.GetComponent<EnemyPointer>().Init(_pointerHandler);
                 enemySpawn.Init(_enemyTarget, _enemyTarget.GetPoint());
                 enemySpawn.transform.position = wave.StartPoint.position;
                 enemySpawn.enabled = true;
@@ -108,14 +104,14 @@ namespace GameLogic
             }
         }
 
-        //private void StartSpawn()
-        //{
-        //    if (_spawnWaveCoroutine != null)
-        //    {
-        //        StopCoroutine(_spawnWaveCoroutine);
-        //    }
+        private void StartSpawn()
+        {
+            if (_spawnWaveCoroutine != null)
+            {
+                StopCoroutine(_spawnWaveCoroutine);
+            }
 
-        //    _spawnWaveCoroutine = StartCoroutine(SpawnWaves());
-        //}
+            _spawnWaveCoroutine = StartCoroutine(SpawnWaves());
+        }
     }
 }
