@@ -14,6 +14,8 @@ namespace EnemyLogic
 
         public event Action AllEnemiesKilled;
 
+        public event Action AliveEnemiesKilled;
+
         public int EnemiesIsAlive => _enemiesIsAlive;
 
         private void Awake()
@@ -31,6 +33,11 @@ namespace EnemyLogic
             _enemyTarget.Died -= OnDestroyEnemies;
         }
 
+        private void Start()
+        {
+            AliveEnemiesKilled?.Invoke();
+        }
+
         public void AddEnemy(Enemy enemy)
         {
             _enemies.Add(enemy);
@@ -42,6 +49,11 @@ namespace EnemyLogic
             _enemies.Remove(enemy);
             _enemiesIsAlive--;
             enemy.Died -= OnEnemyDeath;
+
+            if (_enemiesIsAlive <= 0)
+            {
+                AliveEnemiesKilled?.Invoke();
+            }
 
             if (_enemies.Count <= 0)
             {

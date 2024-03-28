@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: -7694678686260495581}
   - component: {fileID: -2650194805346043791}
   - component: {fileID: 4072206887083711761}
+  - component: {fileID: 2931208464612804003}
   m_Layer: 0
   m_Name: Robot_T-1
   m_TagString: Untagged
@@ -911,6 +912,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e72b8a9593f0808449e4fafc5a0badc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2931208464612804003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360807028650697811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda443fddf3d26d4b9825321677b7e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6130568487950073039

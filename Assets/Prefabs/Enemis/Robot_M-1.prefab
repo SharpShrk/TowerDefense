@@ -1190,6 +1190,7 @@ GameObject:
   - component: {fileID: 8714600865107137763}
   - component: {fileID: 8071780291353588105}
   - component: {fileID: 5248061845396283143}
+  - component: {fileID: 412197887982837646}
   m_Layer: 0
   m_Name: Robot_M-1
   m_TagString: Untagged
@@ -1407,10 +1408,22 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 11.42499, y: 16.857517, z: 3.2552657}
   m_Center: {x: 0.14269829, y: 7.928762, z: 0.109824985}
+--- !u!114 &412197887982837646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666509446263432860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda443fddf3d26d4b9825321677b7e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2687633241392793673
 GameObject:
   m_ObjectHideFlags: 0
