@@ -14,8 +14,7 @@ namespace EnemyLogic
 
         public void Initialize()
         {
-            _maxHealth = _enemy.EnemyCard.Health;
-            _health = _maxHealth;
+            Init(_enemy.EnemyCard.Health);
             gameObject.GetComponent<Collider>().enabled = true;
         }
     }

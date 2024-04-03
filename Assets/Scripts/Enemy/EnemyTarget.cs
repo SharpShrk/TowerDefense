@@ -56,6 +56,7 @@ namespace EnemyLogic
         private void OnDied()
         {
             Instantiate(_particleSystemExplosion, transform.position, Quaternion.identity);
+            Died?.Invoke();
             StartCoroutine(WaitForDie());
         }
 
@@ -63,7 +64,7 @@ namespace EnemyLogic
         {
             yield return _waitForSecounds;
 
-            Died?.Invoke();
+            //Died?.Invoke();
             _particleSystemExplosion.Stop();
         }
     }

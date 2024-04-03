@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using EnemyLogic;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace GameLogic
         private WaitForSeconds _waitForSecoundsEnemy;
         private float _countdown = 10f;
         private int _waveIndex;
+
+        public event Action<int, int> WaveChanger;
 
         public Wave[] Waves => _waves;
 
@@ -68,6 +71,7 @@ namespace GameLogic
             _enemyHandler.InitEnemisIsWave(wave);
             StartCoroutine(SpawnEnemis(wave));
             _waveIndex++;
+            WaveChanger?.Invoke(_waveIndex, _waves.Length);
         }
 
         private IEnumerator SpawnEnemis(Wave wave)

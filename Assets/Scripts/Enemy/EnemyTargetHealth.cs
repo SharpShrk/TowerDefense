@@ -8,7 +8,7 @@ namespace EnemyLogic
 
         private void Awake()
         {
-            _health = _maxHealthTarget;
+            Init(_maxHealthTarget);
         }
     }
 }
