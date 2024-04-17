@@ -276,6 +276,7 @@ MonoBehaviour:
   _rateChange: 3
   Slider: {fileID: 1423766852668179197}
   _enemyHealth: {fileID: 4455626304543821709}
+  _dieState: {fileID: 2229783129467969677}
 --- !u!1 &760999261791962753
 GameObject:
   m_ObjectHideFlags: 0

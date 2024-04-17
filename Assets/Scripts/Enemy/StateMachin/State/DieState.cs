@@ -30,11 +30,11 @@ namespace EnemyLogic
 
         public void DieEnemy()
         {
+            Died?.Invoke();
             _animator.SetTrigger(Die);
             _particleSystemDie = Instantiate(_enemy.EnemyCard.ParticleSystemDie, transform.position, transform.rotation, transform);
             _particleSystemDie.Play();
             StartCoroutine(WaitForDieAnimationEnd());
-            Died?.Invoke();
         }
 
         private IEnumerator WaitForDieAnimationEnd()
