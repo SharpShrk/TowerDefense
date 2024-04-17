@@ -7,9 +7,10 @@ namespace Ui
     public class HealthBarEnemy : Bar
     {
         [SerializeField] private EnemyHealth _enemyHealth;
-
+        
         private WaitForSeconds _waitForSecounds;
         private float _delayBeforeHide = 2f;
+        private float _hideLimit = 0.1f;
         private Coroutine _hideCoroutine;
 
         private void OnEnable()
@@ -17,11 +18,13 @@ namespace Ui
             Slider.value = 1;
             Slider.gameObject.SetActive(false);
             _enemyHealth.HealthChanged += OnSliderChanger;
+            _enemyHealth.Died += OnHideSliderBeforeDeth;
         }
 
         private void OnDisable()
         {
             _enemyHealth.HealthChanged -= OnSliderChanger;
+            _enemyHealth.Died += OnHideSliderBeforeDeth;
         }
 
         private void Start()
@@ -31,8 +34,13 @@ namespace Ui
 
         private void OnSliderChanger(int value, int maxValue)
         {
-            Slider.gameObject.SetActive(true);
+            if (value < _hideLimit)
+            {
+                return;
+            }
+
             OnValueChanger(value, maxValue);
+            Slider.gameObject.SetActive(true);
             StartHide();
         }
 
@@ -49,6 +57,11 @@ namespace Ui
         private IEnumerator HideSlider()
         {
             yield return _waitForSecounds;
+            Slider.gameObject.SetActive(false);
+        }
+
+        private void OnHideSliderBeforeDeth()
+        {
             Slider.gameObject.SetActive(false);
         }
     }
