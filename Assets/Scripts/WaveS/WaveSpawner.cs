@@ -104,7 +104,6 @@ namespace GameLogic
                 enemySpawn.enabled = true;
                 enemySpawn.TransitFirstState();
                 enemySpawn.gameObject.SetActive(true);
-                //_enemyHandler.AddEnemy(enemySpawn);
             }
         }
 
