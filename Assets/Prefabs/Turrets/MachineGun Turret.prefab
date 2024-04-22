@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 6589431913172784749}
   - component: {fileID: 2719938842525963335}
   - component: {fileID: 615078672612555853}
+  - component: {fileID: 7226470231371239634}
   m_Layer: 0
   m_Name: MachineGun Turret
   m_TagString: Untagged
@@ -751,6 +752,26 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7226470231371239634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879522121520105522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9ced581615a8544910423e7ac68bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 1
+  _label: {fileID: 0}
+  _type: 0
+  _prefab: {fileID: 7879522121520105522}
+  _attackRange: 15
+  _attackCooldown: 0.05
+  _damage: 10
+  _rotationSpeed: 500
 --- !u!1 &9009347540111324153
 GameObject:
   m_ObjectHideFlags: 0

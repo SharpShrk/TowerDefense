@@ -1,17 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BulletPool : MonoBehaviour
+public class BulletPool : MonoBehaviour
 {
-    [SerializeField] protected GameObject BulletPrefab;
-    [SerializeField] protected int InitialPoolSize = 30;
-    [SerializeField] protected GameObject BulletContainer;
+    [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private int InitialPoolSize = 30;
+    [SerializeField] private GameObject BulletContainer;
 
-    protected Queue<GameObject> BulletPoolQueue;
+    private Queue<GameObject> BulletPoolQueue;
 
-    protected void Awake()
+    private void Awake()
     {
         InitializePool();
+    }
+
+    private void InitializePool()
+    {
+        BulletPoolQueue = new Queue<GameObject>();
+
+        for (int i = 0; i < InitialPoolSize; i++)
+        {
+            GameObject bullet = Instantiate(BulletPrefab);
+            bullet.GetComponent<Bullet>().Init(this);
+
+            bullet.SetActive(false);
+            bullet.transform.SetParent(BulletContainer.transform);
+            BulletPoolQueue.Enqueue(bullet);
+        }
     }
 
     public GameObject GetBullet()
@@ -20,12 +35,17 @@ public abstract class BulletPool : MonoBehaviour
         {
             GameObject bullet = BulletPoolQueue.Dequeue();
             bullet.SetActive(true);
-            bullet.transform.SetParent(BulletContainer.transform);
-
             return bullet;
         }
 
-        GameObject newBullet = Instantiate(BulletPrefab);
+        GameObject newBullet = Instantiate(BulletPrefab, BulletContainer.transform);
+        Bullet bulletComponent = newBullet.GetComponent<Bullet>();
+
+        if (bulletComponent != null)
+        {
+            bulletComponent.Init(this);
+        }
+
         return newBullet;
     }
 
@@ -34,6 +54,4 @@ public abstract class BulletPool : MonoBehaviour
         bullet.SetActive(false);
         BulletPoolQueue.Enqueue(bullet);
     }
-
-    protected abstract void InitializePool();
 }

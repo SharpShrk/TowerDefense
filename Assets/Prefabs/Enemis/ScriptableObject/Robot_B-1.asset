@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d808cc9a7213deb40998f91c580e699e, type: 3}
+  m_Name: Robot_B-1
+  m_EditorClassIdentifier: 
+  _id: 1
+  _health: 100
+  _damage: 10
+  _attackSpeed: 3
+  _particleSystemDie: {fileID: 3408410192944076130, guid: 053dad2da9abc6d40adfa2329308ee3a, type: 3}
+  _template: {fileID: 8561966571583828697, guid: d09c26ce95c8eb94d94de7c672a8a843, type: 3}

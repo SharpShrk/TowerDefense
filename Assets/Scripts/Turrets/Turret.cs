@@ -3,32 +3,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Turret : MonoBehaviour
+public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
 {
-    [SerializeField] protected float AttackRange;
-    [SerializeField] protected float AttackCooldown;
     [SerializeField] protected GameObject RotatingPlatform;
     [SerializeField] protected GameObject Gun;
-    [SerializeField] protected float StartDamage = 10f;
 
-    //protected BulletPool _bulletPool;
     protected Transform ShootPoint;
+    protected TurretData Data;
     protected GameObject Target;
+    protected BulletPool Pool;
+    protected float AttackRange;
+    protected float AttackCooldown;
     protected float CurrentAttackCooldown;
     protected float Damage;
-    protected float RotationSpeed = 500f;
+    protected float RotationSpeed;
 
+    public BuildType Type { get; private set; }
     public bool IsPlaced { get; private set; }
 
     protected void Start()
     {
+        Data = GetComponent<TurretData>();
+
         IsPlaced = false;
+
         PlaceTurret(); //временное решение для инициализации
-        Damage = StartDamage;
-        CurrentAttackCooldown = AttackCooldown;
+        AttackRange = Data.AttackRange;
+        CurrentAttackCooldown = Data.AttackCooldown;
+        Damage = Data.Damage;
+        Type = Data.Type;
+        RotationSpeed = Data.RotationSpeed;
     }
 
-    //protected abstract void Init(BulletPool bulletPool);
+    public void SetPool(object pool)
+    {
+        Pool = pool as BulletPool;
+    }
 
     public void PlaceTurret()
     {
@@ -73,21 +83,20 @@ public abstract class Turret : MonoBehaviour
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, AttackRange);
 
+        float closestDistanceSqr = AttackRange * AttackRange;
+
         foreach (Collider collider in colliders)
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
-
-            if (enemy != null)
+            if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                Debug.Log(collider.name);
+                float distanceToEnemySqr = (transform.position - collider.transform.position).sqrMagnitude;
 
-                float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position);
-                if (distanceToEnemy < closestDistance)
+                if (distanceToEnemySqr < closestDistanceSqr)
                 {
-                    closestDistance = distanceToEnemy;
+                    closestDistanceSqr = distanceToEnemySqr;
                     Target = collider.gameObject;
                 }
-            }   
+            }
         }
 
         return Target;
@@ -131,5 +140,5 @@ public abstract class Turret : MonoBehaviour
         }
     }
 
-    protected abstract void Shoot();    
+    protected abstract void Shoot();
 }

@@ -1,62 +1,102 @@
+using System;
 using UnityEngine;
 
 namespace EnemyLogic
 {
+    [RequireComponent(typeof(Animator), typeof(EnemyHealth), typeof(Collider))]
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private float _startSpeed = 10f;
-        [SerializeField] private float _startHealth = 100f;
-        [SerializeField] private int _worth = 2;
-        [SerializeField] private GameObject _deathEffect;
+        [SerializeField] private EnemyState _firstState;
+        [SerializeField] private DieState _dieState;
+        [SerializeField] private EnemyCard _enemyCard;
 
-        private EnemyHandler _enemyHandler;
-        private float _curretSpeed;
-        private float _health;
+        private EnemyState _currentState;
+        private Animator _animator;
+        private EnemyHealth _enemyHealth;
+        private EnemyTarget _targetPoint;
+        private Transform _target;
+        private Collider _collider;
 
-        public float CurrentSpeed => _curretSpeed;
+        public event Action<Enemy> Died;
 
-        public float Health => _health;
+        public EnemyState CurrentState => _currentState;
 
-        public int Worth => _worth;
+        public EnemyState DieState => _dieState;
+
+        public EnemyCard EnemyCard => _enemyCard;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            _enemyHealth = GetComponent<EnemyHealth>();
+            _collider = GetComponent<Collider>();
+        }
+
+        private void OnEnable()
+        {
+            _enemyHealth.Died += OnEnemyDied;
+        }
+
+        private void OnDisable()
+        {
+            _enemyHealth.Died -= OnEnemyDied;
+        }
 
         private void Start()
         {
-            _curretSpeed = _startSpeed;
-            _health = _startHealth;
+            _currentState = _firstState;
+            _currentState.Enter(_targetPoint, _animator, _target);
+            _dieState.Enter(_targetPoint, _animator, _target);
         }
 
-        public void TakeDamage(float damage)
+        private void Update()
         {
-            _health -= damage;
-
-            if (_health <= 0)
+            foreach (var transition in _currentState.Transitions)
             {
-                _health = 0;
-                Die();
+                transition.enabled = true;
+                transition.Init(_targetPoint, _target);
             }
+
+            if (_currentState == null)
+                return;
+
+            EnemyState nextState = _currentState.GetNextState();
+
+            if (nextState != null)
+                Transit(nextState);
         }
 
-        public void Init(EnemyHandler enemyHandler)
+        public void TransitFirstState()
         {
-            _enemyHandler = enemyHandler;
+            Transit(_firstState);
+            _currentState.Enter(_targetPoint, _animator, _target);
+            _dieState.Enter(_targetPoint, _animator, _target);
         }
 
-        public void Slow(float value)
+        public void Init(EnemyTarget targetPoint, Transform target)
         {
-            _curretSpeed = _startSpeed * (1f - value);
+            _targetPoint = targetPoint;
+            _target = target;
         }
 
-        public void ResetSpeed()
+        private void OnEnemyDied()
         {
-            _curretSpeed = _startSpeed;
+            Died?.Invoke(this);
+            enabled = false;
+            _collider.enabled = false;
+            Transit(_dieState);
+            _dieState.DieEnemy();
         }
 
-        public void Die()
+        private void Transit(EnemyState nextState)
         {
-            _enemyHandler.EnemyDeath(this);
-            GameObject deathEffect = Instantiate(_deathEffect, transform.position, Quaternion.identity);
-            Destroy(deathEffect, 2f);
-            Destroy(gameObject);
+            if (_currentState != null)
+                _currentState.Exit();
+
+            _currentState = nextState;
+
+            if (_currentState != null)
+                _currentState.Enter(_targetPoint, _animator, _target);
         }
     }
 }
