@@ -1741,6 +1741,7 @@ MonoBehaviour:
   _container: {fileID: 116173588}
   _enemyTarget: {fileID: 0}
   _enemyPool: {fileID: 0}
+  _pointerHandler: {fileID: 0}
 --- !u!4 &116173588
 Transform:
   m_ObjectHideFlags: 0
@@ -3406,7 +3407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &228805402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13538,7 +13539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &971339050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16542,7 +16543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1205703256
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16639,7 +16640,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradePanel: {fileID: 228805401}
+  _label: {fileID: 1361060238}
+  _level: {fileID: 1740169727}
   _upgradePresenter: {fileID: 581909294}
+  _upgradeButton: {fileID: 1299592132}
 --- !u!1001 &1208232947
 PrefabInstance:
   m_ObjectHideFlags: 0
