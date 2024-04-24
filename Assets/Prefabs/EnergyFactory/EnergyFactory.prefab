@@ -163,6 +163,8 @@ GameObject:
   - component: {fileID: 5907759960725185440}
   - component: {fileID: 7177515289302407758}
   - component: {fileID: 4673615237851141876}
+  - component: {fileID: 4918393207064302023}
+  - component: {fileID: 6350999077010890805}
   m_Layer: 0
   m_Name: EnergyFactory
   m_TagString: Untagged
@@ -265,8 +267,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawningResource: {fileID: 3411272576684414163, guid: 380f7270a449be643bbd7254706ed59f, type: 3}
-  _pool: {fileID: 0}
   _spawnPoint: {fileID: 4871897015664838614}
+--- !u!114 &4918393207064302023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019838807116929209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0930bb211f2d21744bd80ca3bf761826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6350999077010890805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019838807116929209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebd12d4361c4244d93c7e67c0f82698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 1
+  _label: "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A \u044D\u043D\u0435\u0440\u0433\u0438\u0438"
+  _type: 3
+  _prefab: {fileID: 6019838807116929209}
 --- !u!1 &6716760073470648710
 GameObject:
   m_ObjectHideFlags: 0

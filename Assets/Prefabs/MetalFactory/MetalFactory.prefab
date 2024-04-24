@@ -93,6 +93,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012487996440}
   - component: {fileID: 8318539546128789296}
+  - component: {fileID: 8781676290906601450}
+  - component: {fileID: 2070955790070437645}
+  - component: {fileID: 5206395272438794921}
   m_Layer: 0
   m_Name: MetalFactory
   m_TagString: Untagged
@@ -111,7 +114,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25.023972, y: 1.36, z: 4.9729466}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6201364783329907105}
   - {fileID: 6155932500472034180}
@@ -130,8 +133,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawningResource: {fileID: -8099563999215240467, guid: d0bdb3af2a3c3194699e22ab850c1cb1, type: 3}
-  _pool: {fileID: 0}
   _spawnPoint: {fileID: 2937674550681103250}
+--- !u!65 &8781676290906601450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012258327032}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1996937, y: 1.2954621, z: 1}
+  m_Center: {x: 0.09984684, y: 0.6853992, z: 0}
+--- !u!114 &2070955790070437645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012258327032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0930bb211f2d21744bd80ca3bf761826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5206395272438794921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012258327032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebd12d4361c4244d93c7e67c0f82698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 1
+  _label: "\u0424\u0430\u0431\u0440\u0438\u043A\u0430 \u043C\u0435\u0442\u0430\u043B\u043B\u0430"
+  _type: 4
+  _prefab: {fileID: 1000012258327032}
 --- !u!1 &1050432294115042418
 GameObject:
   m_ObjectHideFlags: 0

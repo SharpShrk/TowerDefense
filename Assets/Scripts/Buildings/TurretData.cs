@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretData : BuildData
+public class TurretData : BuildingData
 {
     [SerializeField] private float _attackRange;
     [SerializeField] private float _attackCooldown;
