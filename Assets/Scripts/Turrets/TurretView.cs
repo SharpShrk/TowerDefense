@@ -12,6 +12,8 @@ public class TurretView : MonoBehaviour
 
     private Turret _turret;
 
+    //конфликт с upgradeView
+
     private void OnEnable()
     {
         _closeButton.onClick.AddListener(OnCloseButtonClick);

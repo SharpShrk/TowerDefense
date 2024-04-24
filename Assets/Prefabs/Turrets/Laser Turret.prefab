@@ -149,6 +149,8 @@ GameObject:
   - component: {fileID: 8149618128101514826}
   - component: {fileID: 2852803457214740454}
   - component: {fileID: 4735263649840946089}
+  - component: {fileID: 7451866058939363038}
+  - component: {fileID: 8754240886838112853}
   m_Layer: 0
   m_Name: Laser Turret
   m_TagString: Untagged
@@ -185,12 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1359cb36104e94a8422278f3a20b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 15
-  AttackCooldown: 0.2
   RotatingPlatform: {fileID: 109164002170427957}
   Gun: {fileID: 4145849455272803457}
-  StartDamage: 10
-  _pool: {fileID: 0}
   _shootPointLeft: {fileID: 7537253131474386747}
   _shootPointRight: {fileID: 4895297723677223670}
 --- !u!135 &2852803457214740454
@@ -227,13 +225,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 1
-  _label: {fileID: 0}
+  _label: "\u041B\u0430\u0437\u0435\u0440\u043D\u0430\u044F \u0442\u0443\u0440\u0435\u043B\u044C"
   _type: 1
   _prefab: {fileID: 3249622599094470046}
   _attackRange: 15
   _attackCooldown: 0.2
   _damage: 10
   _rotationSpeed: 500
+--- !u!114 &7451866058939363038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249622599094470046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0930bb211f2d21744bd80ca3bf761826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &8754240886838112853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249622599094470046}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.87151146, z: 1}
+  m_Center: {x: 0, y: 0.44062328, z: 0}
 --- !u!1 &4145849455272803457
 GameObject:
   m_ObjectHideFlags: 0
