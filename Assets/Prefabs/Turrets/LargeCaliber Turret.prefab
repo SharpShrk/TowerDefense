@@ -73,8 +73,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4862344741448170356}
   - component: {fileID: 1675645637008131646}
-  - component: {fileID: 8785548790433651968}
   - component: {fileID: 7796026853556938131}
+  - component: {fileID: 8785548790433651968}
+  - component: {fileID: 3169421707841675347}
+  - component: {fileID: 1692971726258608370}
   m_Layer: 0
   m_Name: LargeCaliber Turret
   m_TagString: Untagged
@@ -111,13 +113,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3142c8df469ab4dab4a3b82d5cd0d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 15
-  AttackCooldown: 0.3
   RotatingPlatform: {fileID: 7515153307583857723}
   Gun: {fileID: 7515153307583857721}
-  StartDamage: 10
-  _pool: {fileID: 0}
   _shootPoint: {fileID: 7561051160065703285}
+--- !u!114 &7796026853556938131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530057712791385096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9ced581615a8544910423e7ac68bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 1
+  _label: "\u041A\u0440\u0443\u043F\u043D\u043E\u043A\u0430\u043B\u0438\u0431\u0435\u0440\u043D\u0430\u044F
+    \u0442\u0443\u0440\u0435\u043B\u044C"
+  _type: 2
+  _prefab: {fileID: 5530057712791385096}
+  _attackRange: 15
+  _attackCooldown: 0.3
+  _damage: 10
+  _rotationSpeed: 500
 --- !u!135 &8785548790433651968
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -139,7 +158,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7796026853556938131
+--- !u!114 &3169421707841675347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,17 +167,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 5530057712791385096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9ced581615a8544910423e7ac68bd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0930bb211f2d21744bd80ca3bf761826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 1
-  _label: {fileID: 0}
-  _type: 2
-  _prefab: {fileID: 5530057712791385096}
-  _attackRange: 15
-  _attackCooldown: 0.3
-  _damage: 10
-  _rotationSpeed: 500
+--- !u!65 &1692971726258608370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530057712791385096}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2661755, z: 1}
+  m_Center: {x: 0, y: 0.6374793, z: 0}
 --- !u!1001 &7515153307583824537
 PrefabInstance:
   m_ObjectHideFlags: 0

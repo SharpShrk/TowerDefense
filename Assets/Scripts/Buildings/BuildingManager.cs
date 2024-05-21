@@ -22,7 +22,6 @@ public class BuildingManager : MonoBehaviour
 
     public void BuildingSelected(IBuilding building)
     {
-
         if (building is Turret turret)
         {
             _turretPresenter.ShowTurretInfo(turret);
