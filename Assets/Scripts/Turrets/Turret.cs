@@ -31,7 +31,7 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
         AttackRange = Data.AttackRange;
         CurrentAttackCooldown = Data.AttackCooldown;
         Damage = Data.Damage;
-        Type = Data.Type;
+        Type = Data.BuildingType;
         RotationSpeed = Data.RotationSpeed;
     }
 
