@@ -762,14 +762,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9ced581615a8544910423e7ac68bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 1
-  _label: "\u041F\u0443\u043B\u0435\u043C\u0435\u0442\u043D\u0430\u044F \u0442\u0443\u0440\u0435\u043B\u044C"
-  _type: 0
-  _prefab: {fileID: 7879522121520105522}
-  _attackRange: 15
-  _attackCooldown: 0.05
-  _damage: 10
-  _rotationSpeed: 500
+  Level: 1
+  Label: "\u041F\u0443\u043B\u0435\u043C\u0435\u0442\u043D\u0430\u044F \u0442\u0443\u0440\u0435\u043B\u044C"
+  Type: 0
+  Prefab: {fileID: 7879522121520105522}
+  _upgradeData: {fileID: 11400000, guid: 3afea9b971ec33c4e9f7dd3064d06e48, type: 2}
 --- !u!114 &6738277205901183731
 MonoBehaviour:
   m_ObjectHideFlags: 0
