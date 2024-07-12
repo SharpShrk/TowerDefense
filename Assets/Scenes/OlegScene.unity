@@ -3430,7 +3430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 49.223328}
+  m_AnchoredPosition: {x: 0, y: 49.22339}
   m_SizeDelta: {x: -1364.0823, y: -619.2505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228805403
@@ -8874,7 +8874,6 @@ GameObject:
   - component: {fileID: 630519278}
   - component: {fileID: 630519277}
   - component: {fileID: 630519276}
-  - component: {fileID: 630519275}
   m_Layer: 0
   m_Name: BuildsFactory
   m_TagString: Untagged
@@ -8882,19 +8881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &630519275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630519274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e90abc3f9bafd844b4258f53cd24d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _view: {fileID: 971339050}
 --- !u!114 &630519276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13528,54 +13514,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fe657434d75aeb4583c593cb268436b, type: 3}
---- !u!1 &971339049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 971339051}
-  - component: {fileID: 971339050}
-  m_Layer: 0
-  m_Name: TurretView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &971339050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971339049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b688c18d56f0c7a4f9e8b477b0e28971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _presenter: {fileID: 630519275}
-  _upgradePanel: {fileID: 228805401}
-  _upgradeButton: {fileID: 1299592132}
-  _closeButton: {fileID: 1075662653}
---- !u!4 &971339051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971339049}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 828.9081, y: 589.6356, z: 827.25653}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &971491206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15193,7 +15131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -21.098267, y: -15.617035}
+  m_AnchoredPosition: {x: -21.098267, y: -15.617065}
   m_SizeDelta: {x: 42.196503, y: 31.2341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1084457476 stripped
@@ -32103,5 +32041,4 @@ SceneRoots:
   - {fileID: 2136247388}
   - {fileID: 1978178712}
   - {fileID: 630519278}
-  - {fileID: 971339051}
   - {fileID: 581909296}

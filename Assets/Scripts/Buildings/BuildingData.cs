@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingData : MonoBehaviour
+public abstract class BuildingData : MonoBehaviour
 {
     [SerializeField] protected int Level;
     [SerializeField] protected string Label;
@@ -20,4 +20,15 @@ public class BuildingData : MonoBehaviour
     public BuildType BuildingType => Type;
     public GameObject BuildingPrefab => Prefab;
     //public Image BuildingIcon => Icon;
+
+    public void LevelUp(int level)
+    {
+        if (level <= MaxLevel)
+        {
+            Level++;
+            ApplyUpgrade(level);
+        }
+    }
+
+    protected abstract void ApplyUpgrade(int level);
 }

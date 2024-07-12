@@ -4,7 +4,6 @@ using ResourcesFactories;
 
 public class BuildingManager : MonoBehaviour
 {
-    private TurretPresenter _turretPresenter;
     private List<IBuilding> _buildings = new List<IBuilding>();
 
     public void RegisterBuilding(IBuilding building)
@@ -18,19 +17,5 @@ public class BuildingManager : MonoBehaviour
     public void UnregisterBuilding(IBuilding building)
     {
         _buildings.Remove(building);
-    }
-
-    public void BuildingSelected(IBuilding building)
-    {
-        if (building is Turret turret)
-        {
-            _turretPresenter.ShowTurretInfo(turret);
-        }
-
-
-        if (building is ResourcesFactory factory)
-        {
-            //_turretPresenter.ShowTurretInfo(factory);
-        }
     }
 }

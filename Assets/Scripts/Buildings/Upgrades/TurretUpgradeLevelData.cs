@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class UpgradeLevelData
+public class TurretUpgradeLevelData
 {
     public int Level;
     public float AttackRange;
