@@ -179,10 +179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebd12d4361c4244d93c7e67c0f82698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 1
-  _label: "\u0424\u0430\u0431\u0440\u0438\u043A\u0430 \u043C\u0435\u0442\u0430\u043B\u043B\u0430"
-  _type: 4
-  _prefab: {fileID: 1000012258327032}
+  Level: 1
+  Label: "\u0424\u0430\u0431\u0440\u0438\u043A\u0430 \u043C\u0435\u0442\u0430\u043B\u043B\u0430"
+  Type: 4
+  Prefab: {fileID: 1000012258327032}
+  _upgradeData: {fileID: 11400000, guid: 06bfc9dfad5ffd241ae25e0933772a67, type: 2}
 --- !u!1 &1050432294115042418
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,17 +4,31 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingData : MonoBehaviour
+public abstract class BuildingData : MonoBehaviour
 {
-    [SerializeField] protected int _level;
-    [SerializeField] protected string _label;
-    //[SerializeField] private Image _icon;
-    [SerializeField] protected BuildType _type;
-    [SerializeField] protected GameObject _prefab;
+    [SerializeField] protected int Level;
+    [SerializeField] protected string Label;
+    //[SerializeField] private Image Icon;
+    [SerializeField] protected BuildType Type;
+    [SerializeField] protected GameObject Prefab;
 
-    public int Level => _level;
-    public string Label => _label;
-    public BuildType Type => _type;
-    public GameObject Prefab => _prefab;
-    //public Image Icon => _icon;
+    protected int MaxLevel = 3;
+
+    public int BuidlingLevel => Level;
+    public int BuidingMaxLevel => MaxLevel;
+    public string BuidlingLabel => Label;
+    public BuildType BuildingType => Type;
+    public GameObject BuildingPrefab => Prefab;
+    //public Image BuildingIcon => Icon;
+
+    public void LevelUp(int level)
+    {
+        if (level <= MaxLevel)
+        {
+            Level++;
+            ApplyUpgrade(level);
+        }
+    }
+
+    protected abstract void ApplyUpgrade(int level);
 }

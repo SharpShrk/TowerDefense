@@ -9,6 +9,8 @@ public class UpgradeView : MonoBehaviour
     [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _level;
+    [SerializeField] private TMP_Text _turretUpgradeParametersDescription;
+    [SerializeField] private TMP_Text _factoryUpgradeParametersDescription;
     [SerializeField] private UpgradePresenter _upgradePresenter;
     [SerializeField] private Button _upgradeButton;
 
@@ -30,8 +32,19 @@ public class UpgradeView : MonoBehaviour
 
         BuildingData buildingData = _currentUpgradeableObject.gameObject.GetComponent<BuildingData>();
 
-        _label.text = buildingData.Label;
-        _level.text = buildingData.Level.ToString();
+        _label.text = buildingData.BuidlingLabel;
+        _level.text = buildingData.BuidlingLevel.ToString();
+
+        if(buildingData is TurretData turretData)
+        {
+            _turretUpgradeParametersDescription.enabled = true;
+            _factoryUpgradeParametersDescription.enabled = false;
+        }
+        else if(buildingData is ResourcesFactoryData factoryData)
+        {
+            _turretUpgradeParametersDescription.enabled = false;
+            _factoryUpgradeParametersDescription.enabled = true;
+        }
 
         _upgradePanel.SetActive(true);
     }
