@@ -22,10 +22,11 @@ public class CreateBuildingButtonHandler : MonoBehaviour
 
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
-        RaycastHit hit;
+        RaycastHit[] hits;
         Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+        hits = Physics.RaycastAll(ray);
 
-        if (Physics.Raycast(ray, out hit))
+        foreach (RaycastHit hit in hits)
         {
             BuildingPlace buildingPlace = hit.collider.GetComponent<BuildingPlace>();
 
@@ -33,6 +34,7 @@ public class CreateBuildingButtonHandler : MonoBehaviour
             {
                 _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
                 buildingPlace.CloseCell();
+                break;
             }
         }
 
