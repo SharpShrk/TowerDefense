@@ -33,14 +33,13 @@ namespace Resources
             }
         }
 
-        public void OnMouseDown()
-        {
-            Hide();
-        }
+        protected abstract void AddValueInWallet();
 
-        private void Hide()
+        protected abstract void ReturnToPool();
+
+        public void OnMouseDown() //сделать приватным, добавить механику сбора по клику
         {
-            gameObject.SetActive(false);
+            AddValueInWallet();
         }
 
         private IEnumerator CountLifeTime()
@@ -50,7 +49,7 @@ namespace Resources
             yield return waitForSeconds;
             _animator.PlayHideAnimation();
             yield return waitForHideAnimation;
-            Hide();
+            ReturnToPool();
         }
     }
 }
