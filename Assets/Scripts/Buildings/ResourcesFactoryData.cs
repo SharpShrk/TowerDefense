@@ -7,10 +7,8 @@ public class ResourcesFactoryData : BuildingData
     [SerializeField] private FactoryUpgradeData _upgradeData;
 
     private float _cooldown;
-    private float _productionValue;
 
     public float Cooldown => _cooldown;
-    public float ProductionValue => _productionValue;
 
     private void Start()
     {
@@ -23,7 +21,6 @@ public class ResourcesFactoryData : BuildingData
         {
             var upgradeLevelData = _upgradeData.Levels[level - 1];
             _cooldown = upgradeLevelData.Cooldown;
-            _productionValue = upgradeLevelData.ProductionValue;
 
             Debug.Log("Уровень повышен до " + Level);
         }

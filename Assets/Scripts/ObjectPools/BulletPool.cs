@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class BulletPool : MonoBehaviour
 {
-    [SerializeField] private GameObject BulletPrefab;
-    [SerializeField] private int InitialPoolSize = 30;
-    [SerializeField] private GameObject BulletContainer;
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private int _initialPoolSize = 30;
+    [SerializeField] private int _maxPoolSize = 100;
+    [SerializeField] private GameObject _bulletContainer;
 
-    private Queue<GameObject> BulletPoolQueue;
+    private Queue<GameObject> _bulletPoolQueue;
 
     private void Awake()
     {
@@ -16,42 +17,47 @@ public class BulletPool : MonoBehaviour
 
     private void InitializePool()
     {
-        BulletPoolQueue = new Queue<GameObject>();
+        _bulletPoolQueue = new Queue<GameObject>();
 
-        for (int i = 0; i < InitialPoolSize; i++)
+        for (int i = 0; i < _initialPoolSize; i++)
         {
-            GameObject bullet = Instantiate(BulletPrefab);
-            bullet.GetComponent<Bullet>().Init(this);
-
+            GameObject bullet = Instantiate(_bulletPrefab);
             bullet.SetActive(false);
-            bullet.transform.SetParent(BulletContainer.transform);
-            BulletPoolQueue.Enqueue(bullet);
+            bullet.transform.SetParent(_bulletContainer.transform);
+            _bulletPoolQueue.Enqueue(bullet);
         }
     }
 
     public GameObject GetBullet()
     {
-        if (BulletPoolQueue.Count > 0)
+        if (_bulletPoolQueue.Count > 0)
         {
-            GameObject bullet = BulletPoolQueue.Dequeue();
+            GameObject bullet = _bulletPoolQueue.Dequeue();
             bullet.SetActive(true);
             return bullet;
         }
 
-        GameObject newBullet = Instantiate(BulletPrefab, BulletContainer.transform);
-        Bullet bulletComponent = newBullet.GetComponent<Bullet>();
-
-        if (bulletComponent != null)
+        if (_bulletPoolQueue.Count + 1 <= _maxPoolSize)
         {
-            bulletComponent.Init(this);
+            GameObject newBullet = Instantiate(_bulletPrefab, _bulletContainer.transform);
+            return newBullet;
         }
 
-        return newBullet;
+        Debug.Log("ѕревышен максимальный размер пула пуль");
+        return null;
     }
 
     public void ReturnBullet(GameObject bullet)
     {
-        bullet.SetActive(false);
-        BulletPoolQueue.Enqueue(bullet);
+        if (_bulletPoolQueue.Count < _maxPoolSize)
+        {
+            bullet.SetActive(false);
+            _bulletPoolQueue.Enqueue(bullet);
+        }
+        else
+        {
+            Destroy(bullet);
+            Debug.Log("ѕул€ уничтожена, так как пул переполнен");
+        }
     }
 }

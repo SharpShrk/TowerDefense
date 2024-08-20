@@ -4,12 +4,13 @@ using UnityEngine;
 namespace Resources
 {
     [RequireComponent(typeof(ResourceAnimator))]
+    [RequireComponent(typeof(Collider))]
     public abstract class Resource : MonoBehaviour
     {
         [SerializeField] private int _volume;
 
         private ResourceAnimator _animator;
-        private int _lifeTime = 6;
+        private int _lifeTime = 1;
         private int _hideAnimationDuration = 1;
         private Coroutine _countLifeTime;
 
@@ -33,15 +34,9 @@ namespace Resources
             }
         }
 
-        public void OnMouseDown()
-        {
-            Hide();
-        }
+        protected abstract void AddValueInWallet();
 
-        private void Hide()
-        {
-            gameObject.SetActive(false);
-        }
+        protected abstract void ReturnToPool();        
 
         private IEnumerator CountLifeTime()
         {
@@ -50,7 +45,8 @@ namespace Resources
             yield return waitForSeconds;
             _animator.PlayHideAnimation();
             yield return waitForHideAnimation;
-            Hide();
+            AddValueInWallet();
+            ReturnToPool();
         }
     }
 }

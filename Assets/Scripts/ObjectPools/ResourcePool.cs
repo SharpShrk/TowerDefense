@@ -5,32 +5,76 @@ namespace Resources
 {
     public class ResourcePool : MonoBehaviour
     {
-        [SerializeField] private Resource _resource;
-        [SerializeField] private int _capacity;
+        [SerializeField] private Resource _resourcePrefab;
+        [SerializeField] private int _initialPoolSize = 10;
+        [SerializeField] private int _maxPoolSize = 50;
+        [SerializeField] private GameObject _resourceContainer;
+        [SerializeField] private EnergyWallet _energyWallet;
+        [SerializeField] private MetalWallet _metalWallet;
 
-        private List<Resource> _pool = new List<Resource>();
+        private Queue<Resource> _resourcePoolQueue;
 
         private void Awake()
         {
-            for(int i = 0; i < _capacity; i++)
+            InitializePool();
+        }
+
+        private void InitializePool()
+        {
+            _resourcePoolQueue = new Queue<Resource>();
+
+            for (int i = 0; i < _initialPoolSize; i++)
             {
-                Resource resource = Instantiate(_resource, gameObject.transform);
+                Resource resource = Instantiate(_resourcePrefab, _resourceContainer.transform);
+                AssignWallet(resource);
                 resource.gameObject.SetActive(false);
-                _pool.Add(resource);
+                _resourcePoolQueue.Enqueue(resource);
             }
         }
 
         public Resource GetResource()
         {
-            foreach(Resource resource in _pool)
+            if (_resourcePoolQueue.Count > 0)
             {
-                if(!resource.gameObject.activeSelf)
-                    return resource;
+                Resource resource = _resourcePoolQueue.Dequeue();
+                resource.gameObject.SetActive(true);
+                return resource;
             }
 
-            Resource newResource = Instantiate( _resource, gameObject.transform);
-            _pool.Add(newResource);
-            return newResource;
+            if (_resourcePoolQueue.Count + 1 <= _maxPoolSize)
+            {
+                Resource newResource = Instantiate(_resourcePrefab, _resourceContainer.transform);
+                return newResource;
+            }
+
+            Debug.Log("Превышен максимальный размер пула ресурсов");
+            return null;
+        }
+
+        public void ReturnResource(Resource resource)
+        {
+            if (_resourcePoolQueue.Count < _maxPoolSize)
+            {
+                resource.gameObject.SetActive(false);
+                _resourcePoolQueue.Enqueue(resource);
+            }
+            else
+            {
+                Destroy(resource.gameObject);
+                Debug.Log("Ресурс уничтожен, так как пул переполнен");
+            }
+        }
+
+        private void AssignWallet(Resource resource)
+        {
+            if (resource is Energy energyResource)
+            {
+                energyResource.Initialize(_energyWallet, this); //убедиться что работает
+            }
+            else if(resource is Metal metalResource)
+            {
+                metalResource.Initialize(_metalWallet, this); //убедиться что работает
+            }
         }
     }
 }
