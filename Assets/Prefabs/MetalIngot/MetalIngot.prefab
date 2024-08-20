@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1415977912004398744}
   - component: {fileID: -8099563999215240467}
   - component: {fileID: 8244921877233029643}
+  - component: {fileID: 7636011139397190655}
   m_Layer: 0
   m_Name: MetalIngot
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.009879913, y: 0, z: 0.40741894}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4}
   m_LocalScale: {x: 1, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,3 +142,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7636011139397190655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7a8b0beb7e7ce40914c0da5e9d897e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1196,9 +1196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce1bea97a7bb0042833713feac3f48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 4716278046239938187, guid: b9f89f37d66e81a449d0fea5062669d8, type: 3}
-  InitialPoolSize: 30
-  BulletContainer: {fileID: 76085004}
+  _bulletPrefab: {fileID: 4716278046239938187, guid: b9f89f37d66e81a449d0fea5062669d8, type: 3}
+  _initialPoolSize: 30
+  _maxPoolSize: 100
+  _bulletContainer: {fileID: 76085004}
 --- !u!1001 &78967606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4742,6 +4743,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4505771550504674, guid: 3fe657434d75aeb4583c593cb268436b, type: 3}
   m_PrefabInstance: {fileID: 327193096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &328046696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328046697}
+  - component: {fileID: 328046698}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328046697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328046696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1910570693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328046698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328046696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602470192a08c5a4583b1696af0accdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &334038623 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4560460912753242, guid: a47cf15408997034990e427bef58ff1d, type: 3}
@@ -7504,8 +7549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c2106d202d8e4295a110d3840dd57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resource: {fileID: -8099563999215240467, guid: d0bdb3af2a3c3194699e22ab850c1cb1, type: 3}
-  _capacity: 30
+  _resourcePrefab: {fileID: -8099563999215240467, guid: d0bdb3af2a3c3194699e22ab850c1cb1, type: 3}
+  _initialPoolSize: 10
+  _maxPoolSize: 50
+  _resourceContainer: {fileID: 565725769}
+  _energyWallet: {fileID: 1282691098}
+  _metalWallet: {fileID: 1254956610}
 --- !u!1001 &566239598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17276,6 +17325,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dafc6b570754324497f875fd86d429c, type: 3}
+--- !u!1 &1254956608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254956609}
+  - component: {fileID: 1254956610}
+  m_Layer: 0
+  m_Name: MetalWallet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254956609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254956608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1910570693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254956610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254956608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846405a3fbab39c49b97f2c558816a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startMetalValue: 0
 --- !u!1001 &1256289259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17717,6 +17811,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4560460912753242, guid: a47cf15408997034990e427bef58ff1d, type: 3}
   m_PrefabInstance: {fileID: 1278804732}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1282691096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282691097}
+  - component: {fileID: 1282691098}
+  m_Layer: 0
+  m_Name: EnergyWallet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282691097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282691096}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1910570693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1282691098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282691096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8580f0632e43404891d883b01e6d487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startEnergyValue: 0
 --- !u!1 &1289521271
 GameObject:
   m_ObjectHideFlags: 0
@@ -19317,9 +19456,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce1bea97a7bb0042833713feac3f48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 176414382376541641, guid: f9d2c252b85d19146b5c6f0069d5b07b, type: 3}
-  InitialPoolSize: 30
-  BulletContainer: {fileID: 1380212458}
+  _bulletPrefab: {fileID: 176414382376541641, guid: f9d2c252b85d19146b5c6f0069d5b07b, type: 3}
+  _initialPoolSize: 30
+  _maxPoolSize: 100
+  _bulletContainer: {fileID: 1380212458}
 --- !u!4 &1383798568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4505771550504674, guid: 3fe657434d75aeb4583c593cb268436b, type: 3}
@@ -25341,9 +25481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce1bea97a7bb0042833713feac3f48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 3618220365746569902, guid: 0cf68bc18f9ba7349bf4a19c6ccdd447, type: 3}
-  InitialPoolSize: 30
-  BulletContainer: {fileID: 1780538658}
+  _bulletPrefab: {fileID: 3618220365746569902, guid: 0cf68bc18f9ba7349bf4a19c6ccdd447, type: 3}
+  _initialPoolSize: 30
+  _maxPoolSize: 100
+  _bulletContainer: {fileID: 1780538658}
 --- !u!4 &1785165993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4761380807055552, guid: 089516d33c9ca8146bd6a7f74d1f0d48, type: 3}
@@ -26853,6 +26994,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4860612985554472, guid: 13dea8ab803edfe418b5e9a4e7c4a072, type: 3}
   m_PrefabInstance: {fileID: 1901560924}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1910570692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910570693}
+  m_Layer: 0
+  m_Name: Wallets and Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1910570693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910570692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.668339, y: -2.617302, z: 10.47728}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 328046697}
+  - {fileID: 1254956609}
+  - {fileID: 1282691097}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1911039053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29919,8 +30094,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c2106d202d8e4295a110d3840dd57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resource: {fileID: 3411272576684414163, guid: 380f7270a449be643bbd7254706ed59f, type: 3}
-  _capacity: 30
+  _resourcePrefab: {fileID: 3411272576684414163, guid: 380f7270a449be643bbd7254706ed59f, type: 3}
+  _initialPoolSize: 10
+  _maxPoolSize: 50
+  _resourceContainer: {fileID: 2056496520}
+  _energyWallet: {fileID: 1282691098}
+  _metalWallet: {fileID: 1254956610}
 --- !u!4 &2056496522
 Transform:
   m_ObjectHideFlags: 0
@@ -32042,3 +32221,4 @@ SceneRoots:
   - {fileID: 1978178712}
   - {fileID: 630519278}
   - {fileID: 581909296}
+  - {fileID: 1910570693}
