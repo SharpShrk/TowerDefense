@@ -293,7 +293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: 1
+  CostUpgrade: 100
   Label: "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A \u044D\u043D\u0435\u0440\u0433\u0438\u0438"
+  Icon: {fileID: 21300000, guid: 19844b23510a8aa41975985d4de11ffa, type: 3}
   Type: 3
   Prefab: {fileID: 6019838807116929209}
   _upgradeData: {fileID: 11400000, guid: df35630c7ef2b614f9fcd17dc8d98fcc, type: 2}

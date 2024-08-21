@@ -9,6 +9,7 @@ public class UpgradeView : MonoBehaviour
     [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _level;
+    [SerializeField] private TMP_Text _cost;
     [SerializeField] private TMP_Text _turretUpgradeParametersDescription;
     [SerializeField] private TMP_Text _factoryUpgradeParametersDescription;
     [SerializeField] private UpgradePresenter _upgradePresenter;
@@ -37,6 +38,7 @@ public class UpgradeView : MonoBehaviour
 
         _label.text = buildingData.BuidlingLabel;
         _level.text = buildingData.BuidlingLevel.ToString();
+        _cost.text = buildingData.BuildinCostUpgrade.ToString();
 
         if(buildingData is TurretData turretData)
         {
@@ -59,6 +61,6 @@ public class UpgradeView : MonoBehaviour
 
     private void OnButtonUpgradeClick()
     {
-        _upgradePresenter.UpgradeBuilding(_currentUpgradeableObject);
+        _upgradePresenter.TryUpgradeBuilding(_currentUpgradeableObject);
     }
 }

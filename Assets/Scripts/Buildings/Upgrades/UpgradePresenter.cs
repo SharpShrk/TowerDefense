@@ -1,8 +1,12 @@
+using Agava.YandexGames;
 using UnityEngine;
 
 public class UpgradePresenter: MonoBehaviour
 {
     [SerializeField] private UpgradeView _view;
+    [SerializeField] private MetalWallet _wallet;
+
+    private int _buildingCostUpgrade;
 
     public void OnBuildingSelected(GameObject building)
     {
@@ -11,7 +15,21 @@ public class UpgradePresenter: MonoBehaviour
         _view.ShowUpgradeOptions(upgradeable);
     }
 
-    public void UpgradeBuilding(IUpgradeable building)
+    public void TryUpgradeBuilding(IUpgradeable building)
+    {
+        _buildingCostUpgrade = building.gameObject.GetComponent<BuildingData>().BuildinCostUpgrade;
+
+        if (_wallet.SpendMetal(_buildingCostUpgrade))
+        {
+            UpgradeBuidlding(building);
+        }
+        else
+        {
+            //вывести плашку, что не хватило средств
+        }
+    }
+
+    public void UpgradeBuidlding(IUpgradeable building)
     {
         building.Upgrade();
         _view.HideUpgradeOptions();

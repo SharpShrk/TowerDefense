@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3873798585111435159}
   - component: {fileID: 3411272576684414163}
   - component: {fileID: 3290526614006807274}
+  - component: {fileID: 4529314124440085600}
   m_Layer: 0
   m_Name: Energy
   m_TagString: Untagged
@@ -105,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.53363955, y: 0.6798812, z: 0.46214545}
-  m_Center: {x: -0.000000014901161, y: 0.3399405, z: 0}
+  m_Size: {x: 0.54, y: 0.68, z: 0.46}
+  m_Center: {x: 0, y: 0.34, z: 0}
 --- !u!114 &3411272576684414163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +142,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4529314124440085600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133646198208810411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7a8b0beb7e7ce40914c0da5e9d897e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
