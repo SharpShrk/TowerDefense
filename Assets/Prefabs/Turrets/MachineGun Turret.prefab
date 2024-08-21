@@ -765,6 +765,7 @@ MonoBehaviour:
   Level: 1
   CostUpgrade: 100
   Label: "\u041F\u0443\u043B\u0435\u043C\u0435\u0442\u043D\u0430\u044F \u0442\u0443\u0440\u0435\u043B\u044C"
+  Icon: {fileID: 21300000, guid: 71db1f972cc76aa478b3a70a2f17374e, type: 3}
   Type: 0
   Prefab: {fileID: 7879522121520105522}
   _upgradeData: {fileID: 11400000, guid: 3afea9b971ec33c4e9f7dd3064d06e48, type: 2}
