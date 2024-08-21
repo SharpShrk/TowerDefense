@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeableSelectionHandler : MonoBehaviour
@@ -7,20 +5,24 @@ public class UpgradeableSelectionHandler : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private UpgradePresenter _upgradePresenter;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
+            RaycastHit[] hits;
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            hits = Physics.RaycastAll(ray);
 
-            if (Physics.Raycast(ray, out hit))
+            foreach (RaycastHit hit in hits)
             {
-                var upgradeableComponent = hit.collider.GetComponent<IUpgradeable>();
-
-                if (upgradeableComponent != null)
+                if(!hit.collider.isTrigger)
                 {
-                    _upgradePresenter.OnBuildingSelected(hit.collider.gameObject);
+                    var upgradeableComponent = hit.collider.GetComponent<IUpgradeable>();
+
+                    if (upgradeableComponent != null)
+                    {
+                        _upgradePresenter.OnBuildingSelected(hit.collider.gameObject);
+                    }
                 }
             }
         }

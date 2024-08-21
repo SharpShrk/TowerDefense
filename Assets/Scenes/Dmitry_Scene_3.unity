@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12488,6 +12488,7 @@ MonoBehaviour:
   _factoryUpgradeParametersDescription: {fileID: 1272432599}
   _upgradePresenter: {fileID: 1675000248}
   _upgradeButton: {fileID: 447238593}
+  _closeUpgradePanelButton: {fileID: 518253082}
 --- !u!224 &852814553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28121,6 +28122,10 @@ PrefabInstance:
     - target: {fileID: 232021844940743975, guid: f30570308ee015b458e10349c2cf58de, type: 3}
       propertyPath: m_Name
       value: TurretsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 232021844940743975, guid: f30570308ee015b458e10349c2cf58de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1304101380619308146, guid: f30570308ee015b458e10349c2cf58de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
