@@ -15,6 +15,7 @@ namespace EnemyLogic
         private EnemyHealth _enemyHealth;
         private EnemyTarget _targetPoint;
         private Transform _target;
+        private Score _score;
         private Collider _collider;
 
         public event Action<Enemy> Died;
@@ -73,10 +74,11 @@ namespace EnemyLogic
             _dieState.Enter(_targetPoint, _animator, _target);
         }
 
-        public void Init(EnemyTarget targetPoint, Transform target)
+        public void Init(EnemyTarget targetPoint, Transform target, Score score)
         {
             _targetPoint = targetPoint;
             _target = target;
+            _score = score;
         }
 
         private void OnEnemyDied()
@@ -86,6 +88,7 @@ namespace EnemyLogic
             _collider.enabled = false;
             Transit(_dieState);
             _dieState.DieEnemy();
+            _score.AddScore(EnemyCard.Reward);
         }
 
         private void Transit(EnemyState nextState)

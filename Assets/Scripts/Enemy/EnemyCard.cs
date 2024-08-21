@@ -8,6 +8,7 @@ namespace EnemyLogic
         [SerializeField] private int _id = 0;
         [SerializeField] private int _health=0;
         [SerializeField] private int _damage = 10;
+        [SerializeField] private int _reward = 1;
         [SerializeField] private float _attackSpeed = 1;
         [SerializeField] private ParticleSystem _particleSystemDie;
         [SerializeField] private Enemy _template;
@@ -17,6 +18,8 @@ namespace EnemyLogic
         public int Health => _health;
 
         public int Damage => _damage;
+
+        public int Reward => _reward;
 
         public float AttackSpeed => _attackSpeed;
 
