@@ -7,7 +7,6 @@ public class UpgradePresenter: MonoBehaviour
     [SerializeField] private MetalWallet _wallet;
 
     private int _buildingCostUpgrade;
-    //получить стоимость апгрейда у здания
 
     public void OnBuildingSelected(GameObject building)
     {
