@@ -14,6 +14,7 @@ namespace GameLogic
         [SerializeField] private EnemyTarget _enemyTarget;
         [SerializeField] private EnemyPool _enemyPool;
         [SerializeField] private PointerHandler _pointerHandler;
+        [SerializeField] private Score _score;
         
         private EnemyCount[] _enemyCounts;
         private Coroutine _spawnWaveCoroutine;
@@ -99,7 +100,7 @@ namespace GameLogic
                 _pointerHandler.AddToList(enemySpawn.GetComponent<EnemyPointer>());
                 enemySpawn.GetComponent<EnemyHealth>().Initialize();
                 enemySpawn.GetComponent<EnemyPointer>().Init(_pointerHandler);
-                enemySpawn.Init(_enemyTarget, _enemyTarget.GetPoint());
+                enemySpawn.Init(_enemyTarget, _enemyTarget.GetPoint(), _score);
                 enemySpawn.transform.position = wave.StartPoint.position;
                 enemySpawn.enabled = true;
                 enemySpawn.TransitFirstState();

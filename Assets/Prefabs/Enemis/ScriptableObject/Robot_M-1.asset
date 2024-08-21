@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Robot_M-1
   m_EditorClassIdentifier: 
   _id: 3
-  _health: 150
+  _health: 250
   _damage: 30
+  _reward: 15
   _attackSpeed: 2
   _particleSystemDie: {fileID: 4522173324546776491, guid: 0be70bf248d761e4e948f021f03221f3, type: 3}
   _template: {fileID: 6155688581308447794, guid: d6531cb01a6cdb2439575842b5eb8fbc, type: 3}
