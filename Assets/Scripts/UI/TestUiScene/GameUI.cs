@@ -10,12 +10,15 @@ namespace TestUiScene
         [SerializeField] private Button _loseButton;
         [SerializeField] private Button _turretsButton;
         [SerializeField] private Button _defaultButton;
+        [SerializeField] private Button _upgradeButton;
         [SerializeField] private Button _defaultButtonWinPanel;
         [SerializeField] private Button _defaultButtonTurretsPanel;
+        [SerializeField] private Button _upgradeButtonUpgradePanel;
         [SerializeField] private GameObject _defaultPanel;
         [SerializeField] private GameObject _winPanel;
         [SerializeField] private GameObject _losePanel;
         [SerializeField] private GameObject _turretsPanel;
+        [SerializeField] private GameObject _upgradePanel;
         [SerializeField] private GameObject[] _panels;
 
         private void OnEnable()
@@ -26,6 +29,8 @@ namespace TestUiScene
             _defaultButton.onClick.AddListener(OnDefaultButtonClick);
             _defaultButtonWinPanel.onClick.AddListener(OnDefaultButtonClick);
             _defaultButtonTurretsPanel.onClick.AddListener(OnDefaultButtonClick);
+            _upgradeButton.onClick.AddListener(OnUpgradeButtonClick);
+            _upgradeButtonUpgradePanel.onClick.AddListener(OnDefaultButtonClick);
         }
 
         private void OnDisable()
@@ -36,30 +41,38 @@ namespace TestUiScene
             _defaultButton.onClick.RemoveListener(OnDefaultButtonClick);
             _defaultButtonWinPanel.onClick.RemoveListener(OnDefaultButtonClick);
             _defaultButtonTurretsPanel.onClick.RemoveListener(OnDefaultButtonClick);
+            _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClick);
+            _upgradeButtonUpgradePanel.onClick.RemoveListener(OnDefaultButtonClick);
+        }
+
+        private void OnUpgradeButtonClick()
+        {
+            HideAllPanels();
+            _upgradePanel.SetActive(true);
         }
 
         private void OnDefaultButtonClick()
         {
             HideAllPanels();
-            _defaultPanel.gameObject.SetActive(true);
+            _defaultPanel.SetActive(true);
         }
 
         private void OnTurretsButtonClick()
         {
             HideAllPanels();
-            _turretsPanel.gameObject.SetActive(true);
+            _turretsPanel.SetActive(true);
         }
 
         private void OnWinButtonClick()
         {
             HideAllPanels();
-            _winPanel.gameObject.SetActive(true);
+            _winPanel.SetActive(true);
         }
 
         private void OnLoseButtonClick()
         {
             HideAllPanels();
-            _losePanel.gameObject.SetActive(true);
+            _losePanel.SetActive(true);
         }
 
         private void HideAllPanels()

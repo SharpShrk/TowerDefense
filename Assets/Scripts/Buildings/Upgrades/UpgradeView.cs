@@ -14,20 +14,20 @@ public class UpgradeView : MonoBehaviour
     [SerializeField] private TMP_Text _factoryUpgradeParametersDescription;
     [SerializeField] private UpgradePresenter _upgradePresenter;
     [SerializeField] private Button _upgradeButton;
-    [SerializeField] private Button _closeButton;
+    [SerializeField] private Button _closeUpgradePanelButton;
 
     private IUpgradeable _currentUpgradeableObject;
 
     private void OnEnable()
     {
         _upgradeButton.onClick.AddListener(OnButtonUpgradeClick);
-        _closeButton.onClick.AddListener(HideUpgradeOptions);
+        _closeUpgradePanelButton.onClick.AddListener(HideUpgradeOptions);
     }
 
     private void OnDisable()
     {
         _upgradeButton.onClick?.RemoveListener(OnButtonUpgradeClick);
-        _closeButton.onClick?.RemoveListener(HideUpgradeOptions);
+        _closeUpgradePanelButton.onClick.AddListener(HideUpgradeOptions);
     }
 
     public void ShowUpgradeOptions(IUpgradeable upgradeable)
