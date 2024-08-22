@@ -16,7 +16,7 @@ public class TurretData : BuildingData
     public float Damage => _damage;
     public float RotationSpeed => _rotationSpeed;
 
-    private void Start()
+    private void Awake()
     {  
         ApplyUpgrade(BuidlingLevel);
     }
