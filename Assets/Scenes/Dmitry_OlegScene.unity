@@ -28409,7 +28409,7 @@ MonoBehaviour:
   _enemyTarget: {fileID: 1935500219}
   _enemyPool: {fileID: 1776062068}
   _pointerHandler: {fileID: 902454964}
-  _score: {fileID: 0}
+  _score: {fileID: 328046698}
 --- !u!4 &1776062070
 Transform:
   m_ObjectHideFlags: 0

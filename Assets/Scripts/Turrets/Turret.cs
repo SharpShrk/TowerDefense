@@ -18,7 +18,7 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
     protected float Damage;
     protected float RotationSpeed;
 
-    public BuildType Type { get; private set; }
+    public BuildType Type { get; protected set; }
     public bool IsPlaced { get; private set; }
 
     protected void Start()
@@ -26,13 +26,8 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
         Data = GetComponent<TurretData>();
 
         IsPlaced = false;
-
-        PlaceTurret(); //временное решение для инициализации
-        AttackRange = Data.AttackRange;
-        CurrentAttackCooldown = Data.AttackCooldown;
-        Damage = Data.Damage;
-        Type = Data.BuildingType;
-        RotationSpeed = Data.RotationSpeed;
+        
+        PlaceTurret(); //временное решение для инициализации        
     }
 
     public void SetPool(object pool)
@@ -44,18 +39,23 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
     {
         IsPlaced = true;
         gameObject.SetActive(true);
+
+        SetParameters();
+
         StartCoroutine(Attack());
     }
 
-    public void SetAttackSpeed(float attackSpeedMultiplier)
+    protected void SetParameters()
     {
-        CurrentAttackCooldown = AttackCooldown * attackSpeedMultiplier;
-    }
+        Data = GetComponent<TurretData>();
 
-    public void SetUpgradeDamage(float damage)
-    {
-        Damage = damage;
-    }
+        Debug.Log("Дальность атаки " + Data.AttackRange);
+        AttackRange = Data.AttackRange;
+        CurrentAttackCooldown = Data.AttackCooldown;
+        Damage = Data.Damage;
+        Type = Data.BuildingType;
+        RotationSpeed = Data.RotationSpeed;
+    }    
 
     protected GameObject SearchAttackTarget()
     {
@@ -83,10 +83,14 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, AttackRange);
 
+        Debug.Log(AttackRange);
+
         float closestDistanceSqr = AttackRange * AttackRange;
 
         foreach (Collider collider in colliders)
         {
+            //Debug.Log(collider.name);
+
             if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 float distanceToEnemySqr = (transform.position - collider.transform.position).sqrMagnitude;
