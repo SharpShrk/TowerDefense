@@ -17,6 +17,18 @@ namespace Audio
         private float _startValue = -80f;
         private float _endValue = 0;
 
+        private void OnEnable()
+        {
+            _musicSlider.onValueChanged.AddListener(OnSetMusicSlider);
+            _effectsSlider.onValueChanged.AddListener(OnSetEffectsSlider);
+        }
+
+        private void OnDisable()
+        {
+            _musicSlider.onValueChanged.RemoveListener(OnSetMusicSlider);
+            _effectsSlider.onValueChanged.RemoveListener(OnSetEffectsSlider);
+        }
+
         private void Start()
         {
             if (PlayerPrefs.HasKey(MusicVolume) && PlayerPrefs.HasKey(EffectsVolume))
@@ -41,25 +53,13 @@ namespace Audio
             }
         }
 
-        private void OnEnable()
-        {
-            _musicSlider.onValueChanged.AddListener(OnSetMusicSlider);
-            _effectsSlider.onValueChanged.AddListener(OnSetEffectsSlider);
-        }
-
-        private void OnDisable()
-        {
-            _musicSlider.onValueChanged.RemoveListener(OnSetMusicSlider);
-            _effectsSlider.onValueChanged.RemoveListener(OnSetEffectsSlider);
-        }
-
-        public void OnSetMusicSlider(float volume)
+        private void OnSetMusicSlider(float volume)
         {
             _musicSlider.value = volume;
             SetVolume(volume, MusicVolume);
         }
 
-        public void OnSetEffectsSlider(float volume)
+        private void OnSetEffectsSlider(float volume)
         {
             _effectsSlider.value = volume;
             SetVolume(volume, EffectsVolume);
