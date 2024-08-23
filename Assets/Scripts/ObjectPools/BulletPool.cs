@@ -24,6 +24,8 @@ public class BulletPool : MonoBehaviour
             GameObject bullet = Instantiate(_bulletPrefab);
             bullet.SetActive(false);
             bullet.transform.SetParent(_bulletContainer.transform);
+            bullet.GetComponent<Bullet>().Init(this);
+
             _bulletPoolQueue.Enqueue(bullet);
         }
     }
@@ -40,6 +42,7 @@ public class BulletPool : MonoBehaviour
         if (_bulletPoolQueue.Count + 1 <= _maxPoolSize)
         {
             GameObject newBullet = Instantiate(_bulletPrefab, _bulletContainer.transform);
+            newBullet.GetComponent<Bullet>().Init(this);
             return newBullet;
         }
 
