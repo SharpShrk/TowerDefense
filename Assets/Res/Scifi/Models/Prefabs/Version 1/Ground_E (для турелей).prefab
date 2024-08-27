@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 64229000404360434}
   - component: {fileID: 7370379289104130233}
   m_Layer: 0
-  m_Name: "Ground_E (\u0434\u043B\u044F \u043F\u043E\u0441\u0442\u0440\u043E\u0435\u043A)"
+  m_Name: "Ground_E (\u0434\u043B\u044F \u0442\u0443\u0440\u0435\u043B\u0435\u0439)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cellImage: {fileID: 7769874288877479685}
   _installationPoint: {fileID: 8132293738787353918}
+  _isTurretPlace: 1
 --- !u!1 &7150807217936751201
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1a211fc4ceae8d408498dda59c71869, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1321854c82fdab34f99830bf52bc6e31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
