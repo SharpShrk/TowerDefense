@@ -6,8 +6,11 @@ public class BuildingPlace : MonoBehaviour
 {
     [SerializeField] private GameObject _cellImage;
     [SerializeField] private Transform _installationPoint;
+    [SerializeField] private bool _isTurretPlace;
 
     private bool _isCellFree;
+
+    public bool IsTurretPlace => _isTurretPlace;
 
     public Transform InstallationPoint => _installationPoint;
 
