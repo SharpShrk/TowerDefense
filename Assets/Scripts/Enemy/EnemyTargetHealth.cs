@@ -4,11 +4,9 @@ namespace EnemyLogic
 {
     public class EnemyTargetHealth : HealthContainer
     {
-        [SerializeField] private int _maxHealthTarget;
-
-        private void Awake()
+        public void SetStartHealth(int startHealt)
         {
-            Init(_maxHealthTarget);
-        }
+            Init(startHealt);
+        }       
     }
 }
