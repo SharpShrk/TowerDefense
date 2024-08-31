@@ -5,8 +5,8 @@ namespace EnemyLogic
 {
     public abstract class HealthContainer : MonoBehaviour, IDamageable
     {
-        private int _health;
-        private int _maxHealth;
+        protected int _health;
+        protected int _maxHealth;
 
         public event Action<int, int> HealthChanged;
 
@@ -38,6 +38,14 @@ namespace EnemyLogic
                 _health = 0;
                 Died?.Invoke();
             }
+
+            HealthChanged?.Invoke(_health, _maxHealth);
+        }
+
+        public void SetMaxHealth(int maxHealt) //метод пока работает так, что просто ремонтирует базу и увеличивает макс хп. ћожно переписать так, чтобы увеличивалось текущее хп на определенное значение
+        {
+            _health = maxHealt;
+            _maxHealth = maxHealt;
 
             HealthChanged?.Invoke(_health, _maxHealth);
         }

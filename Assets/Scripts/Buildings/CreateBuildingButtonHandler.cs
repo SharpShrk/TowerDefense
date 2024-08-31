@@ -11,9 +11,9 @@ public class CreateBuildingButtonHandler : MonoBehaviour
     private bool _waitingForPlacement = false;
 
     private bool IsTurret(BuildType buildType) =>
-    buildType == BuildType.MachineGun ||
-    buildType == BuildType.LaserGun ||
-    buildType == BuildType.LargeCaliber;
+        buildType == BuildType.MachineGun ||
+        buildType == BuildType.LaserGun ||
+        buildType == BuildType.LargeCaliber;
 
     private bool IsResourceFactory(BuildType buildType) =>
         buildType == BuildType.EnergyFactory ||
