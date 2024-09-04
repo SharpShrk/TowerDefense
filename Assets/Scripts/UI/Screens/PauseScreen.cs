@@ -6,33 +6,45 @@ namespace Ui
 {
     public class PauseScreen : Screen
     {
-        [SerializeField] private Button _exitButton;
-
+        [SerializeField] private Button _closeButton;
         [SerializeField] private HandlerUI _handlerUI;
 
-        public event Action ExitButtonClick;
+        public event Action CloseButtonClick;
 
         private void OnEnable()
         {
-            _exitButton.onClick.AddListener(OnExitButton);
+            _closeButton.onClick.AddListener(OnCloseButton);
             _handlerUI.OpenPauseMenu += OnOpen;
+            _handlerUI.ClosePauseMenu += OnClose;
+
+            _restartButton.onClick.AddListener(OnRestartButton);
+            _exitButton.onClick.AddListener(OnExitButton);
         }
 
         private void OnDisable()
         {
-            _exitButton.onClick.RemoveListener(OnExitButton);
+            _closeButton.onClick.RemoveListener(OnCloseButton);
             _handlerUI.OpenPauseMenu -= OnOpen;
+            _handlerUI.ClosePauseMenu -= OnClose;
+
+            _restartButton.onClick.RemoveListener(OnRestartButton);
+            _exitButton.onClick.RemoveListener(OnExitButton);
         }
 
-        private void OnExitButton()
+        private void OnCloseButton()
         {
-            ExitButtonClick?.Invoke();
+            CloseButtonClick?.Invoke();
             CloseScreen();
         }
 
         private void OnOpen()
         {
             OpenScreen();
+        }
+
+        private void OnClose()
+        {
+            CloseScreen();
         }
     }
 }
