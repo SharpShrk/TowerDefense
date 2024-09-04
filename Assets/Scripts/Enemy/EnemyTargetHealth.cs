@@ -1,12 +1,10 @@
-using UnityEngine;
-
 namespace EnemyLogic
 {
     public class EnemyTargetHealth : HealthContainer
     {
-        public void SetStartHealth(int startHealt)
+        public void SetStartHealth(int startHealth)
         {
-            Init(startHealt);
-        }       
+            Init(startHealth);
+        }
     }
 }
