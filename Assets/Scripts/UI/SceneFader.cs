@@ -16,7 +16,7 @@ namespace Ui
             StartCoroutine(FadeIn());
         }
 
-        public void FadeTo(string scene)
+        public void FadeTo(int scene)
         {
             StartCoroutine(FadeOut(scene));
         }
@@ -34,7 +34,7 @@ namespace Ui
             }
         }
 
-        private IEnumerator FadeOut(string scene)
+        private IEnumerator FadeOut(int scene)
         {
             float time = 0f;
 
