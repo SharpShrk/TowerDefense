@@ -6,18 +6,19 @@ namespace GameLogic
 {
     public class SceneLoader : MonoBehaviour
     {
-        private const string MainMenu = "MainMenu";
+        private const int MainMenuIndex = 0;
 
         [SerializeField] private SceneFader _sceneFader;
         [SerializeField] private VictoryScreen _victoryScreen;
         [SerializeField] private DefeatScreen _defeatScreen;
         [SerializeField] private PauseScreen _pauseScreen;
 
-        private string _currentScene;
+        private int _currentScene;
+        private int _maxLevelScene = 10;
 
         private void OnEnable()
         {
-            _victoryScreen.RestartButtonClick += OnRestarButtonClick;
+            _victoryScreen.RestartButtonClick += OnNextLevel;
             _victoryScreen.ExitButtonClick += OnExitButtonClick;
 
             _pauseScreen.RestartButtonClick += OnRestarButtonClick;
@@ -29,7 +30,7 @@ namespace GameLogic
 
         private void OnDisable()
         {
-            _victoryScreen.RestartButtonClick -= OnRestarButtonClick;
+            _victoryScreen.RestartButtonClick -= OnNextLevel;
             _victoryScreen.ExitButtonClick -= OnExitButtonClick;
 
             _pauseScreen.RestartButtonClick -= OnRestarButtonClick;
@@ -41,7 +42,7 @@ namespace GameLogic
 
         private void Start()
         {
-            _currentScene = SceneManager.GetActiveScene().name;
+            _currentScene = SceneManager.GetActiveScene().buildIndex;
         }
 
         private void OnRestarButtonClick()
@@ -51,7 +52,19 @@ namespace GameLogic
 
         private void OnExitButtonClick()
         {
-            _sceneFader.FadeTo(MainMenu);
+            _sceneFader.FadeTo(MainMenuIndex);
+        }
+
+        private void OnNextLevel()
+        {
+            if (_maxLevelScene == _currentScene)
+            {
+                _sceneFader.FadeTo(MainMenuIndex);
+            }
+            else
+            {
+                _sceneFader.FadeTo(_currentScene + 1);
+            }
         }
     }
 }

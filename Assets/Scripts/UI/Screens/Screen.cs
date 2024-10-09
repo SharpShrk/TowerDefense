@@ -44,5 +44,15 @@ namespace Ui
             _panel.alpha = 0;
             Time.timeScale = 1;
         }
+
+       protected void OnOpen()
+       {
+            OpenScreen();
+       }
+
+       protected void OnClose()
+       {
+            CloseScreen();
+       }
     }
 }
