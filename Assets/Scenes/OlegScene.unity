@@ -18832,7 +18832,7 @@ MonoBehaviour:
   _factoryUpgradeParametersDescription: {fileID: 431446508925322883}
   _upgradePresenter: {fileID: 581909294}
   _upgradeButton: {fileID: 1299592132}
-  _closeButton: {fileID: 1075662653}
+  _closeUpgradePanelButton: {fileID: 0}
 --- !u!1001 &1208232947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24356,6 +24356,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553285026}
   m_CullTransparentMesh: 1
+--- !u!1001 &1554844838
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2211564899198745197, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_Name
+      value: YandexGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: caf9732433f4dc044845763962493607, type: 3}
 --- !u!1001 &1560155107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28346,6 +28403,7 @@ MonoBehaviour:
   _enemyTarget: {fileID: 1935500219}
   _enemyPool: {fileID: 1776062068}
   _pointerHandler: {fileID: 902454964}
+  _score: {fileID: 0}
 --- !u!4 &1776062070
 Transform:
   m_ObjectHideFlags: 0
@@ -30939,7 +30997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d5b3d6731ef844ebc364f0da5fcdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealthTarget: 500
 --- !u!1001 &1943126224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35258,3 +35315,4 @@ SceneRoots:
   - {fileID: 581909296}
   - {fileID: 2136247388}
   - {fileID: 1910570693}
+  - {fileID: 1554844838}

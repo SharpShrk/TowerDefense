@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using ResourcesFactories;
-using Resources;
+using GameResources;
 
 public class BuildFactory : MonoBehaviour
 {
