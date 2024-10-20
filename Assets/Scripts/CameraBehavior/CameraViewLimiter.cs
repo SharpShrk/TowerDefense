@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CameraBehavior
 {
-    public class CameraMover : MonoBehaviour
+    public class CameraViewLimiter : MonoBehaviour
     {
         [SerializeField] private CameraBorder _leftBorder;
         [SerializeField] private CameraBorder _rightBorder;
@@ -14,7 +14,7 @@ namespace CameraBehavior
         private Vector3 _origin;
         private Vector3 _limitedPosition;
 
-        private void RestrictPosition(Vector3 targetPosition)
+        private void RestrictPosition()
         {
             _limitedPosition = new Vector3(Mathf.Clamp(
                 transform.position.x,
@@ -33,7 +33,7 @@ namespace CameraBehavior
 
         private void Update()
         {
-            RestrictPosition(transform.position);
+            RestrictPosition();
         }
     }
 }

@@ -4,11 +4,11 @@ using YG;
 
 namespace CameraBehavior
 {
-    [RequireComponent(typeof(CameraMover))]
+    [RequireComponent(typeof(CameraViewLimiter))]
     public class KeyboardСontrol : MonoBehaviour
     {
         [SerializeField] private float _speed;
-        [SerializeField] private CameraMover _mover;
+        [SerializeField] private CameraViewLimiter _mover;
 
         private PlayerInput _playerInput;
         private Vector3 _moveDirection;
