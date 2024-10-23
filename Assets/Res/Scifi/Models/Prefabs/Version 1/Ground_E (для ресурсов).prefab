@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cellImage: {fileID: 7769874288877479685}
   _installationPoint: {fileID: 8132293738787353918}
+  _isTurretPlace: 0
 --- !u!1 &7150807217936751201
 GameObject:
   m_ObjectHideFlags: 0
