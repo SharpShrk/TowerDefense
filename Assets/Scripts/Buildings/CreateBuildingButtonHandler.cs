@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class CreateBuildingButtonHandler : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private BuildType _buildType;
     [SerializeField] private ConstructionZone _constructionZone;
+    [SerializeField] private MetalWallet _wallet;
+    [SerializeField] private int _buildingCostConstruction;
 
     private bool _waitingForPlacement = false;
 
@@ -68,9 +71,13 @@ public class CreateBuildingButtonHandler : MonoBehaviour
             {
                 if (CanPlaceBuilding(buildingPlace))
                 {
-                    _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
-                    buildingPlace.CloseCell();
-                    break;
+                    if (_wallet.SpendMetal(_buildingCostConstruction))
+                    {
+                        _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
+                        buildingPlace.CloseCell();
+                        break;
+                    }
+                    
                 }
             }
         }
