@@ -11,7 +11,12 @@ public class MetalWallet : MonoBehaviour
 
     public int MetalValue => _metalValue;
 
-    public void SetStartValue(int value)
+    private void Start()
+    {
+        SetStartValue(_startMetalValue);
+    }
+
+    private void SetStartValue(int value)
     {
         _metalValue = value;
         OnMetalValueChanged?.Invoke(_metalValue);

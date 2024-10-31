@@ -12,7 +12,12 @@ public class EnergyWallet : MonoBehaviour
 
     public int EnergyValue => _energyValue;
 
-    public void SetStartValue(int value)
+    private void Start()
+    {
+        SetStartValue(_startEnergyValue);
+    }
+
+    private void SetStartValue(int value)
     {
         _energyValue = value;
         OnEnergyValueChanged?.Invoke(_energyValue);
