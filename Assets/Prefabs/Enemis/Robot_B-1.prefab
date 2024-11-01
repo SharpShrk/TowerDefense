@@ -132,6 +132,7 @@ MonoBehaviour:
   _firstState: {fileID: 4394920248928590546}
   _dieState: {fileID: 5460947465810719912}
   _enemyCard: {fileID: 11400000, guid: f9960422eab0c8a4987a751c698cd850, type: 2}
+  _moveState: {fileID: 4394920248928590546}
 --- !u!195 &1184651461803469588
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -604,7 +605,6 @@ MonoBehaviour:
   _rateChange: 3
   Slider: {fileID: 8165342473369081690}
   _enemyHealth: {fileID: 8156860646968858096}
-  _dieState: {fileID: 5460947465810719912}
 --- !u!1 &1825265354360846167
 GameObject:
   m_ObjectHideFlags: 0

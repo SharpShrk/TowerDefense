@@ -1,47 +1,58 @@
+using Abilities;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletPool : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private int _initialPoolSize = 30;
     [SerializeField] private int _maxPoolSize = 100;
     [SerializeField] private GameObject _bulletContainer;
+    [SerializeField] private IncreasedTurretDamageAbility _increasedTurretDamageAbility;
 
-    private Queue<GameObject> _bulletPoolQueue;
+    private Queue<Bullet> _bulletPoolQueue;
+    private float _duration;
+    private Coroutine _increaseDamage;
 
     private void Awake()
     {
         InitializePool();
+        _increasedTurretDamageAbility.DamageIncreased += OnDamageIncreased;
+    }
+
+    private void OnDisable()
+    {
+        _increasedTurretDamageAbility.DamageIncreased -= OnDamageIncreased;
+        StopIncreaseDamage();
     }
 
     private void InitializePool()
     {
-        _bulletPoolQueue = new Queue<GameObject>();
+        _bulletPoolQueue = new Queue<Bullet>();
 
         for (int i = 0; i < _initialPoolSize; i++)
         {
-            GameObject bullet = Instantiate(_bulletPrefab);
-            bullet.SetActive(false);
+            Bullet bullet = Instantiate(_bulletPrefab);
+            bullet.gameObject.SetActive(false);
             bullet.transform.SetParent(_bulletContainer.transform);
             bullet.GetComponent<Bullet>().Init(this);
-
             _bulletPoolQueue.Enqueue(bullet);
         }
     }
 
-    public GameObject GetBullet()
+    public Bullet GetBullet()
     {
         if (_bulletPoolQueue.Count > 0)
         {
-            GameObject bullet = _bulletPoolQueue.Dequeue();
-            bullet.SetActive(true);
+            Bullet bullet = _bulletPoolQueue.Dequeue();
+            bullet.gameObject.SetActive(true);
             return bullet;
         }
 
         if (_bulletPoolQueue.Count + 1 <= _maxPoolSize)
         {
-            GameObject newBullet = Instantiate(_bulletPrefab, _bulletContainer.transform);
+            Bullet newBullet = Instantiate(_bulletPrefab, _bulletContainer.transform);
             newBullet.GetComponent<Bullet>().Init(this);
             return newBullet;
         }
@@ -50,11 +61,11 @@ public class BulletPool : MonoBehaviour
         return null;
     }
 
-    public void ReturnBullet(GameObject bullet)
+    public void ReturnBullet(Bullet bullet)
     {
         if (_bulletPoolQueue.Count < _maxPoolSize)
         {
-            bullet.SetActive(false);
+            bullet.gameObject.SetActive(false);
             _bulletPoolQueue.Enqueue(bullet);
         }
         else
@@ -62,5 +73,44 @@ public class BulletPool : MonoBehaviour
             Destroy(bullet);
             Debug.Log("Пуля уничтожена, так как пул переполнен");
         }
+    }
+
+    private void SetDefaultBulletDamage()
+    {
+        foreach (var bullet in _bulletPoolQueue)
+        {
+            bullet.SetDefaultDamage();
+        }
+    }
+
+    private void IncreaseBulletDamage()
+    {
+        foreach (var bullet in _bulletPoolQueue)
+        {
+            bullet.IncreaseDamage();
+        }
+    }
+
+    private void StopIncreaseDamage()
+    {
+        if (_increaseDamage != null)
+        {
+            StopCoroutine(_increaseDamage);
+        }
+    }
+
+    private IEnumerator IncreaseDamage()
+    {
+        var waitForSecond = new WaitForSeconds(_duration);
+        IncreaseBulletDamage();
+        yield return waitForSecond;
+        SetDefaultBulletDamage();
+        StopIncreaseDamage();
+    }
+
+    private void OnDamageIncreased(float duration)
+    {
+        _duration = duration;
+        _increaseDamage = StartCoroutine(IncreaseDamage());
     }
 }

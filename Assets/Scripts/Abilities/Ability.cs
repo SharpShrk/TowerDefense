@@ -13,8 +13,9 @@ namespace Abilities
         [SerializeField] private Image _lockImage;
         [SerializeField] private Image _abilityImage;
         [SerializeField] private Image _rechargeImage;
+        [SerializeField] private AudioSource _activationSound;
 
-        private int _minRechargeTime = 10;
+        private float _minRechargeTime = 8;
         private int _oneUpdateDuration = 1;
         private float _tempRechargeTime;
         private float _minTempRechargeTime = 0;
@@ -64,6 +65,7 @@ namespace Abilities
 
         public virtual void Activate()
         {
+            _activationSound.PlayDelayed(0);
             StartRecharging();
         }
 

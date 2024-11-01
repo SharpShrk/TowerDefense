@@ -24,6 +24,20 @@ namespace EnemyLogic
             _health = _maxHealth;
         }
 
+        protected void AddHealth(int addedHealth)
+        {
+            if (_health + addedHealth > _maxHealth)
+            {
+                _health = _maxHealth;
+            }
+            else
+            {
+                _health += addedHealth;
+            }
+
+            HealthChanged?.Invoke(_health, _maxHealth);
+        }
+
         public void TakeDamage(int damage)
         {
             if (damage < 0)
