@@ -22,13 +22,7 @@ namespace Ui
 
         private void OnDisable()
         {
-            _levelSelected.PlayButtonClick -= OnPlayButtonClick;
             _buttonLevel.onClick.RemoveListener(OnButtonClick);
-        }
-
-        private void Start()
-        {
-            _levelSelected.PlayButtonClick += OnPlayButtonClick;
         }
 
         public void RenderLevelText(LevelData level)
@@ -45,11 +39,13 @@ namespace Ui
         private void OnButtonClick()
         {
             _levelSelected.ShowLevel(_levelData);
+           _levelSelected.PlayButtonClick += OnPlayButtonClick;
         }
 
         private void OnPlayButtonClick()
         {
             _levelSelected.LoadLevel(_levelData);
+            _levelSelected.PlayButtonClick -= OnPlayButtonClick;
         }
     }
 }

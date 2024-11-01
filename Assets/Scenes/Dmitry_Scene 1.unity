@@ -2066,7 +2066,7 @@ MonoBehaviour:
   _sceneFader: {fileID: 2084169487}
   _textInfo: {fileID: 0}
   _textLevelName: {fileID: 0}
-  _playButton: {fileID: 1262256871}
+  _playButton: {fileID: 0}
   _image: {fileID: 0}
 --- !u!1001 &94660242
 PrefabInstance:
@@ -2225,6 +2225,11 @@ MonoBehaviour:
       _count: 1
       _delay: 1
     _startPoint: {fileID: 1488809964}
+  - _enemyCounts:
+    - _enemyCard: {fileID: 11400000, guid: ab2ffb681a719bb42b543ac2889ebfa8, type: 2}
+      _count: 1
+      _delay: 1.8
+    _startPoint: {fileID: 1446935603}
   _container: {fileID: 116173588}
   _enemyTarget: {fileID: 601941194}
   _enemyPool: {fileID: 116173589}

@@ -9,17 +9,21 @@ namespace GameLogic
         private const int MainMenuIndex = 0;
 
         [SerializeField] private SceneFader _sceneFader;
+        [SerializeField] private SaveSystem _saveSystem;
         [SerializeField] private VictoryScreen _victoryScreen;
         [SerializeField] private DefeatScreen _defeatScreen;
         [SerializeField] private PauseScreen _pauseScreen;
 
         private int _currentScene;
+        private int _nextScene;
+        private int _levelsOpen;
         private int _maxLevelScene = 10;
+        private int _numberOne = 1;
 
         private void OnEnable()
         {
             _victoryScreen.RestartButtonClick += OnNextLevel;
-            _victoryScreen.ExitButtonClick += OnExitButtonClick;
+            _victoryScreen.ExitButtonClick += OnExitButtonClickVictory;
 
             _pauseScreen.RestartButtonClick += OnRestarButtonClick;
             _pauseScreen.ExitButtonClick += OnExitButtonClick;
@@ -31,7 +35,7 @@ namespace GameLogic
         private void OnDisable()
         {
             _victoryScreen.RestartButtonClick -= OnNextLevel;
-            _victoryScreen.ExitButtonClick -= OnExitButtonClick;
+            _victoryScreen.ExitButtonClick -= OnExitButtonClickVictory;
 
             _pauseScreen.RestartButtonClick -= OnRestarButtonClick;
             _pauseScreen.ExitButtonClick -= OnExitButtonClick;
@@ -43,6 +47,8 @@ namespace GameLogic
         private void Start()
         {
             _currentScene = SceneManager.GetActiveScene().buildIndex;
+            _nextScene = _currentScene + _numberOne;
+            _levelsOpen = _saveSystem.LoadLevel();
         }
 
         private void OnRestarButtonClick()
@@ -55,6 +61,12 @@ namespace GameLogic
             _sceneFader.FadeTo(MainMenuIndex);
         }
 
+        private void OnExitButtonClickVictory()
+        {
+            _saveSystem.SaveLevel(_nextScene, _levelsOpen);
+            _sceneFader.FadeTo(MainMenuIndex);
+        }
+
         private void OnNextLevel()
         {
             if (_maxLevelScene == _currentScene)
@@ -63,8 +75,18 @@ namespace GameLogic
             }
             else
             {
-                _sceneFader.FadeTo(_currentScene + 1);
+                _saveSystem.SaveLevel(_nextScene, _levelsOpen);
+                _sceneFader.FadeTo(_nextScene);
             }
         }
+
+        //private void SaveLevel()
+        //{
+        //    if (_nextScene > _levelsOpen)
+        //    {
+        //        _levelsOpen++;
+        //        _saveSystem.Save(_levelsOpen);
+        //    }
+        //}
     }
 }
