@@ -10,6 +10,8 @@ namespace Ui
     {
         [SerializeField] private int _id = 0;
         [SerializeField] private int _sceneIndex = 0;
+        [SerializeField] private string _levelInfo = "";
+        [SerializeField] private string _levelName = "";
         [SerializeField] private Sprite _levelImage;
         [SerializeField] private LevelView _template;
 
@@ -20,5 +22,9 @@ namespace Ui
         public Sprite LevelImage => _levelImage;
 
         public LevelView Template => _template;
+
+        public string LevelInfo => _levelInfo;
+
+        public string LevelName => _levelName;
     }
 }

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dmitry_Scene.unity
     guid: d43461e36a796464197c3dc5d095c98f
+  - enabled: 1
+    path: Assets/Scenes/Dmitry_Scene 1.unity
+    guid: f13960ded4c0c234ab6e16220bd4ef2b
+  - enabled: 1
+    path: Assets/Scenes/Dmitry_Scene 2.unity
+    guid: c654b1dd1d7782e4cafb79d7f182c41f
   m_configObjects: {}

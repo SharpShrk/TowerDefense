@@ -14,16 +14,18 @@ namespace GameLogic
         [SerializeField] private SceneFader _sceneFader;
 
         [SerializeField] private TMP_Text _textInfo;
+        [SerializeField] private TMP_Text _textLevelName;
         [SerializeField] private Button _playButton;
         [SerializeField] private Image _image;
 
-        private int _levelReached = 2;//Временное решение
+        private int _levelReached = 2;
+        private int _numberOne = 1;
 
         public event Action PlayButtonClick;
 
         private void OnEnable()
         {
-            _playButton.onClick.AddListener(OnPlayButtonClick);
+           _playButton.onClick.AddListener(OnPlayButtonClick);
         }
 
         private void OnDisable()
@@ -37,17 +39,32 @@ namespace GameLogic
             HideLevel(false);
         }
 
+        public void InitLevel(int currentLevel)
+        {
+            if (currentLevel >= _numberOne)
+            {
+                _levelReached = currentLevel;
+            }
+            else
+            {
+                _levelReached = _numberOne;
+            }
+        }
+
         public void ShowLevel(LevelData level)
         {
             HideLevel(true);
+            _textLevelName.text = level.LevelName;
             _textInfo.text = level.Id.ToString();
             _image.sprite = level.LevelImage;
+            _playButton.onClick.AddListener(OnPlayButtonClick);
         }
 
         public void LoadLevel(LevelData levelData)
         {
-            Time.timeScale = 1;
+            Time.timeScale = _numberOne;
             _sceneFader.FadeTo(levelData.SceneIndex);
+            _playButton.onClick.RemoveListener(OnPlayButtonClick);
         }
 
         private void CreateLevels()
@@ -64,7 +81,7 @@ namespace GameLogic
             view.RenderLevelText(level);
             view.Init(this, level);
 
-            if (level.Id < _levelReached)
+            if (level.SceneIndex <= _levelReached)
             {
                 view.ButtonLevel.interactable = true;
             }
@@ -72,7 +89,6 @@ namespace GameLogic
             {
                 view.ButtonLevel.interactable = false;
             }
-            
         }
 
         private void OnPlayButtonClick()
