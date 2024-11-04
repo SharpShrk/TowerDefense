@@ -113,10 +113,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.18
-  m_Height: 0.456577
+  m_Radius: 0.21374194
+  m_Height: 0.83853674
   m_Direction: 2
-  m_Center: {x: 0, y: 0.33, z: -0.09}
+  m_Center: {x: 0.033741914, y: 0.33, z: -0.14188692}
 --- !u!114 &8561966571583828697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939824287280197895}
   m_Enabled: 0
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3
   m_Acceleration: 8
@@ -604,7 +604,6 @@ MonoBehaviour:
   _rateChange: 3
   Slider: {fileID: 8165342473369081690}
   _enemyHealth: {fileID: 8156860646968858096}
-  _dieState: {fileID: 5460947465810719912}
 --- !u!1 &1825265354360846167
 GameObject:
   m_ObjectHideFlags: 0
