@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     private int _damage;
     private Rigidbody _rigidbody;
     private BulletPool _bulletPool;
+    private bool _isIncreasedDamage = false;
 
     private void Awake()
     {
@@ -50,7 +51,14 @@ public class Bullet : MonoBehaviour
 
     public void SetDamage(int damage)
     {
-        _damage = damage;
+        if (_isIncreasedDamage)
+        {
+            _damage = damage * 2;
+        }
+        else
+        {
+            _damage = damage;
+        }
     }
 
     public int GetDefaultDamage()
@@ -66,6 +74,16 @@ public class Bullet : MonoBehaviour
 
     private void ReturnToPool()
     {
-        _bulletPool.ReturnBullet(gameObject);
+        _bulletPool.ReturnBullet(this);
+    }
+
+    public void IncreaseDamage()
+    {
+        _isIncreasedDamage = true;
+    }
+
+    public void SetDefaultDamage()
+    {
+        _isIncreasedDamage = false;
     }
 }

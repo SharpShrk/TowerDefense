@@ -1,4 +1,5 @@
 using System;
+using Abilities;
 using UnityEngine;
 
 namespace EnemyLogic
@@ -9,7 +10,9 @@ namespace EnemyLogic
         [SerializeField] private EnemyState _firstState;
         [SerializeField] private DieState _dieState;
         [SerializeField] private EnemyCard _enemyCard;
+        [SerializeField] private MoveState _moveState;
 
+        private int _damageDivider = 3;
         private EnemyState _currentState;
         private Animator _animator;
         private EnemyHealth _enemyHealth;
@@ -17,6 +20,8 @@ namespace EnemyLogic
         private Transform _target;
         private Score _score;
         private Collider _collider;
+        private DestroyEnemiesAbility _destroyEnemiesAbility;
+        private StrikeEnemiesAbility _strikeEnemiesAbility;
 
         public event Action<Enemy> Died;
 
@@ -35,11 +40,31 @@ namespace EnemyLogic
 
         private void OnEnable()
         {
+            if (_destroyEnemiesAbility != null)
+            {
+                _destroyEnemiesAbility.EnemiesDestroyed += OnEnemyDied;
+            }
+
+            if (_strikeEnemiesAbility != null)
+            {
+                _strikeEnemiesAbility.Striked += OnEnemyStriked;
+            }
+
             _enemyHealth.Died += OnEnemyDied;
         }
 
         private void OnDisable()
         {
+            if(_destroyEnemiesAbility != null)
+            {
+                _destroyEnemiesAbility.EnemiesDestroyed -= OnEnemyDied;
+            }
+
+            if (_strikeEnemiesAbility != null)
+            {
+                _strikeEnemiesAbility.Striked -= OnEnemyStriked;
+            }
+
             _enemyHealth.Died -= OnEnemyDied;
         }
 
@@ -74,21 +99,32 @@ namespace EnemyLogic
             _dieState.Enter(_targetPoint, _animator, _target);
         }
 
-        public void Init(EnemyTarget targetPoint, Transform target, Score score)
+        public void Init(EnemyTarget targetPoint,
+            Transform target,
+            Score score,
+            DestroyEnemiesAbility destroyEnemiesAbility,
+            FreezeEnemiesAbility freezeEnemiesAbility,
+            StrikeEnemiesAbility strikeEnemiesAbility)
         {
             _targetPoint = targetPoint;
             _target = target;
             _score = score;
+            _destroyEnemiesAbility = destroyEnemiesAbility;
+            _strikeEnemiesAbility = strikeEnemiesAbility;
+            _moveState.Init(freezeEnemiesAbility);
         }
 
         private void OnEnemyDied()
         {
-            Died?.Invoke(this);
-            enabled = false;
-            _collider.enabled = false;
-            Transit(_dieState);
-            _dieState.DieEnemy();
-            _score.AddScore(EnemyCard.Reward);
+            if (gameObject.activeSelf)
+            {
+                Died?.Invoke(this);
+                enabled = false;
+                _collider.enabled = false;
+                Transit(_dieState);
+                _dieState.DieEnemy();
+                _score.AddScore(EnemyCard.Reward);
+            }
         }
 
         private void Transit(EnemyState nextState)
@@ -100,6 +136,12 @@ namespace EnemyLogic
 
             if (_currentState != null)
                 _currentState.Enter(_targetPoint, _animator, _target);
+        }
+
+        private void OnEnemyStriked()
+        {
+            if(gameObject.activeSelf)
+                _enemyHealth.TakeDamage(_enemyHealth.MaxHealth / _damageDivider);
         }
     }
 }

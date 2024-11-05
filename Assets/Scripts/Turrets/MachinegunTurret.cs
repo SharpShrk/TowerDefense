@@ -10,7 +10,7 @@ public class MachinegunTurret : Turret
 
     protected override void Shoot()
     {
-        GameObject bullet = Pool.GetBullet();
+        Bullet bullet = Pool.GetBullet();
 
         ShootPoint = _shootPoints[_currentShootPointIndex];
 

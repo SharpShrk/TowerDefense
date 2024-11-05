@@ -22,7 +22,7 @@ public class LaserTurret : Turret
             _isLeftShootPointActive = true;
         }
 
-        GameObject bullet = Pool.GetBullet();
+        Bullet bullet = Pool.GetBullet();
         bullet.transform.position = ShootPoint.position;
         bullet.transform.rotation = ShootPoint.rotation;
 

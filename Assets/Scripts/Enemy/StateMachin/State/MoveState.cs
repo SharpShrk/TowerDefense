@@ -1,3 +1,5 @@
+using System.Collections;
+using Abilities;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,10 +8,14 @@ namespace EnemyLogic
     [RequireComponent(typeof(NavMeshAgent))]
     public class MoveState : EnemyState
     {
+        private FreezeEnemiesAbility _freezeEnemiesAbility;
+        private float _freezeDuration;
+        private float _defaultSpeed;
         private const string Run = "Run";
         private const float SpeedStart = 0.01f;
         private const float SpeedEnd = 0f;
-
+        private float _frozenSpeed = 0f;
+        private Coroutine _freeze;
         private NavMeshAgent _agent;
 
         private void Awake()
@@ -21,12 +27,25 @@ namespace EnemyLogic
         {
             Animator.SetFloat(Run, SpeedStart);
             _agent.enabled = true;
+            _defaultSpeed = _agent.speed;
+
+            if (_freezeEnemiesAbility != null)
+            {
+                _freezeEnemiesAbility.EnemiesFreezed += OnEnemiesFreezed;
+            }
         }
 
         private void OnDisable()
         {
             Animator.SetFloat(Run, SpeedEnd);
+            _agent.speed = _defaultSpeed;
             _agent.enabled = false;
+            StopFreezing();
+
+            if (_freezeEnemiesAbility != null)
+            {
+                _freezeEnemiesAbility.EnemiesFreezed -= OnEnemiesFreezed;
+            }
         }
 
         private void Update()
@@ -35,6 +54,34 @@ namespace EnemyLogic
             {
                 _agent.SetDestination(Target.position);
             }
+        }
+
+        public void Init(FreezeEnemiesAbility freezeEnemiesAbility)
+        {
+            _freezeEnemiesAbility = freezeEnemiesAbility;
+        }
+
+        private void OnEnemiesFreezed(float freezeDuration)
+        {
+            _freezeDuration = freezeDuration;
+            StopFreezing();
+            _freeze = StartCoroutine(SpawnWaves());
+        }
+
+        private void StopFreezing()
+        {
+            if (_freeze != null)
+            {
+                StopCoroutine(_freeze);
+            }
+        }
+
+        private IEnumerator SpawnWaves()
+        {
+            WaitForSeconds waitForSeconds = new WaitForSeconds(_freezeDuration);
+            _agent.speed = _frozenSpeed;
+            yield return waitForSeconds;
+            _agent.speed = _defaultSpeed;
         }
     }
 }

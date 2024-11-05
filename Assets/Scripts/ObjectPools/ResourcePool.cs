@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Resources
+namespace GameResources
 {
     public class ResourcePool : MonoBehaviour
     {

@@ -2260,6 +2260,7 @@ MonoBehaviour:
   _firstState: {fileID: 5193290095476049375}
   _dieState: {fileID: 2229783129467969677}
   _enemyCard: {fileID: 11400000, guid: 7fe4e8c68ce00414c8c1f6ae3d287db3, type: 2}
+  _moveState: {fileID: 5193290095476049375}
 --- !u!195 &2944522413811468345
 NavMeshAgent:
   m_ObjectHideFlags: 0

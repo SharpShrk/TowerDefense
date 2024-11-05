@@ -1,5 +1,5 @@
 using System.Collections;
-using Resources;
+using GameResources;
 using UnityEngine;
 using UnityEngine.Pool;
 
