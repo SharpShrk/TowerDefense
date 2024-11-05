@@ -8413,6 +8413,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 1481797803}
   _buildType: 4
   _constructionZone: {fileID: 179627470}
+  _wallet: {fileID: 1254956610}
+  _buildingCostConstruction: 50
 --- !u!114 &542633388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14778,6 +14780,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 1481797803}
   _buildType: 1
   _constructionZone: {fileID: 179627470}
+  _wallet: {fileID: 1254956610}
+  _buildingCostConstruction: 50
 --- !u!114 &940603099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20230,7 +20234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846405a3fbab39c49b97f2c558816a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMetalValue: 0
+  _startMetalValue: 500
 --- !u!1 &1255090942
 GameObject:
   m_ObjectHideFlags: 0
@@ -20683,7 +20687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8580f0632e43404891d883b01e6d487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEnergyValue: 0
+  _startEnergyValue: 50
 --- !u!1 &1289521271
 GameObject:
   m_ObjectHideFlags: 0
@@ -22809,6 +22813,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 1481797803}
   _buildType: 0
   _constructionZone: {fileID: 179627470}
+  _wallet: {fileID: 1254956610}
+  _buildingCostConstruction: 50
 --- !u!114 &1407444331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26679,6 +26685,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 1481797803}
   _buildType: 3
   _constructionZone: {fileID: 179627470}
+  _wallet: {fileID: 1254956610}
+  _buildingCostConstruction: 50
 --- !u!114 &1618974647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29178,6 +29186,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 1481797803}
   _buildType: 2
   _constructionZone: {fileID: 179627470}
+  _wallet: {fileID: 1254956610}
+  _buildingCostConstruction: 50
 --- !u!114 &1764155164
 MonoBehaviour:
   m_ObjectHideFlags: 0
