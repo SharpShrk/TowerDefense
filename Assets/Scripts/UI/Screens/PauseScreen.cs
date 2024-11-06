@@ -36,15 +36,5 @@ namespace Ui
             CloseButtonClick?.Invoke();
             CloseScreen();
         }
-
-        private void OnOpen()
-        {
-            OpenScreen();
-        }
-
-        private void OnClose()
-        {
-            CloseScreen();
-        }
     }
 }

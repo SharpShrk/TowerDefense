@@ -30,10 +30,5 @@ namespace Ui
         {
             OpenScreen();
         }
-
-        private void OnClose()
-        {
-            CloseScreen();
-        }
     }
 }

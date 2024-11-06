@@ -64,7 +64,7 @@ namespace EnemyLogic
         {
             yield return _waitForSecounds;
 
-            //Died?.Invoke();
+            Died?.Invoke();
             _particleSystemExplosion.Stop();
         }
     }

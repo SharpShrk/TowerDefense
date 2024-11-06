@@ -34,10 +34,5 @@ namespace Ui
             DestroyEnemies?.Invoke();
             OpenScreen();
         }
-
-        private void OnClose()
-        {
-            CloseScreen();
-        }
     }
 }

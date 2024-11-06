@@ -5,6 +5,7 @@ using UnityEngine;
 namespace EnemyLogic
 {
     [RequireComponent(typeof(Animator), typeof(EnemyHealth), typeof(Collider))]
+    [RequireComponent(typeof(EnemyPointer))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private EnemyState _firstState;
@@ -20,6 +21,7 @@ namespace EnemyLogic
         private Transform _target;
         private Score _score;
         private Collider _collider;
+        private EnemyPointer _enemyPointer;
         private DestroyEnemiesAbility _destroyEnemiesAbility;
         private StrikeEnemiesAbility _strikeEnemiesAbility;
 
@@ -36,6 +38,7 @@ namespace EnemyLogic
             _animator = GetComponent<Animator>();
             _enemyHealth = GetComponent<EnemyHealth>();
             _collider = GetComponent<Collider>();
+            _enemyPointer = GetComponent<EnemyPointer>();
         }
 
         private void OnEnable()
@@ -123,6 +126,7 @@ namespace EnemyLogic
                 _collider.enabled = false;
                 Transit(_dieState);
                 _dieState.DieEnemy();
+                _enemyPointer.Destroy();
                 _score.AddScore(EnemyCard.Reward);
             }
         }
