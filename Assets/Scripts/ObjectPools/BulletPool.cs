@@ -65,6 +65,16 @@ public class BulletPool : MonoBehaviour
     {
         if (_bulletPoolQueue.Count < _maxPoolSize)
         {
+            bullet.transform.position = Vector3.zero;
+            bullet.transform.rotation = Quaternion.identity;
+
+            Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+            if (bulletRigidbody != null)
+            {
+                bulletRigidbody.velocity = Vector3.zero;
+                bulletRigidbody.angularVelocity = Vector3.zero;
+            }
+
             bullet.gameObject.SetActive(false);
             _bulletPoolQueue.Enqueue(bullet);
         }
