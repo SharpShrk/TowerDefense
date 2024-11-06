@@ -778,6 +778,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 2
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!1001 &25409022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4634,7 +4636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224712901}
-  - component: {fileID: 224712900}
+  - component: {fileID: 224712902}
   m_Layer: 0
   m_Name: SaveSystem
   m_TagString: Untagged
@@ -4642,19 +4644,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &224712900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224712899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07f7735656632904aa922ddd29dfc925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelSelected: {fileID: 739486288}
 --- !u!4 &224712901
 Transform:
   m_ObjectHideFlags: 0
@@ -4670,6 +4659,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &224712902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224712899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330023f3dd8873145992a007c7f0701d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelSelected: {fileID: 739486288}
 --- !u!1001 &224798992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17656,6 +17658,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 2
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!114 &899498505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18142,6 +18146,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 4
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!1 &919201080
 GameObject:
   m_ObjectHideFlags: 0
@@ -21225,6 +21231,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 1
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!114 &1050906727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21254,6 +21262,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 0
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!114 &1050906729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21283,6 +21293,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 3
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!1001 &1059537719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23733,6 +23745,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 4
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!114 &1171414423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29612,6 +29626,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 3
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!114 &1500336488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31967,6 +31983,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 0
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!114 &1631244285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37849,7 +37867,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935500218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff57cf9788defab4093e0c0ab146d96d, type: 3}
   m_Name: 
@@ -37886,11 +37904,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935500218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31d5b3d6731ef844ebc364f0da5fcdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _addHealthBaseAbility: {fileID: 0}
 --- !u!65 &1935500223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39753,6 +39772,8 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _buildType: 1
   _constructionZone: {fileID: 0}
+  _wallet: {fileID: 0}
+  _buildingCostConstruction: 0
 --- !u!114 &2016653428
 MonoBehaviour:
   m_ObjectHideFlags: 0

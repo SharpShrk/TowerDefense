@@ -4,17 +4,10 @@ namespace GameLogic
 {
     public class SaveSystem : MonoBehaviour
     {
-        private const string Level = "Level";
-
-        [SerializeField] private LevelSelected _levelSelected;
+        protected const string Level = "Level";
 
         private int _startNumberLevel = 1;
         private int _zero;
-
-        private void Awake()
-        {
-            Load();
-        }
 
         private void Start()
         {
@@ -47,17 +40,6 @@ namespace GameLogic
         private void Save(int index)
         {
             PlayerPrefs.SetInt(Level, index);
-        }
-
-        private void Load()
-        {
-            if (PlayerPrefs.HasKey(Level))
-            {
-                if (_levelSelected != null)
-                {
-                    _levelSelected.InitLevel(PlayerPrefs.GetInt(Level));
-                }
-            }
         }
 
         private void ResetSave()
