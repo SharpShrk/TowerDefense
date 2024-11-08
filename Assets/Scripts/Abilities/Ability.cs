@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Abilities
 {
@@ -13,9 +14,12 @@ namespace Abilities
         [SerializeField] private Image _lockImage;
         [SerializeField] private Image _abilityImage;
         [SerializeField] private Image _rechargeImage;
+        [SerializeField] private Image _adImage;
         [SerializeField] private AudioSource _activationSound;
+        [SerializeField] private bool _isActivatedAfterViewAd;
+        [SerializeField] private int _advertisingId;
+        [SerializeField] private ErrorVideoEventText _errorVideoEventText;
 
-        private float _minRechargeTime = 8;
         private int _oneUpdateDuration = 1;
         private float _tempRechargeTime;
         private float _minTempRechargeTime = 0;
@@ -26,41 +30,59 @@ namespace Abilities
         private Coroutine _recharge;
         private bool _isRecharging = false;
 
-        private void OnValidate()
-        {
-            if (!_isAvailableOnLevel)
-            {
-                _isAvailableOnStart = false;
-            }
-
-            if (_rechargeTime < _minRechargeTime)
-            {
-                _rechargeTime = _minRechargeTime;
-            }
-        }
-
         private void Awake()
         {
             _abilityButton = GetComponent<Button>();
-            _abilityButton.onClick.AddListener(Activate);
+            _abilityButton.onClick.AddListener(OnAbilityButtonClick);
 
             if (!_isAvailableOnLevel && _lockImage != null)
             {
                 _lockImage.gameObject.SetActive(true);
                 _abilityButton.interactable = false;
                 _abilityImage.color = _unavailableColor;
+                _isAvailableOnStart = false;
             }
 
             if (!_isAvailableOnStart && _isAvailableOnLevel)
             {
                 StartRecharging();
             }
+
+            if (_isActivatedAfterViewAd)
+            {
+                _rechargeTime = 0;
+                _adImage.gameObject.SetActive(true);
+            }
+            else
+            {
+                _adImage.gameObject.SetActive(false);
+            }
+        }
+
+        private void OnEnable()
+        {
+            YandexGame.RewardVideoEvent += OnRewarded;
+            YandexGame.ErrorVideoEvent += OnErrorVideoAdEvent;
         }
 
         private void OnDisable()
         {
-            _abilityButton.onClick.RemoveListener(Activate);
+            YandexGame.RewardVideoEvent -= OnRewarded;
+            YandexGame.ErrorVideoEvent -= OnErrorVideoAdEvent;
+            _abilityButton.onClick.RemoveListener(OnAbilityButtonClick);
             StopRecharging();
+        }
+
+        public virtual void OnAbilityButtonClick()
+        {
+            if (_isActivatedAfterViewAd)
+            {
+                YandexGame.RewVideoShow(_advertisingId);
+            }
+            else
+            {
+                Activate();
+            }
         }
 
         public virtual void Activate()
@@ -114,6 +136,19 @@ namespace Abilities
             _rechargeImage.gameObject.SetActive(false);
             _rechargeImage.fillAmount = _rechargeImageDefaultFill;
             StopRecharging();
+        }
+
+        private void OnRewarded(int id)
+        {
+            if (id == _advertisingId)
+            {
+                Activate();
+            }
+        }
+
+        private void OnErrorVideoAdEvent()
+        {
+            _errorVideoEventText.gameObject.SetActive(true);
         }
     }
 }
