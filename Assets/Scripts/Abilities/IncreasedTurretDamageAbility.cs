@@ -19,8 +19,8 @@ namespace Abilities
 
         public override void Activate()
         {
-            DamageIncreased?.Invoke(_duration);
             base.Activate();
+            DamageIncreased?.Invoke(_duration);
         }
     }
 }

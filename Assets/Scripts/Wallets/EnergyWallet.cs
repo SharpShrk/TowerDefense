@@ -26,12 +26,6 @@ public class EnergyWallet : MonoBehaviour
     public void AddEnergy(int amount)
     {
         _energyValue += amount;
-
-        if (_energyValue >= _maxEnergyValue)
-        {
-            _energyValue = _maxEnergyValue;
-        }
-
         OnEnergyValueChanged?.Invoke(_energyValue);
     }
 
