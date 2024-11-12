@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - Level: 1
-    AttackRange: 12
+    AttackRange: 14
     AttackCooldown: 0.8
     Damage: 15
     RotationSpeed: 500
   - Level: 2
-    AttackRange: 15
+    AttackRange: 16
     AttackCooldown: 0.6
     Damage: 20
-    RotationSpeed: 500
+    RotationSpeed: 600
   - Level: 3
-    AttackRange: 17
+    AttackRange: 19
     AttackCooldown: 0.4
     Damage: 25
-    RotationSpeed: 500
+    RotationSpeed: 700
