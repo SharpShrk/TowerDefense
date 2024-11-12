@@ -10,6 +10,7 @@ namespace GameLogic
     {
         [SerializeField] private EnemyHandler _enemyHandler;
         [SerializeField] private float _timeBetweenWaves = 5f;
+        [SerializeField] private float _startDelay = 30f;
         [SerializeField] private Wave[] _waves;
         [SerializeField] private Transform _container;
         [SerializeField] private EnemyTarget _enemyTarget;
@@ -24,7 +25,6 @@ namespace GameLogic
         private Coroutine _spawnWaveCoroutine;
         private WaitForSeconds _waitForSecoundsWave;
         private WaitForSeconds _waitForSecoundsEnemy;
-        private float _countdown = 10f;
         private int _waveIndex;
 
         public event Action<int, int> WaveChanger;
@@ -43,7 +43,7 @@ namespace GameLogic
 
         private void Start()
         {
-            _waitForSecoundsWave = new WaitForSeconds(_countdown);
+            _waitForSecoundsWave = new WaitForSeconds(_startDelay);
             _enemyPool.InitializeEnemyPool();
         }
 
