@@ -65,7 +65,7 @@ namespace EnemyLogic
         {
             _freezeDuration = freezeDuration;
             StopFreezing();
-            _freeze = StartCoroutine(SpawnWaves());
+            _freeze = StartCoroutine(StartFreeze());
         }
 
         private void StopFreezing()
@@ -76,12 +76,14 @@ namespace EnemyLogic
             }
         }
 
-        private IEnumerator SpawnWaves()
+        private IEnumerator StartFreeze()
         {
             WaitForSeconds waitForSeconds = new WaitForSeconds(_freezeDuration);
             _agent.speed = _frozenSpeed;
+            Animator.speed = 0;
             yield return waitForSeconds;
             _agent.speed = _defaultSpeed;
+            Animator.speed = 1;
         }
     }
 }
