@@ -16,16 +16,24 @@ public class UpgradePresenter: MonoBehaviour
 
     public void TryUpgradeBuilding(IUpgradeable building)
     {
-        _buildingCostUpgrade = building.gameObject.GetComponent<BuildingData>().BuildinCostUpgrade;
+        BuildingData buildingData = building.gameObject.GetComponent<BuildingData>();
 
-        if (_wallet.SpendMetal(_buildingCostUpgrade))
+        if(buildingData.BuidlingLevel < buildingData.BuidingMaxLevel)
         {
-            UpgradeBuidlding(building);
+            if (_wallet.SpendMetal(buildingData.BuildinCostUpgrade))
+            {
+                UpgradeBuidlding(building);
+            }
+            else
+            {
+                //вывести плашку, что не хватило средств
+            }
         }
         else
         {
-            //вывести плашку, что не хватило средств
+            //вывести плашку, что максимальный уровень уже достигнут
         }
+        
     }
 
     public void UpgradeBuidlding(IUpgradeable building)
