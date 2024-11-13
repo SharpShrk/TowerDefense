@@ -2355,7 +2355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyHandler: {fileID: 491067117}
   _timeBetweenWaves: 10
-  _startDelay: 2000
+  _startDelay: 25
   _waves:
   - _enemyCounts:
     - _enemyCard: {fileID: 11400000, guid: f9960422eab0c8a4987a751c698cd850, type: 2}
