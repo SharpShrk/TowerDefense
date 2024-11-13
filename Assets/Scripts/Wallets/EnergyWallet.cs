@@ -6,7 +6,6 @@ public class EnergyWallet : MonoBehaviour
     [SerializeField] private int _startEnergyValue;
 
     private int _energyValue;
-    private int _maxEnergyValue = 100;
 
     public event Action<int> OnEnergyValueChanged;
 

@@ -7,7 +7,7 @@ public class MetalWallet : MonoBehaviour
 
     private int _metalValue;
 
-    public event Action<int> OnMetalValueChanged;
+    public event Action<int> MetalValueChanged;
 
     public int MetalValue => _metalValue;
 
@@ -19,13 +19,13 @@ public class MetalWallet : MonoBehaviour
     private void SetStartValue(int value)
     {
         _metalValue = value;
-        OnMetalValueChanged?.Invoke(_metalValue);
+        MetalValueChanged?.Invoke(_metalValue);
     }
 
     public void AddMetal(int amount)
     {
         _metalValue += amount;
-        OnMetalValueChanged?.Invoke(_metalValue);
+        MetalValueChanged?.Invoke(_metalValue);
     }
 
     public bool SpendMetal(int amount)
@@ -36,7 +36,7 @@ public class MetalWallet : MonoBehaviour
         }
 
         _metalValue -= amount;
-        OnMetalValueChanged?.Invoke(_metalValue);
+        MetalValueChanged?.Invoke(_metalValue);
 
         return true;
     }

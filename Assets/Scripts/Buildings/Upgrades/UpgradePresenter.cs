@@ -1,9 +1,11 @@
+using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradePresenter: MonoBehaviour
 {
     [SerializeField] private UpgradeView _view;
-    [SerializeField] private MetalWallet _wallet;
+    [SerializeField] private EnergyWallet _wallet;
 
     private int _buildingCostUpgrade;
 
@@ -20,7 +22,7 @@ public class UpgradePresenter: MonoBehaviour
 
         if(buildingData.BuidlingLevel < buildingData.BuidingMaxLevel)
         {
-            if (_wallet.SpendMetal(buildingData.BuildinCostUpgrade))
+            if (_wallet.SpendEnergy(buildingData.BuildinCostUpgrade))
             {
                 UpgradeBuidlding(building);
             }
