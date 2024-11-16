@@ -1003,6 +1003,7 @@ MonoBehaviour:
   _dieState: {fileID: -7694678686260495581}
   _enemyCard: {fileID: 11400000, guid: 9571d348fa71c934eb2177f370d40690, type: 2}
   _moveState: {fileID: 2473543266341232733}
+  _targetShoot: {fileID: 1980273659073554732}
 --- !u!114 &2473543266341232733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1139,7 +1140,7 @@ Transform:
   m_GameObject: {fileID: 7178149222683742708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.55, z: 0.38}
+  m_LocalPosition: {x: 0, y: 10.56, z: 0.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
