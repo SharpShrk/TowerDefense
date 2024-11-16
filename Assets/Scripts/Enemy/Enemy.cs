@@ -12,7 +12,8 @@ namespace EnemyLogic
         [SerializeField] private DieState _dieState;
         [SerializeField] private EnemyCard _enemyCard;
         [SerializeField] private MoveState _moveState;
-
+        [SerializeField] private Transform _targetShoot;
+        
         private int _damageDivider = 3;
         private EnemyState _currentState;
         private Animator _animator;
@@ -32,6 +33,8 @@ namespace EnemyLogic
         public EnemyState DieState => _dieState;
 
         public EnemyCard EnemyCard => _enemyCard;
+
+        public Transform TargetShoot => _targetShoot;
 
         private void Awake()
         {
