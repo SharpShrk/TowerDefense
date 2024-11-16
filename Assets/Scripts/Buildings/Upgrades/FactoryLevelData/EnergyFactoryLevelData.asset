@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - Level: 1
-    ProductionValue: 10
     Cooldown: 10
   - Level: 2
-    ProductionValue: 20
     Cooldown: 10
   - Level: 3
-    ProductionValue: 20
     Cooldown: 5

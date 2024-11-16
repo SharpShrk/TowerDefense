@@ -1,4 +1,5 @@
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -12,7 +13,7 @@ namespace Advertising
         [SerializeField] private int _energyAdditionValue;
         [SerializeField] private TMP_Text _metalAdditionText;
         [SerializeField] private TMP_Text _energyAdditionText;
-        [SerializeField] private ErrorVideoEventText _errorVideoEventText;
+        [SerializeField] private Notifier _errorVideoEventText;
         [SerializeField] private EnergyWallet _energyWallet;
         [SerializeField] private MetalWallet _metalWallet;
 
