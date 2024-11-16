@@ -8,7 +8,7 @@ public class EnergyWallet : MonoBehaviour
     private int _energyValue;
     private int _maxEnergyValue = 100;
 
-    public event Action<int> OnEnergyValueChanged;
+    public event Action<int> EnergyValueChanged;
 
     public int EnergyValue => _energyValue;
 
@@ -20,13 +20,13 @@ public class EnergyWallet : MonoBehaviour
     private void SetStartValue(int value)
     {
         _energyValue = value;
-        OnEnergyValueChanged?.Invoke(_energyValue);
+        EnergyValueChanged?.Invoke(_energyValue);
     }
 
     public void AddEnergy(int amount)
     {
         _energyValue += amount;
-        OnEnergyValueChanged?.Invoke(_energyValue);
+        EnergyValueChanged?.Invoke(_energyValue);
     }
 
     public bool SpendEnergy(int amount)
@@ -37,7 +37,7 @@ public class EnergyWallet : MonoBehaviour
         }
 
         _energyValue -= amount;
-        OnEnergyValueChanged?.Invoke(_energyValue);
+        EnergyValueChanged?.Invoke(_energyValue);
 
         return true;
     }

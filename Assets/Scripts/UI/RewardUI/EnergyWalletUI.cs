@@ -8,11 +8,11 @@ public class EnergyWalletUI : RewardUI
 
     protected override void OnEnable()
     {
-        _energyWallet.OnEnergyValueChanged += SetValue;
+        _energyWallet.EnergyValueChanged += SetValue;
     }
 
     protected override void OnDisable()
     {
-        _energyWallet.OnEnergyValueChanged -= SetValue;
+        _energyWallet.EnergyValueChanged -= SetValue;
     }
 }

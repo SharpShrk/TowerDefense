@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UpgradePresenter: MonoBehaviour
+public class UpgradePresenter : MonoBehaviour
 {
     [SerializeField] private UpgradeView _view;
     [SerializeField] private EnergyWallet _wallet;
@@ -10,7 +10,6 @@ public class UpgradePresenter: MonoBehaviour
     public void OnBuildingSelected(GameObject building)
     {
         var upgradeable = building.GetComponent<IUpgradeable>();
-
         _view.ShowUpgradeOptions(upgradeable);
     }
 
@@ -18,22 +17,10 @@ public class UpgradePresenter: MonoBehaviour
     {
         BuildingData buildingData = building.gameObject.GetComponent<BuildingData>();
 
-        if(buildingData.BuidlingLevel < buildingData.BuidingMaxLevel)
+        if (_wallet.SpendEnergy(buildingData.BuildinCostUpgrade))
         {
-            if (_wallet.SpendEnergy(buildingData.BuildinCostUpgrade))
-            {
-                UpgradeBuidlding(building);
-            }
-            else
-            {
-                //вывести плашку, что не хватило средств
-            }
+            UpgradeBuidlding(building);
         }
-        else
-        {
-            //вывести плашку, что максимальный уровень уже достигнут
-        }
-        
     }
 
     public void UpgradeBuidlding(IUpgradeable building)

@@ -1,4 +1,5 @@
 using System.Collections;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -18,7 +19,7 @@ namespace Abilities
         [SerializeField] private AudioSource _activationSound;
         [SerializeField] private bool _isActivatedAfterViewAd;
         [SerializeField] private int _advertisingId;
-        [SerializeField] private ErrorVideoEventText _errorVideoEventText;
+        [SerializeField] private Notifier _errorVideoEventText;
 
         private int _oneUpdateDuration = 1;
         private float _tempRechargeTime;
