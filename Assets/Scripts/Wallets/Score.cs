@@ -6,10 +6,13 @@ using UnityEngine.Events;
 public class Score : MonoBehaviour
 {
     private int _score;
+    private int _allScore;
 
     public event UnityAction<int> OnScoreChanged;
 
     public int ScorePoints => _score;
+
+    public int AllScore => _allScore;
 
     private void Start()
     {
@@ -20,6 +23,12 @@ public class Score : MonoBehaviour
     public void AddScore(int amount)
     {
         _score += amount;
+        _allScore += amount;
         OnScoreChanged?.Invoke(_score);
+    }
+
+    public void Init(int score)
+    {
+        _allScore = score;
     }
 }
