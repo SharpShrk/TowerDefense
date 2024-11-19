@@ -9,10 +9,9 @@ public class LargeCaliberTurret : Turret
     protected override void Shoot()
     {
         Bullet bullet = Pool.GetBullet();
+        bullet.GetComponent<Bullet>().SetDamage((int)Damage);
+
         bullet.transform.position = _shootPoint.position;
         bullet.transform.rotation = _shootPoint.rotation;
-
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetDamage((int)Damage);
     }
 }

@@ -23,10 +23,9 @@ public class LaserTurret : Turret
         }
 
         Bullet bullet = Pool.GetBullet();
-        bullet.transform.position = ShootPoint.position;
-        bullet.transform.rotation = ShootPoint.rotation;
+        bullet.GetComponent<Bullet>().SetDamage((int)Damage);
 
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetDamage((int)Damage);
+        bullet.transform.position = ShootPoint.position;
+        bullet.transform.rotation = ShootPoint.rotation; 
     }
 }

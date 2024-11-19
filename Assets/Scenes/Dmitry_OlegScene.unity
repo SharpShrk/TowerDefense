@@ -9561,7 +9561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1205703260}
-  _wallet: {fileID: 1254956610}
+  _wallet: {fileID: 0}
 --- !u!114 &581909295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19570,7 +19570,11 @@ MonoBehaviour:
   _factoryUpgradeParametersDescription: {fileID: 431446508925322883}
   _upgradePresenter: {fileID: 581909294}
   _upgradeButton: {fileID: 1299592132}
+  _upgradeButtonText: {fileID: 1604864291}
+  _notEnoughEnergyText: {fileID: 0}
   _closeUpgradePanelButton: {fileID: 1075662653}
+  _maxLevelNotification: {fileID: 0}
+  _energyWallet: {fileID: 1282691098}
 --- !u!1001 &1208232947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29679,6 +29683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyHandler: {fileID: 2080596704}
   _timeBetweenWaves: 17
+  _startDelay: 30
   _waves:
   - _enemyCounts:
     - _enemyCard: {fileID: 11400000, guid: 7fe4e8c68ce00414c8c1f6ae3d287db3, type: 2}
