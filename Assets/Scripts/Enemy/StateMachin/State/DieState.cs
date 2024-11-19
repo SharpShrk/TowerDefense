@@ -23,6 +23,11 @@ namespace EnemyLogic
             _animator = GetComponent<Animator>();
         }
 
+        private void OnDisable()
+        {
+            StopCoroutine(WaitForDieAnimationEnd());
+        }
+
         private void Start()
         {
             _waitForSecounds = new WaitForSeconds(_delayBeforeDeath);

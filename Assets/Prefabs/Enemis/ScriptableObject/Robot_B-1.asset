@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 1
   _health: 120
-  _damage: 10
+  _damage: 25
   _reward: 5
-  _attackSpeed: 3
+  _attackSpeed: 1
   _particleSystemDie: {fileID: 3408410192944076130, guid: 053dad2da9abc6d40adfa2329308ee3a, type: 3}
   _template: {fileID: 8561966571583828697, guid: d09c26ce95c8eb94d94de7c672a8a843, type: 3}

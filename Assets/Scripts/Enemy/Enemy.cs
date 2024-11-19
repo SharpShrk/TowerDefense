@@ -13,6 +13,7 @@ namespace EnemyLogic
         [SerializeField] private EnemyCard _enemyCard;
         [SerializeField] private MoveState _moveState;
         [SerializeField] private Transform _targetShoot;
+        [SerializeField] private AttackState _attackState;
         
         private int _damageDivider = 3;
         private EnemyState _currentState;
@@ -56,6 +57,11 @@ namespace EnemyLogic
                 _strikeEnemiesAbility.Striked += OnEnemyStriked;
             }
 
+            if (_attackState != null)
+            {
+                _attackState.EnemieDestroyed += OnEnemyDied;
+            }
+
             _enemyHealth.Died += OnEnemyDied;
         }
 
@@ -69,6 +75,11 @@ namespace EnemyLogic
             if (_strikeEnemiesAbility != null)
             {
                 _strikeEnemiesAbility.Striked -= OnEnemyStriked;
+            }
+
+            if (_attackState != null)
+            {
+                _attackState.EnemieDestroyed -= OnEnemyDied;
             }
 
             _enemyHealth.Died -= OnEnemyDied;
@@ -130,6 +141,7 @@ namespace EnemyLogic
                 Transit(_dieState);
                 _dieState.DieEnemy();
                 _enemyPointer.Destroy();
+                _enemyHealth.ResetHealth();
                 _score.AddScore(EnemyCard.Reward);
             }
         }
