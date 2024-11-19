@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,51 +10,37 @@ namespace EnemyLogic
         private const string Attack = "Attack";
 
         private Enemy _enemy;
-        private Coroutine _attackCoroutine;
         private WaitForSeconds _waitForSecounds;
+
+        public event Action EnemieDestroyed;
 
         private void Awake()
         {
             _enemy = GetComponent<Enemy>();
         }
 
-        private void OnEnable()
-        {
-            if (enabled)
-                StartAttack();
-        }
-
         private void OnDisable()
         {
-            if (_attackCoroutine != null)
-            {
-                StopCoroutine(_attackCoroutine);
-            }
+            StopCoroutine(WaitForDieAnimationEnd());
         }
 
         private void Start()
         {
             _waitForSecounds = new WaitForSeconds(_enemy.EnemyCard.AttackSpeed);
+            AttackTarget();
         }
 
-        private void StartAttack()
-        {
-            if (_attackCoroutine != null)
-            {
-                StopCoroutine(_attackCoroutine);
-            }
-
-            _attackCoroutine = StartCoroutine(AttackCoroutine());
-        }
-
-        private IEnumerator AttackCoroutine()
+        private void AttackTarget()
         {
             Animator.SetTrigger(Attack);
             EnemyTarget.GetComponent<EnemyTargetHealth>().TakeDamage(_enemy.EnemyCard.Damage);
-            yield return _waitForSecounds;
+            StartCoroutine(WaitForDieAnimationEnd());
+        }
 
-            if (EnemyTarget.IsAlive())
-                StartAttack();
+        private IEnumerator WaitForDieAnimationEnd()
+        {
+            yield return _waitForSecounds;
+            EnemieDestroyed?.Invoke();
         }
     }
 }

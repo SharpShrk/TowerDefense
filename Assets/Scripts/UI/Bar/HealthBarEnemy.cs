@@ -7,6 +7,7 @@ namespace Ui
     public class HealthBarEnemy : Bar
     {
         [SerializeField] private EnemyHealth _enemyHealth;
+        [SerializeField] protected DieState _dieState;
         
         private WaitForSeconds _waitForSecounds;
         private float _delayBeforeHide = 2f;
@@ -19,12 +20,14 @@ namespace Ui
             Slider.gameObject.SetActive(false);
             _enemyHealth.HealthChanged += OnSliderChanger;
             _enemyHealth.Died += OnHideSliderBeforeDeth;
+            _dieState.Died += OnHideSliderBeforeDeth;
         }
 
         private void OnDisable()
         {
             _enemyHealth.HealthChanged -= OnSliderChanger;
-            _enemyHealth.Died += OnHideSliderBeforeDeth;
+            _enemyHealth.Died -= OnHideSliderBeforeDeth;
+            _dieState.Died -= OnHideSliderBeforeDeth;
         }
 
         private void Start()

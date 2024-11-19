@@ -1,9 +1,20 @@
 using UnityEngine;
+using YG;
 
 namespace GameLogic
 {
     public class GamePaused : MonoBehaviour
     {
+        private void OnEnable()
+        {
+            YandexGame.onVisibilityWindowGame += OnVisibilityWindowGame;
+        }
+
+        private void OnDisable()
+        {
+            YandexGame.onVisibilityWindowGame -= OnVisibilityWindowGame;
+        }
+
         private void OnApplicationPause(bool isPaused)
         {
             if (isPaused)
@@ -25,6 +36,18 @@ namespace GameLogic
             else
             {
                 ChangeState(false, 1);
+            }
+        }
+
+        void OnVisibilityWindowGame(bool visible)
+        {
+            if (visible)
+            {
+                ChangeState(false, 1);
+            }
+            else
+            {
+                ChangeState(true, 0);
             }
         }
 

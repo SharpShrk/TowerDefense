@@ -134,6 +134,7 @@ MonoBehaviour:
   _enemyCard: {fileID: 11400000, guid: f9960422eab0c8a4987a751c698cd850, type: 2}
   _moveState: {fileID: 4394920248928590546}
   _targetShoot: {fileID: 7394507838178170838}
+  _attackState: {fileID: 5240952135616717307}
 --- !u!195 &1184651461803469588
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -606,6 +607,7 @@ MonoBehaviour:
   _rateChange: 3
   Slider: {fileID: 8165342473369081690}
   _enemyHealth: {fileID: 8156860646968858096}
+  _dieState: {fileID: 5460947465810719912}
 --- !u!1 &1825265354360846167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1665,7 @@ Transform:
   m_GameObject: {fileID: 8743614061265101922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.065, z: 0}
+  m_LocalPosition: {x: 0, y: 0.333, z: -0.085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

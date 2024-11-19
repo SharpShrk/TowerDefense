@@ -17,5 +17,10 @@ namespace EnemyLogic
             Init(_enemy.EnemyCard.Health);
             gameObject.GetComponent<Collider>().enabled = true;
         }
+
+        public void ResetHealth()
+        {
+            _health = 0;
+        }
     }
 }
