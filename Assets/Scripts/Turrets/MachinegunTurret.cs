@@ -11,6 +11,7 @@ public class MachinegunTurret : Turret
     protected override void Shoot()
     {
         Bullet bullet = Pool.GetBullet();
+        bullet.GetComponent<Bullet>().SetDamage((int)Damage);
 
         ShootPoint = _shootPoints[_currentShootPointIndex];
 
@@ -18,8 +19,5 @@ public class MachinegunTurret : Turret
         bullet.transform.rotation = ShootPoint.rotation;
 
         _currentShootPointIndex = (_currentShootPointIndex + 1) % _shootPoints.Length;
-
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetDamage((int)Damage);
     }
 }

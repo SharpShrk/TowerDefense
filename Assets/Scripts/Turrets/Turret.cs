@@ -21,9 +21,15 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
     public BuildType Type { get; protected set; }
     public bool IsPlaced { get; private set; }
 
+    private void OnDisable()
+    {
+        Data.OnParametersUpdated -= SetParameters;
+    }
+
     protected void Start()
     {
         Data = GetComponent<TurretData>();
+        Data.OnParametersUpdated += SetParameters;
 
         IsPlaced = false;
         

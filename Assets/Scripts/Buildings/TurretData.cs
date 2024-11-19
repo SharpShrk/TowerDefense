@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class TurretData : BuildingData
     public float Damage => _damage;
     public float RotationSpeed => _rotationSpeed;
 
+    public event Action OnParametersUpdated;
+
     private void Awake()
     {  
         ApplyUpgrade(BuidlingLevel);
@@ -31,7 +34,7 @@ public class TurretData : BuildingData
             _damage = upgradeLevelData.Damage;
             _rotationSpeed = upgradeLevelData.RotationSpeed;
 
-            Debug.Log("Уровень повышен до " + Level);
+            OnParametersUpdated?.Invoke();
         }
         else
         {
