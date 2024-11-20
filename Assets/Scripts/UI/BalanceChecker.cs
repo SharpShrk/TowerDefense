@@ -19,12 +19,12 @@ namespace UI
             _buildButton = GetComponent<Button>();
             _buildButtonHandler = GetComponent<CreateBuildingButtonHandler>();
             _buildingCost = _buildButtonHandler.BuildingCost;
-            _metalWallet.MetalValueChanged += OnMetalValueChanged;
+            _metalWallet.ValueChanged += OnMetalValueChanged;
         }
 
         private void OnDisable()
         {
-            _metalWallet.MetalValueChanged -= OnMetalValueChanged;
+            _metalWallet.ValueChanged -= OnMetalValueChanged;
         }
 
         private void OnMetalValueChanged(int metalValue)

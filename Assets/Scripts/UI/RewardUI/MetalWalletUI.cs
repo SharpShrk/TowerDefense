@@ -8,11 +8,11 @@ public class MetalWalletUI : RewardUI
 
     protected override void OnEnable()
     {
-        _metalWallet.MetalValueChanged += SetValue;
+        _metalWallet.ValueChanged += SetValue;
     }
 
     protected override void OnDisable()
     {
-        _metalWallet.MetalValueChanged -= SetValue;
+        _metalWallet.ValueChanged -= SetValue;
     }
 }

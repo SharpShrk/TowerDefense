@@ -49,8 +49,8 @@ namespace Advertising
         {
             if (id == _advertisingId)
             {
-                _metalWallet.AddMetal(_metalAdditionValue);
-                _energyWallet.AddEnergy(_energyAdditionValue);
+                _metalWallet.AddResource(_metalAdditionValue);
+                _energyWallet.AddResource(_energyAdditionValue);
             }
         }
 

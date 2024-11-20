@@ -14,7 +14,7 @@ namespace GameResources
 
         protected override void AddValueInWallet()
         {
-            _wallet.AddEnergy(_value);
+            _wallet.AddResource(_value);
             ReturnToPool();
         }
 
