@@ -15,7 +15,7 @@ public class UpgradePresenter : MonoBehaviour
     {
         BuildingData buildingData = building.gameObject.GetComponent<BuildingData>();
 
-        if (_wallet.SpendEnergy(buildingData.BuildinCostUpgrade))
+        if (_wallet.SpendResource(buildingData.BuildinCostUpgrade))
         {
             UpgradeBuidlding(building);
         }

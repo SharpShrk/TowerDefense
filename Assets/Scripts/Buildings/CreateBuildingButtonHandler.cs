@@ -72,7 +72,7 @@ public class CreateBuildingButtonHandler : MonoBehaviour
             {
                 if (CanPlaceBuilding(buildingPlace))
                 {
-                    if (_wallet.SpendMetal(_buildingCostConstruction))
+                    if (_wallet.SpendResource(_buildingCostConstruction))
                     {
                         _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
                         buildingPlace.CloseCell();

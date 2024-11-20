@@ -51,7 +51,7 @@ public class MainBaseUpgrader : MonoBehaviour
 
     private void TryUpgrade()
     {
-        if (_wallet.SpendMetal(_costUpgrade))
+        if (_wallet.SpendResource(_costUpgrade))
         {
             ApplyUpgrade();
             CloseUpgradePanel();

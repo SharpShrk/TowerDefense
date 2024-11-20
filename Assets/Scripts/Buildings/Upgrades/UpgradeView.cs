@@ -24,7 +24,7 @@ public class UpgradeView : MonoBehaviour
 
     private void Awake()
     {
-        _energyWallet.EnergyValueChanged += OnEnergyValueChanged;
+        _energyWallet.ValueChanged += OnEnergyValueChanged;
     }
 
     private void OnEnable()
@@ -37,7 +37,7 @@ public class UpgradeView : MonoBehaviour
     {
         _upgradeButton.onClick?.RemoveListener(OnButtonUpgradeClick);
         _closeUpgradePanelButton.onClick.AddListener(HideUpgradeOptions);
-        _energyWallet.EnergyValueChanged -= OnEnergyValueChanged;
+        _energyWallet.ValueChanged -= OnEnergyValueChanged;
     }
 
     public void ShowUpgradeOptions(IUpgradeable upgradeable)
@@ -65,7 +65,7 @@ public class UpgradeView : MonoBehaviour
             if (_currentBuildingData.BuidlingLevel < _currentBuildingData.BuidingMaxLevel)
             {
                 _upgradePanel.SetActive(true);
-                SetUpgradeButtonState(_energyWallet.EnergyValue);
+                SetUpgradeButtonState(_energyWallet.CurrentValue);
             }
             else
             {
