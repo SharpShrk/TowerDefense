@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourcesFactoryData : BuildingData
@@ -21,12 +19,6 @@ public class ResourcesFactoryData : BuildingData
         {
             var upgradeLevelData = _upgradeData.Levels[level - 1];
             _cooldown = upgradeLevelData.Cooldown;
-
-            Debug.Log("Уровень повышен до " + Level);
-        }
-        else
-        {
-            Debug.Log("Произошла какая то ошибка при апгрейде");
         }
     }
 }

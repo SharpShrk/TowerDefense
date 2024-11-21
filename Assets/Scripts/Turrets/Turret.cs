@@ -2,6 +2,7 @@ using EnemyLogic;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
 {
@@ -10,7 +11,7 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
 
     protected Transform ShootPoint;
     protected TurretData Data;
-    protected GameObject Target;
+    //protected GameObject Target;
     protected BulletPool Pool;
     protected float AttackRange;
     protected float AttackCooldown;
@@ -33,7 +34,7 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
 
         IsPlaced = false;
         
-        PlaceTurret(); //временное решение для инициализации        
+        PlaceTurret();      
     }
 
     public void SetPool(object pool)
@@ -55,7 +56,6 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
     {
         Data = GetComponent<TurretData>();
 
-        Debug.Log("Дальность атаки " + Data.AttackRange);
         AttackRange = Data.AttackRange;
         CurrentAttackCooldown = Data.AttackCooldown;
         Damage = Data.Damage;
@@ -63,40 +63,18 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
         RotationSpeed = Data.RotationSpeed;
     }    
 
-    protected GameObject SearchAttackTarget()
+    protected Enemy SearchAttackTarget()
     {
-        Target = null;
+        /*Target = null;
         float closestDistance = AttackRange;
 
-        /*int maxColliders = 10;
-        Collider[] hitColliders = new Collider[maxColliders];
-        int numColliders = Physics.OverlapSphereNonAlloc(transform.position, AttackRange, hitColliders);
-
-        for(int i = 0; i < numColliders; i++)
-        {
-            
-            if (hitColliders[i].TryGetComponent<Enemy>(out var enemy))
-            {
-                float distanceToEnemy = Vector3.Distance(transform.position, hitColliders[i].transform.position);
-
-                if (distanceToEnemy < closestDistance)
-                {
-                    closestDistance = distanceToEnemy;
-                    Target = hitColliders[i].gameObject;
-                }
-            }
-        }*/
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, AttackRange);
-
-        Debug.Log(AttackRange);
 
         float closestDistanceSqr = AttackRange * AttackRange;
 
         foreach (Collider collider in colliders)
         {
-            //Debug.Log(collider.name);
-
             if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 float distanceToEnemySqr = (transform.position - collider.transform.position).sqrMagnitude;
@@ -109,12 +87,33 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
             }
         }
 
-        return Target;
+        return Target;*/
+
+        Enemy closestEnemy = null;
+        float closestDistanceSqr = AttackRange * AttackRange;
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, AttackRange);
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                float distanceToEnemySqr = (transform.position - collider.transform.position).sqrMagnitude;
+
+                if (distanceToEnemySqr < closestDistanceSqr)
+                {
+                    closestDistanceSqr = distanceToEnemySqr;
+                    closestEnemy = enemy;
+                }
+            }
+        }
+
+        return closestEnemy;
     }
 
-    protected void RotationGun(GameObject target)
+    protected void RotationGun(Enemy enemy)
     {
-        Vector3 targetDirection = target.transform.position - RotatingPlatform.transform.position;
+        /*Vector3 targetDirection = target.transform.position - RotatingPlatform.transform.position;
         targetDirection.y = 0;
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
         Quaternion currentRotation = RotatingPlatform.transform.rotation;
@@ -130,6 +129,26 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
         float angleToTarget = Mathf.Atan2(yDifference, distanceToTarget) * Mathf.Rad2Deg;
         angleToTarget = Mathf.Clamp(angleToTarget, -75f, 75f);
 
+        Gun.transform.localRotation = Quaternion.Euler(-angleToTarget, 0, 0);*/
+
+        Transform targetPoint = enemy.TargetShoot;
+
+        Vector3 targetDirection = targetPoint.position - RotatingPlatform.transform.position;
+        targetDirection.y = 0;
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        Quaternion currentRotation = RotatingPlatform.transform.rotation;
+        Vector3 currentRotationEuler = currentRotation.eulerAngles;
+        float yRotation = targetRotation.eulerAngles.y;
+        Vector3 newRotationEuler = new(currentRotationEuler.x, yRotation, currentRotationEuler.z);
+        Quaternion newTargetRotation = Quaternion.Euler(newRotationEuler);
+        RotatingPlatform.transform.rotation = Quaternion.Lerp(currentRotation, newTargetRotation, Time.deltaTime * RotationSpeed);
+
+        Vector3 directionToTarget = targetPoint.position - Gun.transform.position;
+        float yDifference = directionToTarget.y;
+        float distanceToTarget = directionToTarget.magnitude;
+        float angleToTarget = Mathf.Atan2(yDifference, distanceToTarget) * Mathf.Rad2Deg;
+        angleToTarget = Mathf.Clamp(angleToTarget, -75f, 75f);
+
         Gun.transform.localRotation = Quaternion.Euler(-angleToTarget, 0, 0);
     }
 
@@ -138,7 +157,7 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
         while (IsPlaced)
         {
             var attackCooldown = new WaitForSeconds(CurrentAttackCooldown);
-            GameObject target = SearchAttackTarget();
+            Enemy target = SearchAttackTarget();
 
             if (target != null)
             {

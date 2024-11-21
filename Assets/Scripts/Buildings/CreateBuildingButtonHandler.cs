@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class CreateBuildingButtonHandler : MonoBehaviour
 {
     [SerializeField] private BuildFactory _buildFactory;
@@ -10,6 +12,7 @@ public class CreateBuildingButtonHandler : MonoBehaviour
     [SerializeField] private MetalWallet _wallet;
     [SerializeField] private int _buildingCostConstruction;
 
+    private Button _buildingButton;
     private bool _waitingForPlacement = false;
 
     public int BuildingCost => _buildingCostConstruction;
@@ -23,7 +26,18 @@ public class CreateBuildingButtonHandler : MonoBehaviour
         buildType == BuildType.EnergyFactory ||
         buildType == BuildType.MetalFactory;
 
-    public void StartPlacingBuilding() //для чего это?
+    private void OnEnable()
+    {
+        _buildingButton = gameObject.GetComponent<Button>();
+        _buildingButton.onClick.AddListener(StartPlacingBuildingOnClick);
+    }
+
+    private void OnDisable()
+    {
+        _buildingButton.onClick.RemoveListener(StartPlacingBuildingOnClick);
+    }
+
+    private void StartPlacingBuildingOnClick()
     {
         _waitingForPlacement = true;
         StartCoroutine(WaitForPlacementCoroutine());
