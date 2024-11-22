@@ -25,6 +25,6 @@ MonoBehaviour:
     RotationSpeed: 600
   - Level: 3
     AttackRange: 16
-    AttackCooldown: 0.2
+    AttackCooldown: 0.3
     Damage: 20
     RotationSpeed: 700
