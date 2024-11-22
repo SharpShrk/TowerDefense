@@ -8455,7 +8455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8580f0632e43404891d883b01e6d487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEnergyValue: 500
+  _startValue: 500
 --- !u!4 &416285404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4505771550504674, guid: 3fe657434d75aeb4583c593cb268436b, type: 3}
@@ -17008,7 +17008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846405a3fbab39c49b97f2c558816a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMetalValue: 300
+  _startValue: 500
 --- !u!1001 &768108294
 PrefabInstance:
   m_ObjectHideFlags: 0
