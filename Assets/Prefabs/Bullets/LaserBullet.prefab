@@ -251,6 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45af70afb98659442bf120d7a4fc7f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 60
+  _speed: 80
   _lifetime: 3
   _defaultDamage: 10
+  _splashDamageMultiplier: 0
+  _hasSplashDamage: 0
+  _splashRadius: 0
