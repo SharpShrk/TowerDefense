@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - Level: 1
-    Cooldown: 10
+    Cooldown: 15
   - Level: 2
     Cooldown: 10
   - Level: 3

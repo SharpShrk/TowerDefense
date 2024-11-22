@@ -139,7 +139,7 @@ public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
         Quaternion currentRotation = RotatingPlatform.transform.rotation;
         Vector3 currentRotationEuler = currentRotation.eulerAngles;
         float yRotation = targetRotation.eulerAngles.y;
-        Vector3 newRotationEuler = new(currentRotationEuler.x, yRotation, currentRotationEuler.z);
+        Vector3 newRotationEuler = new Vector3(currentRotationEuler.x, yRotation, currentRotationEuler.z);
         Quaternion newTargetRotation = Quaternion.Euler(newRotationEuler);
         RotatingPlatform.transform.rotation = Quaternion.Lerp(currentRotation, newTargetRotation, Time.deltaTime * RotationSpeed);
 
