@@ -7,8 +7,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float _lifetime = 3f;
     [SerializeField] private int _defaultDamage = 10;
+    [SerializeField] private float _splashDamageMultiplier;
+    [SerializeField] private bool _hasSplashDamage = false;
+    [SerializeField] private float _splashRadius = 5f;
 
     private int _damage;
+    private int _splashDamage;
     private Rigidbody _rigidbody;
     private BulletPool _bulletPool;
     private bool _isIncreasedDamage = false;
@@ -17,6 +21,7 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _damage = _defaultDamage;
+        _splashDamage = (int)(_damage * _splashDamageMultiplier);
     }
 
     private void OnEnable()
@@ -33,12 +38,23 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //var damageable = collision.gameObject.GetComponent<IDamageable>();
         var damageable = collision.gameObject.GetComponent<EnemyHealth>();
 
         if (damageable != null)
         {
             damageable.TakeDamage(_damage);
+
+            if (_hasSplashDamage)
+            {
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, _splashRadius);
+                foreach (Collider hitCollider in hitColliders)
+                {
+                    if (hitCollider.gameObject != collision.gameObject && hitCollider.TryGetComponent<EnemyHealth>(out EnemyHealth nearbyEnemy))
+                    {
+                        nearbyEnemy.TakeDamage(_splashDamage);
+                    }
+                }
+            }
         }
 
         ReturnToPool();
@@ -59,6 +75,8 @@ public class Bullet : MonoBehaviour
         {
             _damage = damage;
         }
+
+        _splashDamage = (int)(_damage * _splashDamageMultiplier);
     }
 
     public int GetDefaultDamage()

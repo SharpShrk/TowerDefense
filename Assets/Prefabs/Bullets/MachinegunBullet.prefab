@@ -264,6 +264,9 @@ MonoBehaviour:
   _speed: 20
   _lifetime: 3
   _defaultDamage: 10
+  _splashDamageMultiplier: 0
+  _hasSplashDamage: 0
+  _splashRadius: 0
 --- !u!1001 &7588316809306312655
 PrefabInstance:
   m_ObjectHideFlags: 0
