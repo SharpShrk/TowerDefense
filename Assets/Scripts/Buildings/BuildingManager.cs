@@ -1,21 +1,24 @@
 using UnityEngine;
 using System.Collections.Generic;
-using ResourcesFactories;
+using Interfaces;
 
-public class BuildingManager : MonoBehaviour
+namespace Buildings
 {
-    private List<IBuilding> _buildings = new List<IBuilding>();
-
-    public void RegisterBuilding(IBuilding building)
+    public class BuildingManager : MonoBehaviour
     {
-        if (!_buildings.Contains(building))
+        private List<IBuilding> _buildings = new List<IBuilding>();
+
+        public void RegisterBuilding(IBuilding building)
         {
-            _buildings.Add(building);
+            if (!_buildings.Contains(building))
+            {
+                _buildings.Add(building);
+            }
         }
-    }
 
-    public void UnregisterBuilding(IBuilding building)
-    {
-        _buildings.Remove(building);
+        public void UnregisterBuilding(IBuilding building)
+        {
+            _buildings.Remove(building);
+        }
     }
 }

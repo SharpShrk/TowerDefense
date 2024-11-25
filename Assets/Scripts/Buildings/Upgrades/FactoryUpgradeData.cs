@@ -1,7 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewFactoryUpgradeData", menuName = "Upgrades/Factory")]
-public class FactoryUpgradeData : ScriptableObject
+namespace Upgrades
 {
-    public FactoryUpgradeLevelData[] Levels;
+    [CreateAssetMenu(fileName = "NewFactoryUpgradeData", menuName = "Upgrades/Factory")]
+    public class FactoryUpgradeData : ScriptableObject
+    {
+        public FactoryUpgradeLevelData[] Levels;
+    }
 }

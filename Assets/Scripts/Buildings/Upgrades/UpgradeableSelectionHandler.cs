@@ -1,27 +1,31 @@
+using Interfaces;
 using UnityEngine;
 
-public class UpgradeableSelectionHandler : MonoBehaviour
+namespace Upgrades
 {
-    [SerializeField] private Camera _mainCamera;
-    [SerializeField] private UpgradePresenter _upgradePresenter;
-
-    private void Update()
+    public class UpgradeableSelectionHandler : MonoBehaviour
     {
-        if (Input.GetMouseButtonDown(0))
+        [SerializeField] private Camera _mainCamera;
+        [SerializeField] private UpgradePresenter _upgradePresenter;
+
+        private void Update()
         {
-            RaycastHit[] hits;
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            hits = Physics.RaycastAll(ray);
-
-            foreach (RaycastHit hit in hits)
+            if (Input.GetMouseButtonDown(0))
             {
-                if(!hit.collider.isTrigger)
-                {
-                    var upgradeableComponent = hit.collider.GetComponent<IUpgradeable>();
+                RaycastHit[] hits;
+                Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+                hits = Physics.RaycastAll(ray);
 
-                    if (upgradeableComponent != null)
+                foreach (RaycastHit hit in hits)
+                {
+                    if (!hit.collider.isTrigger)
                     {
-                        _upgradePresenter.OnBuildingSelected(hit.collider.gameObject);
+                        var upgradeableComponent = hit.collider.GetComponent<IUpgradeable>();
+
+                        if (upgradeableComponent != null)
+                        {
+                            _upgradePresenter.OnBuildingSelected(hit.collider.gameObject);
+                        }
                     }
                 }
             }

@@ -1,25 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+using Buildings;
+using Interfaces;
 using UnityEngine;
 
-public class BuildingUpgrader : MonoBehaviour, IUpgradeable
+namespace Upgrades
 {
-    private BuildingData _data;
-
-    private void Start()
+    [RequireComponent(typeof(BuildingData))]
+    public class BuildingUpgrader : MonoBehaviour, IUpgradeable
     {
-        _data = GetComponent<BuildingData>();
-    }
+        private BuildingData _data;
 
-    public void Upgrade()
-    {
-        if (_data is TurretData turretData)
+        private void Start()
         {
-            turretData.LevelUp(turretData.BuidlingLevel + 1);
+            _data = GetComponent<BuildingData>();
         }
-        else if (_data is ResourcesFactoryData factoryData)
+
+        public void Upgrade()
         {
-            factoryData.LevelUp(factoryData.BuidlingLevel + 1);
+            if (_data is TurretData turretData)
+            {
+                turretData.LevelUp(turretData.BuidlingLevel + 1);
+            }
+            else if (_data is ResourcesFactoryData factoryData)
+            {
+                factoryData.LevelUp(factoryData.BuidlingLevel + 1);
+            }
         }
     }
 }

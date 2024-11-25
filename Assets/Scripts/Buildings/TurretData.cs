@@ -1,44 +1,42 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Upgrades;
 
-public class TurretData : BuildingData
+namespace Buildings
 {
-    [SerializeField] private TurretUpgradeData _upgradeData;
-
-    private float _attackRange;
-    private float _attackCooldown;
-    private float _damage;
-    private float _rotationSpeed;
-
-    public float AttackRange => _attackRange;
-    public float AttackCooldown => _attackCooldown;
-    public float Damage => _damage;
-    public float RotationSpeed => _rotationSpeed;
-
-    public event Action OnParametersUpdated;
-
-    private void Awake()
-    {  
-        ApplyUpgrade(BuidlingLevel);
-    }
-
-    protected override void ApplyUpgrade(int level)
+    public class TurretData : BuildingData
     {
-        if (level <= _upgradeData.Levels.Length)
-        {
-            var upgradeLevelData = _upgradeData.Levels[level-1];
-            _attackRange = upgradeLevelData.AttackRange;
-            _attackCooldown = upgradeLevelData.AttackCooldown;
-            _damage = upgradeLevelData.Damage;
-            _rotationSpeed = upgradeLevelData.RotationSpeed;
+        [SerializeField] private TurretUpgradeData _upgradeData;
 
-            OnParametersUpdated?.Invoke();
-        }
-        else
+        private float _attackRange;
+        private float _attackCooldown;
+        private float _damage;
+        private float _rotationSpeed;
+
+        public float AttackRange => _attackRange;
+        public float AttackCooldown => _attackCooldown;
+        public float Damage => _damage;
+        public float RotationSpeed => _rotationSpeed;
+
+        public event Action OnParametersUpdated;
+
+        private void Awake()
         {
-            Debug.Log("Произошла какая то ошибка при апгрейде");
+            ApplyUpgrade(BuidlingLevel);
+        }
+
+        protected override void ApplyUpgrade(int level)
+        {
+            if (level <= _upgradeData.Levels.Length)
+            {
+                var upgradeLevelData = _upgradeData.Levels[level - 1];
+                _attackRange = upgradeLevelData.AttackRange;
+                _attackCooldown = upgradeLevelData.AttackCooldown;
+                _damage = upgradeLevelData.Damage;
+                _rotationSpeed = upgradeLevelData.RotationSpeed;
+
+                OnParametersUpdated?.Invoke();
+            }
         }
     }
 }

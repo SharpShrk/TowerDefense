@@ -1,4 +1,6 @@
 using EnemyLogic;
+using GameResources;
+using System;
 using System.Collections;
 using UnityEngine;
 

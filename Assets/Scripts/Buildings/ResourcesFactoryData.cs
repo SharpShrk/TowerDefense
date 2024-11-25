@@ -1,24 +1,28 @@
 using UnityEngine;
+using Upgrades;
 
-public class ResourcesFactoryData : BuildingData
+namespace Buildings
 {
-    [SerializeField] private FactoryUpgradeData _upgradeData;
-
-    private float _cooldown;
-
-    public float Cooldown => _cooldown;
-
-    private void Start()
+    public class ResourcesFactoryData : BuildingData
     {
-        ApplyUpgrade(BuidlingLevel);
-    }
+        [SerializeField] private FactoryUpgradeData _upgradeData;
 
-    protected override void ApplyUpgrade(int level)
-    {
-        if (level <= _upgradeData.Levels.Length)
+        private float _cooldown;
+
+        public float Cooldown => _cooldown;
+
+        private void Start()
         {
-            var upgradeLevelData = _upgradeData.Levels[level - 1];
-            _cooldown = upgradeLevelData.Cooldown;
+            ApplyUpgrade(BuidlingLevel);
+        }
+
+        protected override void ApplyUpgrade(int level)
+        {
+            if (level <= _upgradeData.Levels.Length)
+            {
+                var upgradeLevelData = _upgradeData.Levels[level - 1];
+                _cooldown = upgradeLevelData.Cooldown;
+            }
         }
     }
 }

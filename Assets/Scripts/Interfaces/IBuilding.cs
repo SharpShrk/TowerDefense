@@ -1,4 +1,4 @@
-public interface IBuilding
+namespace Interfaces
 {
-
+    public interface IBuilding { }
 }

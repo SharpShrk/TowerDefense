@@ -1,10 +1,12 @@
 using System.Collections;
+using Buildings;
 using GameResources;
+using Interfaces;
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace ResourcesFactories
 {
+    [RequireComponent(typeof(ResourcesFactoryData))]
     public abstract class ResourcesFactory : MonoBehaviour, IBuilding, IPoolable
     {
         [SerializeField] private Resource _spawningResource;

@@ -3,124 +3,124 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPool : MonoBehaviour
+namespace GameResources
 {
-    [SerializeField] private Bullet _bulletPrefab;
-    [SerializeField] private int _initialPoolSize = 30;
-    [SerializeField] private int _maxPoolSize = 100;
-    [SerializeField] private GameObject _bulletContainer;
-    [SerializeField] private IncreasedTurretDamageAbility _increasedTurretDamageAbility;
-
-    private Queue<Bullet> _bulletPoolQueue;
-    private float _duration;
-    private Coroutine _increaseDamage;
-
-    private void Awake()
+    public class BulletPool : MonoBehaviour
     {
-        InitializePool();
-        _increasedTurretDamageAbility.DamageIncreased += OnDamageIncreased;
-    }
+        [SerializeField] private Bullet _bulletPrefab;
+        [SerializeField] private int _initialPoolSize = 30;
+        [SerializeField] private int _maxPoolSize = 100;
+        [SerializeField] private GameObject _bulletContainer;
+        [SerializeField] private IncreasedTurretDamageAbility _increasedTurretDamageAbility;
 
-    private void OnDisable()
-    {
-        _increasedTurretDamageAbility.DamageIncreased -= OnDamageIncreased;
-        StopIncreaseDamage();
-    }
+        private Queue<Bullet> _bulletPoolQueue;
+        private float _duration;
+        private Coroutine _increaseDamage;
 
-    private void InitializePool()
-    {
-        _bulletPoolQueue = new Queue<Bullet>();
-
-        for (int i = 0; i < _initialPoolSize; i++)
+        private void Awake()
         {
-            Bullet bullet = Instantiate(_bulletPrefab);
-            bullet.gameObject.SetActive(false);
-            bullet.transform.SetParent(_bulletContainer.transform);
-            bullet.GetComponent<Bullet>().Init(this);
-            _bulletPoolQueue.Enqueue(bullet);
-        }
-    }
-
-    public Bullet GetBullet()
-    {
-        if (_bulletPoolQueue.Count > 0)
-        {
-            Bullet bullet = _bulletPoolQueue.Dequeue();
-            bullet.gameObject.SetActive(true);
-            return bullet;
+            InitializePool();
+            _increasedTurretDamageAbility.DamageIncreased += OnDamageIncreased;
         }
 
-        if (_bulletPoolQueue.Count + 1 <= _maxPoolSize)
+        private void OnDisable()
         {
-            Bullet newBullet = Instantiate(_bulletPrefab, _bulletContainer.transform);
-            newBullet.GetComponent<Bullet>().Init(this);
-            return newBullet;
+            _increasedTurretDamageAbility.DamageIncreased -= OnDamageIncreased;
+            StopIncreaseDamage();
         }
 
-        Debug.Log("ѕревышен максимальный размер пула пуль");
-        return null;
-    }
-
-    public void ReturnBullet(Bullet bullet)
-    {
-        if (_bulletPoolQueue.Count < _maxPoolSize)
+        private void InitializePool()
         {
-            bullet.transform.position = Vector3.zero;
-            bullet.transform.rotation = Quaternion.identity;
+            _bulletPoolQueue = new Queue<Bullet>();
 
-            Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-            if (bulletRigidbody != null)
+            for (int i = 0; i < _initialPoolSize; i++)
             {
-                bulletRigidbody.velocity = Vector3.zero;
-                bulletRigidbody.angularVelocity = Vector3.zero;
+                Bullet bullet = Instantiate(_bulletPrefab);
+                bullet.gameObject.SetActive(false);
+                bullet.transform.SetParent(_bulletContainer.transform);
+                bullet.GetComponent<Bullet>().Init(this);
+                _bulletPoolQueue.Enqueue(bullet);
+            }
+        }
+
+        public Bullet GetBullet()
+        {
+            if (_bulletPoolQueue.Count > 0)
+            {
+                Bullet bullet = _bulletPoolQueue.Dequeue();
+                bullet.gameObject.SetActive(true);
+                return bullet;
             }
 
-            bullet.gameObject.SetActive(false);
-            _bulletPoolQueue.Enqueue(bullet);
+            if (_bulletPoolQueue.Count + 1 <= _maxPoolSize)
+            {
+                Bullet newBullet = Instantiate(_bulletPrefab, _bulletContainer.transform);
+                newBullet.GetComponent<Bullet>().Init(this);
+                return newBullet;
+            }
+            return null;
         }
-        else
+
+        public void ReturnBullet(Bullet bullet)
         {
-            Destroy(bullet);
-            Debug.Log("ѕул€ уничтожена, так как пул переполнен");
-        }
-    }
+            if (_bulletPoolQueue.Count < _maxPoolSize)
+            {
+                bullet.transform.position = Vector3.zero;
+                bullet.transform.rotation = Quaternion.identity;
 
-    private void SetDefaultBulletDamage()
-    {
-        foreach (var bullet in _bulletPoolQueue)
+                Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+                if (bulletRigidbody != null)
+                {
+                    bulletRigidbody.velocity = Vector3.zero;
+                    bulletRigidbody.angularVelocity = Vector3.zero;
+                }
+
+                bullet.gameObject.SetActive(false);
+                _bulletPoolQueue.Enqueue(bullet);
+            }
+            else
+            {
+                Destroy(bullet);
+            }
+        }
+
+        private void SetDefaultBulletDamage()
         {
-            bullet.SetDefaultDamage();
+            foreach (var bullet in _bulletPoolQueue)
+            {
+                bullet.SetDefaultDamage();
+            }
         }
-    }
 
-    private void IncreaseBulletDamage()
-    {
-        foreach (var bullet in _bulletPoolQueue)
+        private void IncreaseBulletDamage()
         {
-            bullet.IncreaseDamage();
+            foreach (var bullet in _bulletPoolQueue)
+            {
+                bullet.IncreaseDamage();
+            }
         }
-    }
 
-    private void StopIncreaseDamage()
-    {
-        if (_increaseDamage != null)
+        private void StopIncreaseDamage()
         {
-            StopCoroutine(_increaseDamage);
+            if (_increaseDamage != null)
+            {
+                StopCoroutine(_increaseDamage);
+            }
         }
-    }
 
-    private IEnumerator IncreaseDamage()
-    {
-        var waitForSecond = new WaitForSeconds(_duration);
-        IncreaseBulletDamage();
-        yield return waitForSecond;
-        SetDefaultBulletDamage();
-        StopIncreaseDamage();
-    }
+        private IEnumerator IncreaseDamage()
+        {
+            var waitForSecond = new WaitForSeconds(_duration);
+            IncreaseBulletDamage();
+            yield return waitForSecond;
+            SetDefaultBulletDamage();
+            StopIncreaseDamage();
+        }
 
-    private void OnDamageIncreased(float duration)
-    {
-        _duration = duration;
-        _increaseDamage = StartCoroutine(IncreaseDamage());
+        private void OnDamageIncreased(float duration)
+        {
+            _duration = duration;
+            _increaseDamage = StartCoroutine(IncreaseDamage());
+        }
     }
 }

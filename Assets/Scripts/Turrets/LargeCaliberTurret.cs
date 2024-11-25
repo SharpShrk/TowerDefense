@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LargeCaliberTurret : Turret
+namespace Turrets
 {
-    [SerializeField] private Transform _shootPoint;
-
-    protected override void Shoot()
+    public class LargeCaliberTurret : Turret
     {
-        Bullet bullet = Pool.GetBullet();
-        bullet.GetComponent<Bullet>().SetDamage((int)Damage);
+        [SerializeField] private Transform _shootPoint;
 
-        bullet.transform.position = _shootPoint.position;
-        bullet.transform.rotation = _shootPoint.rotation;
+        protected override void Shoot()
+        {
+            Bullet bullet = Pool.GetBullet();
+            bullet.GetComponent<Bullet>().SetDamage((int)Damage);
+
+            bullet.transform.position = _shootPoint.position;
+            bullet.transform.rotation = _shootPoint.rotation;
+        }
     }
 }

@@ -2,6 +2,7 @@ using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Wallets;
 using YG;
 
 namespace Advertising

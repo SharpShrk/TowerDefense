@@ -1,103 +1,104 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Wallets;
 
-[RequireComponent(typeof(Button))]
-public class CreateBuildingButtonHandler : MonoBehaviour
+namespace Buildings
 {
-    [SerializeField] private BuildFactory _buildFactory;
-    [SerializeField] private Camera _mainCamera;
-    [SerializeField] private BuildType _buildType;
-    [SerializeField] private ConstructionZone _constructionZone;
-    [SerializeField] private MetalWallet _wallet;
-    [SerializeField] private int _buildingCostConstruction;
-
-    private Button _buildingButton;
-    private bool _waitingForPlacement = false;
-
-    public int BuildingCost => _buildingCostConstruction;
-
-    private bool IsTurret(BuildType buildType) =>
-        buildType == BuildType.MachineGun ||
-        buildType == BuildType.LaserGun ||
-        buildType == BuildType.LargeCaliber;
-
-    private bool IsResourceFactory(BuildType buildType) =>
-        buildType == BuildType.EnergyFactory ||
-        buildType == BuildType.MetalFactory;
-
-    private void OnEnable()
+    [RequireComponent(typeof(Button))]
+    public class CreateBuildingButtonHandler : MonoBehaviour
     {
-        _buildingButton = gameObject.GetComponent<Button>();
-        _buildingButton.onClick.AddListener(StartPlacingBuildingOnClick);
-    }
+        [SerializeField] private BuildFactory _buildFactory;
+        [SerializeField] private Camera _mainCamera;
+        [SerializeField] private BuildType _buildType;
+        [SerializeField] private ConstructionZone _constructionZone;
+        [SerializeField] private MetalWallet _wallet;
+        [SerializeField] private int _buildingCostConstruction;
 
-    private void OnDisable()
-    {
-        _buildingButton.onClick.RemoveListener(StartPlacingBuildingOnClick);
-    }
+        private Button _buildingButton;
 
-    private void StartPlacingBuildingOnClick()
-    {
-        _waitingForPlacement = true;
-        StartCoroutine(WaitForPlacementCoroutine());
-    }
+        public int BuildingCost => _buildingCostConstruction;
 
-    private void HighlightPlaces()
-    {
-        if (IsTurret(_buildType))
+        private bool IsTurret(BuildType buildType) =>
+            buildType == BuildType.MachineGun ||
+            buildType == BuildType.LaserGun ||
+            buildType == BuildType.LargeCaliber;
+
+        private bool IsResourceFactory(BuildType buildType) =>
+            buildType == BuildType.EnergyFactory ||
+            buildType == BuildType.MetalFactory;
+
+        private void OnEnable()
         {
-            _constructionZone.HighlightAvailableTurretPlaces();
+            _buildingButton = gameObject.GetComponent<Button>();
+            _buildingButton.onClick.AddListener(StartPlacingBuildingOnClick);
         }
-        else if (IsResourceFactory(_buildType))
+
+        private void OnDisable()
         {
-            _constructionZone.HighlightAvailableResourcePlaces();
+            _buildingButton.onClick.RemoveListener(StartPlacingBuildingOnClick);
         }
-    }
 
-    private bool CanPlaceBuilding(BuildingPlace buildingPlace)
-    {
-        if (buildingPlace.IsTurretPlace && IsTurret(_buildType))
+        private void StartPlacingBuildingOnClick()
         {
-            return true;
+            StartCoroutine(WaitForPlacementCoroutine());
         }
-        else if (!buildingPlace.IsTurretPlace && IsResourceFactory(_buildType))
+
+        private void HighlightPlaces()
         {
-            return true;
-        }
-        return false;
-    }
-
-    private IEnumerator WaitForPlacementCoroutine()
-    {
-        HighlightPlaces();
-
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-
-        RaycastHit[] hits;
-        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-        hits = Physics.RaycastAll(ray);
-
-        foreach (RaycastHit hit in hits)
-        {
-            BuildingPlace buildingPlace = hit.collider.GetComponent<BuildingPlace>();
-
-            if (buildingPlace != null && buildingPlace.IsCellFree)
+            if (IsTurret(_buildType))
             {
-                if (CanPlaceBuilding(buildingPlace))
-                {
-                    if (_wallet.SpendResource(_buildingCostConstruction))
-                    {
-                        _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
-                        buildingPlace.CloseCell();
-                        break;
-                    }
-                    
-                }
+                _constructionZone.HighlightAvailableTurretPlaces();
+            }
+            else if (IsResourceFactory(_buildType))
+            {
+                _constructionZone.HighlightAvailableResourcePlaces();
             }
         }
 
-        _constructionZone.ClearHighlights();
-        _waitingForPlacement = false;
+        private bool CanPlaceBuilding(BuildingPlace buildingPlace)
+        {
+            if (buildingPlace.IsTurretPlace && IsTurret(_buildType))
+            {
+                return true;
+            }
+            else if (!buildingPlace.IsTurretPlace && IsResourceFactory(_buildType))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private IEnumerator WaitForPlacementCoroutine()
+        {
+            HighlightPlaces();
+
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+            RaycastHit[] hits;
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            hits = Physics.RaycastAll(ray);
+
+            foreach (RaycastHit hit in hits)
+            {
+                BuildingPlace buildingPlace = hit.collider.GetComponent<BuildingPlace>();
+
+                if (buildingPlace != null && buildingPlace.IsCellFree)
+                {
+                    if (CanPlaceBuilding(buildingPlace))
+                    {
+                        if (_wallet.SpendResource(_buildingCostConstruction))
+                        {
+                            _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
+                            buildingPlace.CloseCell();
+                            break;
+                        }
+
+                    }
+                }
+            }
+
+            _constructionZone.ClearHighlights();
+        }
     }
 }

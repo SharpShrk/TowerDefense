@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewBaseUpgradeData", menuName = "Upgrades/MainBase")]
-public class MainBaseUpgradeData : ScriptableObject
+namespace MainBaseUpgrade
 {
-    public MainBaseUpgradeLevelData[] Levels;
+    [CreateAssetMenu(fileName = "NewBaseUpgradeData", menuName = "Upgrades/MainBase")]
+    public class MainBaseUpgradeData : ScriptableObject
+    {
+        public MainBaseUpgradeLevelData[] Levels;
+    }
 }

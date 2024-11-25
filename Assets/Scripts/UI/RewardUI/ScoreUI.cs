@@ -1,4 +1,5 @@
 using UnityEngine;
+using Wallets;
 
 public class ScoreUI : RewardUI
 {

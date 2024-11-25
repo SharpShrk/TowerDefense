@@ -3,6 +3,7 @@ using System.Collections;
 using Abilities;
 using EnemyLogic;
 using UnityEngine;
+using Wallets;
 
 namespace GameLogic
 {

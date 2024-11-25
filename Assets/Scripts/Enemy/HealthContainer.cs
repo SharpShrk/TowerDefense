@@ -1,3 +1,4 @@
+using Interfaces;
 using System;
 using UnityEngine;
 
@@ -56,7 +57,7 @@ namespace EnemyLogic
             HealthChanged?.Invoke(_health, _maxHealth);
         }
 
-        public void SetMaxHealth(int maxHealt) //метод пока работает так, что просто ремонтирует базу и увеличивает макс хп. ћожно переписать так, чтобы увеличивалось текущее хп на определенное значение
+        public void SetMaxHealth(int maxHealt)
         {
             _health = maxHealt;
             _maxHealth = maxHealt;
