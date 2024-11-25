@@ -1,29 +1,35 @@
+using Buildings;
+using Interfaces;
 using UnityEngine;
+using Wallets;
 
-public class UpgradePresenter : MonoBehaviour
+namespace Upgrades
 {
-    [SerializeField] private UpgradeView _view;
-    [SerializeField] private EnergyWallet _wallet;
-
-    public void OnBuildingSelected(GameObject building)
+    public class UpgradePresenter : MonoBehaviour
     {
-        var upgradeable = building.GetComponent<IUpgradeable>();
-        _view.ShowUpgradeOptions(upgradeable);
-    }
+        [SerializeField] private UpgradeView _view;
+        [SerializeField] private EnergyWallet _wallet;
 
-    public void TryUpgradeBuilding(IUpgradeable building)
-    {
-        BuildingData buildingData = building.gameObject.GetComponent<BuildingData>();
-
-        if (_wallet.SpendResource(buildingData.BuildinCostUpgrade))
+        public void OnBuildingSelected(GameObject building)
         {
-            UpgradeBuidlding(building);
+            var upgradeable = building.GetComponent<IUpgradeable>();
+            _view.ShowUpgradeOptions(upgradeable);
         }
-    }
 
-    public void UpgradeBuidlding(IUpgradeable building)
-    {
-        building.Upgrade();
-        _view.HideUpgradeOptions();
+        public void TryUpgradeBuilding(IUpgradeable building)
+        {
+            BuildingData buildingData = building.gameObject.GetComponent<BuildingData>();
+
+            if (_wallet.SpendResource(buildingData.BuildinCostUpgrade))
+            {
+                UpgradeBuidlding(building);
+            }
+        }
+
+        public void UpgradeBuidlding(IUpgradeable building)
+        {
+            building.Upgrade();
+            _view.HideUpgradeOptions();
+        }
     }
 }

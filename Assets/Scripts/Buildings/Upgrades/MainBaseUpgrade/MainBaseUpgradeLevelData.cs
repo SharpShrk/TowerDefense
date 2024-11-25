@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class MainBaseUpgradeLevelData
+namespace MainBaseUpgrade
 {
-    public int Level;
-    public int Health;
+    [System.Serializable]
+    public class MainBaseUpgradeLevelData
+    {
+        public int Level;
+        public int Health;
+    }
 }

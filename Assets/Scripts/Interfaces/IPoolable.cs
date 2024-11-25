@@ -1,6 +1,7 @@
-using UnityEngine.Pool;
-
-public interface IPoolable
+namespace Interfaces
 {
-    void SetPool(object pool);
+    public interface IPoolable
+    {
+        void SetPool(object pool);
+    }
 }

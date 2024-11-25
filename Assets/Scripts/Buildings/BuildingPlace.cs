@@ -1,43 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingPlace : MonoBehaviour
+namespace Buildings
 {
-    [SerializeField] private GameObject _cellImage;
-    [SerializeField] private Transform _installationPoint;
-    [SerializeField] private bool _isTurretPlace;
-
-    private bool _isCellFree;
-
-    public bool IsTurretPlace => _isTurretPlace;
-
-    public Transform InstallationPoint => _installationPoint;
-
-    public bool IsCellFree => _isCellFree;
-
-    private void Start()
+    public class BuildingPlace : MonoBehaviour
     {
-        OpenCell();
-    }
+        [SerializeField] private GameObject _cellImage;
+        [SerializeField] private Transform _installationPoint;
+        [SerializeField] private bool _isTurretPlace;
 
-    public void OpenCell()
-    {
-        _isCellFree = true;
-    }
+        private bool _isCellFree;
 
-    public void CloseCell()
-    {
-        _isCellFree = false;
-    }
+        public bool IsTurretPlace => _isTurretPlace;
 
-    public void Highlight()
-    {
-        _cellImage.SetActive(true);
-    }
+        public Transform InstallationPoint => _installationPoint;
 
-    public void ClearHighlight()
-    {
-        _cellImage.SetActive(false);
+        public bool IsCellFree => _isCellFree;
+
+        private void Start()
+        {
+            OpenCell();
+        }
+
+        public void OpenCell()
+        {
+            _isCellFree = true;
+        }
+
+        public void CloseCell()
+        {
+            _isCellFree = false;
+        }
+
+        public void Highlight()
+        {
+            _cellImage.SetActive(true);
+        }
+
+        public void ClearHighlight()
+        {
+            _cellImage.SetActive(false);
+        }
     }
 }

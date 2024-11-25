@@ -1,8 +1,9 @@
-using UnityEngine;
-
-[System.Serializable]
-public class FactoryUpgradeLevelData
+namespace Upgrades
 {
-    public int Level;
-    public float Cooldown;
+    [System.Serializable]
+    public class FactoryUpgradeLevelData
+    {
+        public int Level;
+        public float Cooldown;
+    }
 }

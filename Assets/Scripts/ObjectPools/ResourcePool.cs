@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Wallets;
 
 namespace GameResources
 {
@@ -47,7 +48,6 @@ namespace GameResources
                 return newResource;
             }
 
-            Debug.Log("Превышен максимальный размер пула ресурсов");
             return null;
         }
 
@@ -61,7 +61,6 @@ namespace GameResources
             else
             {
                 Destroy(resource.gameObject);
-                Debug.Log("Ресурс уничтожен, так как пул переполнен");
             }
         }
 
@@ -69,11 +68,11 @@ namespace GameResources
         {
             if (resource is Energy energyResource)
             {
-                energyResource.Initialize(_energyWallet, this); //убедиться что работает
+                energyResource.Initialize(_energyWallet, this);
             }
             else if(resource is Metal metalResource)
             {
-                metalResource.Initialize(_metalWallet, this); //убедиться что работает
+                metalResource.Initialize(_metalWallet, this);
             }
         }
     }

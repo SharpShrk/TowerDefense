@@ -1,4 +1,4 @@
-namespace EnemyLogic
+namespace Interfaces
 {
     public interface IDamageable
     {

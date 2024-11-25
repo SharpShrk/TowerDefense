@@ -1,42 +1,45 @@
 using System;
 using UnityEngine;
 
-public abstract class ResourceWallet : MonoBehaviour
+namespace Wallets
 {
-    [SerializeField] private int _startValue;
-
-    private int _currentValue;
-
-    public event Action<int> ValueChanged;
-
-    public int CurrentValue => _currentValue;
-
-    protected virtual void Start()
+    public abstract class ResourceWallet : MonoBehaviour
     {
-        SetStartValue(_startValue);
-    }
+        [SerializeField] private int _startValue;
 
-    private void SetStartValue(int value)
-    {
-        _currentValue = value;
-        ValueChanged?.Invoke(_currentValue);
-    }
+        private int _currentValue;
 
-    public void AddResource(int amount)
-    {
-        _currentValue += amount;
-        ValueChanged?.Invoke(_currentValue);
-    }
+        public event Action<int> ValueChanged;
 
-    public bool SpendResource(int amount)
-    {
-        if (_currentValue < amount)
+        public int CurrentValue => _currentValue;
+
+        protected virtual void Start()
         {
-            return false;
+            SetStartValue(_startValue);
         }
 
-        _currentValue -= amount;
-        ValueChanged?.Invoke(_currentValue);
-        return true;
+        private void SetStartValue(int value)
+        {
+            _currentValue = value;
+            ValueChanged?.Invoke(_currentValue);
+        }
+
+        public void AddResource(int amount)
+        {
+            _currentValue += amount;
+            ValueChanged?.Invoke(_currentValue);
+        }
+
+        public bool SpendResource(int amount)
+        {
+            if (_currentValue < amount)
+            {
+                return false;
+            }
+
+            _currentValue -= amount;
+            ValueChanged?.Invoke(_currentValue);
+            return true;
+        }
     }
 }

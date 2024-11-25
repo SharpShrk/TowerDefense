@@ -1,3 +1,5 @@
+using Wallets;
+
 namespace GameResources
 {
     public class Metal : Resource

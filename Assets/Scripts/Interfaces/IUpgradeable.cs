@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public interface IUpgradeable
+namespace Interfaces
 {
-    GameObject gameObject { get; }
+    public interface IUpgradeable
+    {
+        GameObject gameObject { get; }
 
-    void Upgrade();
+        void Upgrade();
+    }
 }

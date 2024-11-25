@@ -1,3 +1,4 @@
-public class EnergyWallet : ResourceWallet
+namespace Wallets
 {
+    public class EnergyWallet : ResourceWallet{}
 }
