@@ -60,7 +60,7 @@ namespace EnemyLogic
 
             if (_attackState != null)
             {
-                _attackState.EnemieDestroyed += OnEnemyDied;
+                _attackState.EnemieDestroyed += OnEnemyDestruction;
             }
 
             _enemyHealth.Died += OnEnemyDied;
@@ -80,7 +80,7 @@ namespace EnemyLogic
 
             if (_attackState != null)
             {
-                _attackState.EnemieDestroyed -= OnEnemyDied;
+                _attackState.EnemieDestroyed -= OnEnemyDestruction;
             }
 
             _enemyHealth.Died -= OnEnemyDied;
@@ -134,6 +134,17 @@ namespace EnemyLogic
 
         private void OnEnemyDied()
         {
+            EnemyDied();
+            _score.AddScore(EnemyCard.Reward);
+        }
+
+        private void OnEnemyDestruction()
+        {
+           EnemyDied();
+        }
+
+        private void EnemyDied()
+        {
             if (gameObject.activeSelf)
             {
                 Died?.Invoke(this);
@@ -143,7 +154,6 @@ namespace EnemyLogic
                 _dieState.DieEnemy();
                 _enemyPointer.Destroy();
                 _enemyHealth.ResetHealth();
-                _score.AddScore(EnemyCard.Reward);
             }
         }
 

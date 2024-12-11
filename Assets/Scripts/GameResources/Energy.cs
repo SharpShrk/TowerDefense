@@ -4,7 +4,7 @@ namespace GameResources
 {
     public class Energy : Resource
     {
-        private int _value = 5;
+        private int _value = 20;
         private EnergyWallet _wallet;
         private ResourcePool _pool;
 

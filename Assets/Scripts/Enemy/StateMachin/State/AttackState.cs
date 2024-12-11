@@ -11,36 +11,52 @@ namespace EnemyLogic
 
         private Enemy _enemy;
         private WaitForSeconds _waitForSecounds;
+        private Coroutine _coroutine;
 
         public event Action EnemieDestroyed;
 
         private void Awake()
         {
             _enemy = GetComponent<Enemy>();
+            _waitForSecounds = new WaitForSeconds(_enemy.EnemyCard.AttackSpeed);
+        }
+
+        private void OnEnable()
+        {
+            AttackTarget();
         }
 
         private void OnDisable()
         {
-            StopCoroutine(WaitForDieAnimationEnd());
+           StopCoroutineDie();
         }
 
         private void Start()
         {
-            _waitForSecounds = new WaitForSeconds(_enemy.EnemyCard.AttackSpeed);
-            AttackTarget();
+            //_waitForSecounds = new WaitForSeconds(_enemy.EnemyCard.AttackSpeed);
+            //AttackTarget();
         }
 
         private void AttackTarget()
         {
             Animator.SetTrigger(Attack);
             EnemyTarget.GetComponent<EnemyTargetHealth>().TakeDamage(_enemy.EnemyCard.Damage);
-            StartCoroutine(WaitForDieAnimationEnd());
+            StopCoroutineDie();
+            _coroutine = StartCoroutine(WaitForDieAnimationEnd());
         }
 
         private IEnumerator WaitForDieAnimationEnd()
         {
             yield return _waitForSecounds;
             EnemieDestroyed?.Invoke();
+        }
+
+        private void StopCoroutineDie()
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+            }
         }
     }
 }

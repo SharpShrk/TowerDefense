@@ -10,7 +10,7 @@ namespace MainBaseUpgrade
     {
         [SerializeField] private EnemyTargetHealth _enemyTargetHealth;
         [SerializeField] private MainBaseUpgradeData _upgradeData;
-        [SerializeField] private MetalWallet _wallet;
+        [SerializeField] private EnergyWallet _wallet;
         [SerializeField] private int _costUpgrade;
         [SerializeField] private GameObject _upgradePanel;
         [SerializeField] private TMP_Text _costUpgradeText;

@@ -57,10 +57,10 @@ namespace EnemyLogic
             HealthChanged?.Invoke(_health, _maxHealth);
         }
 
-        public void SetMaxHealth(int maxHealt)
+        public void SetMaxHealth(int maxHealth)
         {
-            _health = maxHealt;
-            _maxHealth = maxHealt;
+            _health = maxHealth;
+            _maxHealth = maxHealth;
 
             HealthChanged?.Invoke(_health, _maxHealth);
         }
