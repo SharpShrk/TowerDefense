@@ -1,10 +1,12 @@
 using UnityEngine;
 using Wallets;
+using YG;
 
 namespace GameLogic
 {
     public class SaveSystem : MonoBehaviour
     {
+        private const string LeaderboardName = "LB";
         private const string AllScore = "AllScore";
         protected const string Level = "Level";
 
@@ -18,17 +20,6 @@ namespace GameLogic
         {
             //ResetSave(); //Для тестов
         }
-
-        //public void LoadScore()
-        //{
-        //    if (PlayerPrefs.HasKey(Level))
-        //    {
-        //        if (_score != null)
-        //        {
-        //            _score.Init(PlayerPrefs.GetInt(AllScore));
-        //        }
-        //    }
-        //}
 
         public int LoadLevel()
         {
@@ -57,6 +48,12 @@ namespace GameLogic
         {
             PlayerPrefs.SetInt(Level, index);
             PlayerPrefs.SetInt(AllScore, _score.AllScore);
+            SaveLeaderboardScore(PlayerPrefs.GetInt(AllScore));
+        }
+
+        private void SaveLeaderboardScore(int value)
+        {
+            YandexGame.NewLeaderboardScores(LeaderboardName, value);
         }
 
         private void ResetSave()

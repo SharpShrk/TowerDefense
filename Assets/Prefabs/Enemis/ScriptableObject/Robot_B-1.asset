@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Robot_B-1
   m_EditorClassIdentifier: 
   _id: 1
-  _health: 120
+  _health: 130
   _damage: 25
   _reward: 5
   _attackSpeed: 1
