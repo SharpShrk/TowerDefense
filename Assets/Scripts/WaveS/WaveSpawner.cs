@@ -102,6 +102,8 @@ namespace GameLogic
             if (_enemyPool.TryGetObject(enemy.EnemyCard.Id, out Enemy enemySpawn))
             {
                 _pointerHandler.AddToList(enemySpawn.GetComponent<EnemyPointer>());
+                float rotationY = wave.StartPoint.localRotation.y;
+                enemySpawn.gameObject.transform.rotation = new Quaternion(0, rotationY,0,0);
                 enemySpawn.GetComponent<EnemyHealth>().Initialize();
                 enemySpawn.GetComponent<EnemyPointer>().Init(_pointerHandler);
                 enemySpawn.Init(_enemyTarget,

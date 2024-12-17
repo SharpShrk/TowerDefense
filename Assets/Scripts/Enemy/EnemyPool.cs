@@ -10,7 +10,7 @@ namespace EnemyLogic
         [SerializeField] private GameObject _enemyContainer;
         [SerializeField] private WaveSpawner _waveSpawner;
         [SerializeField] private EnemyHandler _enemyHandler;
-
+        
         private Wave[] _waves;
         private EnemyCount[] _enemyCounts;
         private List<Enemy> _enemies;
