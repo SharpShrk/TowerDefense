@@ -16,15 +16,15 @@ MonoBehaviour:
   - Level: 1
     AttackRange: 10
     AttackCooldown: 0.7
-    Damage: 20
+    Damage: 17
     RotationSpeed: 500
   - Level: 2
     AttackRange: 13
     AttackCooldown: 0.6
-    Damage: 25
+    Damage: 22
     RotationSpeed: 600
   - Level: 3
     AttackRange: 16
     AttackCooldown: 0.4
-    Damage: 30
+    Damage: 28
     RotationSpeed: 700

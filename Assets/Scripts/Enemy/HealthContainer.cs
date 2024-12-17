@@ -11,8 +11,6 @@ namespace EnemyLogic
 
         public event Action<int, int> HealthChanged;
 
-        public event Action MaxHealthChanged;
-
         public event Action Died;
 
         public int Health => _health;
