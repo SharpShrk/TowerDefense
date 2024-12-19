@@ -37,11 +37,13 @@ namespace Audio
         private void ShuffleFightClips()
         {
             var clips = new List<AudioClip>(_fightClips);
+
             for (int i = clips.Count - 1; i > 0; i--)
             {
                 int randomIndex = Random.Range(0, i + 1);
                 (clips[i], clips[randomIndex]) = (clips[randomIndex], clips[i]);
             }
+
             _shuffledFightClips = new Queue<AudioClip>(clips);
         }
 

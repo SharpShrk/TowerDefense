@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnemyLogic
@@ -11,7 +9,7 @@ namespace EnemyLogic
 
         private void Start()
         {
-            _transitionRange += Random.Range(-_rangedSpread, _rangedSpread);
+            _transitionRange += Random.Range(_rangedSpread, _rangedSpread);
         }
 
         private void Update()

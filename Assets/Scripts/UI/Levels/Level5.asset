@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8103de6b45a91b042aafae4ad982fbc7, type: 3}
-  m_Name: Level3
+  m_Name: Level5
   m_EditorClassIdentifier: 
-  _id: 3
-  _sceneIndex: 3
-  _levelInfo: "\u041C\u0430\u0448\u0438\u043D\u044B \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u044E\u0442
-    \u043D\u0430\u0441\u0442\u0443\u043F\u0430\u0442\u044C"
-  _levelName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 3"
-  _levelImage: {fileID: 21300000, guid: 17b684530a76d9a43b4b5ff8b90df692, type: 3}
+  _id: 5
+  _sceneIndex: 5
+  _levelInfo: "\u0421\u043D\u043E\u0432\u0430 \u0432 \u0431\u043E\u0439!"
+  _levelName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 5"
+  _levelImage: {fileID: 21300000, guid: 9a5290a051d486f4cb8e424c71d1acda, type: 3}
   _template: {fileID: 7742041313036695228, guid: 0216075e831b5bc45aaa8bea21069b2f, type: 3}

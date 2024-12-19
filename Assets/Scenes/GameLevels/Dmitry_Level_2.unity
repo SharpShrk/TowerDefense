@@ -9494,7 +9494,16 @@ MonoBehaviour:
   _audioSource: {fileID: 718966351}
   _victoryClip: {fileID: 8300000, guid: 5e616add4c89b3d4faf4bfda82dd0281, type: 3}
   _defeatClip: {fileID: 8300000, guid: 1a612773a3d1919408a82208065527b6, type: 3}
-  _fightClip: {fileID: 8300000, guid: 354b92495a7b52f49aee374085b46b13, type: 3}
+  _fightClips:
+  - {fileID: 8300000, guid: 4d44a8fc738cc114f934fbfcbe73a1b6, type: 3}
+  - {fileID: 8300000, guid: 8fd4746a19dc31b469bd567de147633a, type: 3}
+  - {fileID: 8300000, guid: 743b202ea948cea44bf24104f209b08e, type: 3}
+  - {fileID: 8300000, guid: 2586da7972b012f45abe3280dfbc8358, type: 3}
+  - {fileID: 8300000, guid: 9a2261c043f838b4c97f3c96d9553640, type: 3}
+  - {fileID: 8300000, guid: 60d582903fb6ea5439b2a7b5e7879d4d, type: 3}
+  - {fileID: 8300000, guid: 0a19e9c8a25ad734ea4140254de20a5a, type: 3}
+  - {fileID: 8300000, guid: ba6f1dc1c26c81b478be7da9fc434b03, type: 3}
+  - {fileID: 8300000, guid: 8ae3d3c8b4f60df40a3f27b929b86232, type: 3}
   _enemyHandler: {fileID: 491067117}
   _healthContainer: {fileID: 601941198}
 --- !u!82 &240438227
@@ -85746,7 +85755,7 @@ PrefabInstance:
       objectReference: {fileID: 1755617488}
     - target: {fileID: 2583659798004656615, guid: 553437366630dd24da5922e7411d5ab1, type: 3}
       propertyPath: _adShowInterval
-      value: 180
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2583659798004656615, guid: 553437366630dd24da5922e7411d5ab1, type: 3}
       propertyPath: _fullScreenAdPanel
