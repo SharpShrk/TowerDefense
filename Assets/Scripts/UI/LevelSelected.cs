@@ -55,7 +55,7 @@ namespace GameLogic
         {
             HideLevel(true);
             _textLevelName.text = level.LevelName;
-            _textInfo.text = level.Id.ToString();
+            _textInfo.text = level.LevelInfo.ToString();
             _image.sprite = level.LevelImage;
             _playButton.onClick.AddListener(OnPlayButtonClick);
         }

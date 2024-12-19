@@ -5334,11 +5334,11 @@ RectTransform:
   - {fileID: 1166682287}
   - {fileID: 424867803}
   - {fileID: 896103238}
+  - {fileID: 1414675748}
   - {fileID: 1257011972}
   - {fileID: 1437855189}
   - {fileID: 1927756886}
   - {fileID: 47544805}
-  - {fileID: 1414675748}
   - {fileID: 395742716}
   m_Father: {fileID: 739486287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15129,6 +15129,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3dbdbe7ee43094e4b83e2dfdcbe56291, type: 2}
   - {fileID: 11400000, guid: 802d29d65444a374a9dfed095687d3e6, type: 2}
   - {fileID: 11400000, guid: 686571c3af780e44aa7313aff9f2e9a7, type: 2}
+  - {fileID: 11400000, guid: 80ac397026727884abf2994cde79490a, type: 2}
+  - {fileID: 11400000, guid: 29c704fdcdd3b34448b68d9c50963dfc, type: 2}
   _container: {fileID: 2056869007}
   _sceneFader: {fileID: 1265339280}
   _textInfo: {fileID: 390909047}
@@ -30048,7 +30050,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481797802}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fae6050860e6d8f46b0ef89edf631f3f, type: 3}
   m_Name: 
