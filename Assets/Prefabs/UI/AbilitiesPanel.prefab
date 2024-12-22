@@ -1616,8 +1616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd48111c8b363547bfc5fec47d6da8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAvailableOnStart: 1
-  _isAvailableOnLevel: 1
+  _isAvailableOnStart: 0
+  _isAvailableOnLevel: 0
   _rechargeTime: 8
   _lockImage: {fileID: 1041323411706554614}
   _abilityImage: {fileID: 261348971778507854}
@@ -2072,15 +2072,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbbf53b31c94c64e927c1b23e232455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAvailableOnStart: 0
-  _isAvailableOnLevel: 1
+  _isAvailableOnStart: 1
+  _isAvailableOnLevel: 0
   _rechargeTime: 10
   _lockImage: {fileID: 5960354231303871733}
   _abilityImage: {fileID: 8672892423402368996}
   _rechargeImage: {fileID: 7245103228373979792}
   _adImage: {fileID: 7104613514159547243}
   _activationSound: {fileID: 5088792339186933405}
-  _isActivatedAfterViewAd: 1
+  _isActivatedAfterViewAd: 0
   _advertisingId: 1
   _errorVideoEventText: {fileID: 0}
 --- !u!82 &5088792339186933405
@@ -2775,6 +2775,7 @@ GameObject:
   - component: {fileID: 8755543721046751435}
   - component: {fileID: 4393187850903294210}
   - component: {fileID: 8274772530192886199}
+  - component: {fileID: 2749849505398186758}
   m_Layer: 5
   m_Name: AbilitiesPanel
   m_TagString: Untagged
@@ -2847,6 +2848,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2749849505398186758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050452703695516636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655ce48aaa2dd5c48ab278cd806c7ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7538852102612704467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,15 +2998,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47e4ffcf3980c84c951f0fe94b8f04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAvailableOnStart: 1
-  _isAvailableOnLevel: 1
+  _isAvailableOnStart: 0
+  _isAvailableOnLevel: 0
   _rechargeTime: 10
   _lockImage: {fileID: 6891672368149937548}
   _abilityImage: {fileID: 382048918542158074}
   _rechargeImage: {fileID: 1720816770075387214}
   _adImage: {fileID: 1849956497374524768}
   _activationSound: {fileID: 6435788331949450881}
-  _isActivatedAfterViewAd: 1
+  _isActivatedAfterViewAd: 0
   _advertisingId: 5
   _errorVideoEventText: {fileID: 0}
 --- !u!82 &6435788331949450881
@@ -3618,7 +3631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60bd366069a85d4ea16ce41ee9e3dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAvailableOnStart: 0
+  _isAvailableOnStart: 1
   _isAvailableOnLevel: 1
   _rechargeTime: 10
   _lockImage: {fileID: 851074339840181393}
@@ -3629,7 +3642,7 @@ MonoBehaviour:
   _isActivatedAfterViewAd: 0
   _advertisingId: 2
   _errorVideoEventText: {fileID: 0}
-  _duration: 2
+  _duration: 5
 --- !u!82 &4616245436175533133
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4074,7 +4087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isAvailableOnStart: 0
-  _isAvailableOnLevel: 1
+  _isAvailableOnLevel: 0
   _rechargeTime: 10
   _lockImage: {fileID: 7412549882534116828}
   _abilityImage: {fileID: 298064156372371795}

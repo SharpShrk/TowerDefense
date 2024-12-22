@@ -24,6 +24,11 @@ namespace UI
             _metalWallet.ValueChanged += OnMetalValueChanged;
         }
 
+        private void OnEnable()
+        {
+            OnMetalValueChanged(_metalWallet.CurrentValue);
+        }
+
         private void OnDisable()
         {
             _metalWallet.ValueChanged -= OnMetalValueChanged;

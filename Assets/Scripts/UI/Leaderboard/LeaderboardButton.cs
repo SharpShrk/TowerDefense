@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using System;
 
-namespace Leaderboard
+namespace UI.Leaderboard
 {
     [RequireComponent(typeof(Button))]
     public class LeaderboardButton : MonoBehaviour
