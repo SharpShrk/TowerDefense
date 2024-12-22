@@ -1,23 +1,25 @@
 using UnityEngine.UI;
 using UnityEngine;
-using YG;
 
-public class LeaderboardPanel : MonoBehaviour
+namespace UI.Leaderboard
 {
-    [SerializeField] private Button _closeButton;
-
-    private void OnEnable()
+    public class LeaderboardPanel : MonoBehaviour
     {
-        _closeButton.onClick.AddListener(OnCloseButtonClick);
-    }
+        [SerializeField] private Button _closeButton;
 
-    private void OnDisable()
-    {
-        _closeButton.onClick.RemoveListener(OnCloseButtonClick);
-    }
+        private void OnEnable()
+        {
+            _closeButton.onClick.AddListener(OnCloseButtonClick);
+        }
 
-    private void OnCloseButtonClick()
-    {
-        gameObject.SetActive(false);
+        private void OnDisable()
+        {
+            _closeButton.onClick.RemoveListener(OnCloseButtonClick);
+        }
+
+        private void OnCloseButtonClick()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
