@@ -16,5 +16,5 @@ MonoBehaviour:
   _sceneIndex: 5
   _levelInfo: "\u0421\u043D\u043E\u0432\u0430 \u0432 \u0431\u043E\u0439!"
   _levelName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 5"
-  _levelImage: {fileID: 21300000, guid: 9a5290a051d486f4cb8e424c71d1acda, type: 3}
+  _levelImage: {fileID: 21300000, guid: 4890912296c36024393760e5fc0b233c, type: 3}
   _template: {fileID: 7742041313036695228, guid: 0216075e831b5bc45aaa8bea21069b2f, type: 3}

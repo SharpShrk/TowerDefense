@@ -15132,6 +15132,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80ac397026727884abf2994cde79490a, type: 2}
   - {fileID: 11400000, guid: 29c704fdcdd3b34448b68d9c50963dfc, type: 2}
   - {fileID: 11400000, guid: 9da076499f9d14d4bba9cc2882e7e709, type: 2}
+  - {fileID: 11400000, guid: 62ddbfedd96c9bc47b7895e2dbafee71, type: 2}
+  - {fileID: 11400000, guid: 1268145370c92864cacdc2f925f1259c, type: 2}
   _container: {fileID: 2056869007}
   _sceneFader: {fileID: 1265339280}
   _textInfo: {fileID: 390909047}
