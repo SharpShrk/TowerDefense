@@ -13,6 +13,8 @@ namespace Turrets
 
             bullet.transform.position = _shootPoint.position;
             bullet.transform.rotation = _shootPoint.rotation;
+
+            PlayShootSound();
         }
     }
 }

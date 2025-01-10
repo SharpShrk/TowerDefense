@@ -19,6 +19,8 @@ namespace Turrets
             bullet.transform.rotation = ShootPoint.rotation;
 
             _currentShootPointIndex = (_currentShootPointIndex + 1) % _shootPoints.Length;
+
+            PlayShootSound();
         }
     }
 }

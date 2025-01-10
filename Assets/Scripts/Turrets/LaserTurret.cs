@@ -27,6 +27,8 @@ namespace Turrets
 
             bullet.transform.position = ShootPoint.position;
             bullet.transform.rotation = ShootPoint.rotation;
+
+            PlayShootSound();
         }
     }
 }

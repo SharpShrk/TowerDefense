@@ -4,14 +4,19 @@ using GameResources;
 using Interfaces;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Turrets
 {
+    [RequireComponent(typeof(AudioSource))] 
     public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
     {
         [SerializeField] protected GameObject RotatingPlatform;
         [SerializeField] protected GameObject Gun;
+        [SerializeField] protected AudioClip ShootSound;
+        [SerializeField] protected AudioMixerGroup FXMixerGroup;
 
+        protected AudioSource AudioSource;
         protected Transform ShootPoint;
         protected TurretData Data;
         protected BulletPool Pool;
@@ -29,9 +34,16 @@ namespace Turrets
             Data.OnParametersUpdated -= SetParameters;
         }
 
+        protected void Awake()
+        {
+            AudioSource = GetComponent<AudioSource>();
+            AudioSource.outputAudioMixerGroup = FXMixerGroup;
+            AudioSource.playOnAwake = false;
+        }
+
         protected void Start()
         {
-            Data = GetComponent<TurretData>();
+            Data = GetComponent<TurretData>();            
             Data.OnParametersUpdated += SetParameters;
 
             IsPlaced = false;
@@ -127,6 +139,11 @@ namespace Turrets
 
                 yield return attackCooldown;
             }
+        }
+
+        protected void PlayShootSound()
+        {
+            AudioSource.PlayOneShot(ShootSound);
         }
 
         protected abstract void Shoot();
