@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameLevels/Dmitry_Level_9.unity
     guid: 09354263129bbe4429be5a05a9c3dd36
+  - enabled: 1
+    path: Assets/Scenes/GameLevels/Dmitry_Level_10.unity
+    guid: 5df8e7afb07ff68408d14f507ddbc7b8
   m_configObjects: {}
