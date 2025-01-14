@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d808cc9a7213deb40998f91c580e699e, type: 3}
+  m_Name: Robot_M_1_Boss
+  m_EditorClassIdentifier: 
+  _id: 5
+  _health: 10000
+  _damage: 500
+  _reward: 50
+  _attackSpeed: 2
+  _particleSystemDie: {fileID: 4522173324546776491, guid: 0be70bf248d761e4e948f021f03221f3, type: 3}
+  _template: {fileID: 4436123453125469302, guid: 563e2ab69595ed34bb047ebb36be90d0, type: 3}

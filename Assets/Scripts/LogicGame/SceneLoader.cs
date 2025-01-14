@@ -17,7 +17,7 @@ namespace GameLogic
         private int _currentScene;
         private int _nextScene;
         private int _levelsOpen;
-        private int _maxLevelScene = 10;
+        private int _maxLevelScene = 15;
         private int _numberOne = 1;
 
         private void OnEnable()
@@ -79,14 +79,5 @@ namespace GameLogic
                 _sceneFader.FadeTo(_nextScene);
             }
         }
-
-        //private void SaveLevel()
-        //{
-        //    if (_nextScene > _levelsOpen)
-        //    {
-        //        _levelsOpen++;
-        //        _saveSystem.Save(_levelsOpen);
-        //    }
-        //}
     }
 }
