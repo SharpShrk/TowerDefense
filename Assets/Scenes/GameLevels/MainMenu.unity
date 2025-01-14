@@ -15136,6 +15136,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1268145370c92864cacdc2f925f1259c, type: 2}
   - {fileID: 11400000, guid: a4a1fb78d2a21d646b0ebbd68943ca82, type: 2}
   - {fileID: 11400000, guid: 23a74e437e896164d9ec899ba1f40d05, type: 2}
+  - {fileID: 11400000, guid: 960053e6451da2c49b44ad12742d32c4, type: 2}
+  - {fileID: 11400000, guid: 80a0b6279bafe944aa91d4ff62047fe8, type: 2}
   _container: {fileID: 2056869007}
   _sceneFader: {fileID: 1265339280}
   _textInfo: {fileID: 390909047}
@@ -16796,7 +16798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7879522121520105522, guid: f50c8bcd8d2a37147a86c97d082532b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
