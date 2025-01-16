@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Ui
 {
@@ -10,8 +8,8 @@ namespace Ui
     {
         [SerializeField] private int _id = 0;
         [SerializeField] private int _sceneIndex = 0;
-        [SerializeField] private string _levelInfo = "";
-        [SerializeField] private string _levelName = "";
+        [SerializeField] private TMP_Text _levelInfo;
+        [SerializeField] private TMP_Text _levelName;
         [SerializeField] private Sprite _levelImage;
         [SerializeField] private LevelView _template;
 
@@ -23,8 +21,8 @@ namespace Ui
 
         public LevelView Template => _template;
 
-        public string LevelInfo => _levelInfo;
+        public TMP_Text LevelInfo => _levelInfo;
 
-        public string LevelName => _levelName;
+        public TMP_Text LevelName => _levelName;
     }
 }

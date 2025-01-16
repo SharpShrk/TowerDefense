@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 9
   _sceneIndex: 9
-  _levelInfo: 
-  _levelName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 9"
+  _levelInfo: {fileID: 9175597070448891746, guid: eff35ffaffce9f342b6dbf9f07ab8360, type: 3}
+  _levelName: {fileID: 9175597070448891746, guid: 243a274b147a0794ea65d8c1f11a0389, type: 3}
   _levelImage: {fileID: 21300000, guid: de708ee843765a749832f82a16c44125, type: 3}
   _template: {fileID: 7742041313036695228, guid: 0216075e831b5bc45aaa8bea21069b2f, type: 3}
