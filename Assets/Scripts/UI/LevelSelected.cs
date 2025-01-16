@@ -54,8 +54,8 @@ namespace GameLogic
         public void ShowLevel(LevelData level)
         {
             HideLevel(true);
-            _textLevelName.text = level.LevelName;
-            _textInfo.text = level.LevelInfo.ToString();
+            _textLevelName.text = level.LevelName.text;
+            _textInfo.text = level.LevelInfo.text;
             _image.sprite = level.LevelImage;
             _playButton.onClick.AddListener(OnPlayButtonClick);
         }

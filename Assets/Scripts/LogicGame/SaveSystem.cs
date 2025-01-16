@@ -13,13 +13,7 @@ namespace GameLogic
         [SerializeField] private Score _score;
 
         private int _startNumberLevel = 1;
-        private int _startScore = 0;
-        private int _zero;
-
-        private void Start()
-        {
-            //ResetSave(); //Для тестов
-        }
+        private int _zero =0;
 
         public int LoadLevel()
         {
@@ -54,12 +48,6 @@ namespace GameLogic
         private void SaveLeaderboardScore(int value)
         {
             YandexGame.NewLeaderboardScores(LeaderboardName, value);
-        }
-
-        private void ResetSave()
-        {
-            PlayerPrefs.SetInt(Level, _startNumberLevel);
-            PlayerPrefs.SetInt(AllScore, _startScore);
         }
     }
 }

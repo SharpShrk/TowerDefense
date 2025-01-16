@@ -17,7 +17,7 @@ namespace GameLogic
         private int _currentScene;
         private int _nextScene;
         private int _levelsOpen;
-        private int _maxLevelScene = 15;
+        private int _maxLevelScene = 12;
         private int _numberOne = 1;
 
         private void OnEnable()
