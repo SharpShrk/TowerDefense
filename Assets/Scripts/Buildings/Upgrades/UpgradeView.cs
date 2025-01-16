@@ -51,8 +51,8 @@ namespace Upgrades
             {
                 _currentUpgradeableObject = upgradeable;
                 _currentBuildingData = _currentUpgradeableObject.gameObject.GetComponent<BuildingData>();
-
-                _label.text = _currentBuildingData.BuidlingLabel;
+/*                _label.text = _currentBuildingData.BuidlingLabel; закомментил так как при переводе переводится 
+                только текст, который уже есть TextMeshProText, написал там просто "улучшение"*/
                 _level.text = _currentBuildingData.BuidlingLevel.ToString();
                 _cost.text = _currentBuildingData.BuildinCostUpgrade.ToString();
 
