@@ -3,13 +3,12 @@ using UnityEngine;
 
 namespace Ui
 {
-    [CreateAssetMenu(fileName = "New Level", menuName = "Level/Create new level", order = 52)]
-    public class LevelData : ScriptableObject
+    public class LevelData : MonoBehaviour
     {
         [SerializeField] private int _id = 0;
         [SerializeField] private int _sceneIndex = 0;
-        [SerializeField] private TMP_Text _levelInfo;
         [SerializeField] private TMP_Text _levelName;
+        [SerializeField] private TMP_Text _levelInfo;
         [SerializeField] private Sprite _levelImage;
         [SerializeField] private LevelView _template;
 
