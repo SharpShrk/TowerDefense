@@ -1,12 +1,17 @@
 using UnityEngine.UI;
 using UnityEngine;
+using YG;
 
 namespace UI.Leaderboard
 {
     [RequireComponent(typeof(Button))]
     public class LeaderboardButton : MonoBehaviour
     {
+        private const string LeaderboardName = "LeaderBoard1";
+        private const string AllScore = "AllScore";
+
         [SerializeField] private LeaderboardPanel _leaderboardPanel;
+        [SerializeField] private AuthorizationPanel _authorizationPanel;
 
         private Button _leaderboardButton;
 
@@ -23,7 +28,15 @@ namespace UI.Leaderboard
 
         private void OnLeaderboardButtonClick()
         {
-            _leaderboardPanel.gameObject.SetActive(true);
+            if (YandexGame.auth)
+            {
+                YandexGame.NewLeaderboardScores(LeaderboardName, PlayerPrefs.GetInt(AllScore));
+                _leaderboardPanel.gameObject.SetActive(true);
+            }
+            else
+            {
+                _authorizationPanel.gameObject.SetActive(true);
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Ui;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,7 +25,7 @@ namespace GameLogic
         {
             _victoryScreen.RestartButtonClick += OnNextLevel;
             _victoryScreen.ExitButtonClick += OnExitButtonClickVictory;
-
+            _victoryScreen.Winned += OnWinned;
             _pauseScreen.RestartButtonClick += OnRestarButtonClick;
             _pauseScreen.ExitButtonClick += OnExitButtonClick;
 
@@ -36,7 +37,7 @@ namespace GameLogic
         {
             _victoryScreen.RestartButtonClick -= OnNextLevel;
             _victoryScreen.ExitButtonClick -= OnExitButtonClickVictory;
-
+            _victoryScreen.Winned -= OnWinned;
             _pauseScreen.RestartButtonClick -= OnRestarButtonClick;
             _pauseScreen.ExitButtonClick -= OnExitButtonClick;
 
@@ -58,6 +59,8 @@ namespace GameLogic
 
         private void OnExitButtonClick()
         {
+            _saveSystem.SaveLevel(_nextScene, _levelsOpen);
+
             _sceneFader.FadeTo(MainMenuIndex);
         }
 
@@ -78,6 +81,11 @@ namespace GameLogic
                 _saveSystem.SaveLevel(_nextScene, _levelsOpen);
                 _sceneFader.FadeTo(_nextScene);
             }
+        }
+
+        private void OnWinned()
+        {
+            _saveSystem.SaveLevel(_nextScene, _levelsOpen);
         }
     }
 }
