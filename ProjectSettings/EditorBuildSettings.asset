@@ -6,42 +6,42 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/MainMenu 3.unity
-    guid: 2f3d4da9770c93b4c8c846ca40d9da7d
+    path: Assets/Scenes/CurrentScenes/MainMenu 4.unity
+    guid: d2909f4bee860f6458b2927c88ef1ca7
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Tutorial2.unity
+    path: Assets/Scenes/CurrentScenes/Tutorial2.unity
     guid: 4b3c7e41cd7ed2c4ea34a2d57dc85835
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Ilya_Level_2.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Ilya_Level_2.unity
     guid: 86cbed55701a2aa4baca8367a1fe7e93
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_3.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_3.unity
     guid: aecabd3d662c9e6459dc39c2c5e19bd5
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_4.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_4.unity
     guid: 5ee9d4e8ba4c2a248a3a7e01c67e8824
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_5.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_5.unity
     guid: 84c99153b4db69d4c81b56c8ce7ebe18
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_6.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_6.unity
     guid: 323ef6c5b3161ab48b9db7085bed4e1d
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_7.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_7.unity
     guid: 63d3c7e65ddb41d4680cbaba47708f13
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_8.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_8.unity
     guid: f2a89071930367b428128e28b249fd10
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_9.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_9.unity
     guid: 7c75f61a5f397bf47935a13041d6d124
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_10.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_10.unity
     guid: 583ccf2d2178743449d42d68225a07ba
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_11.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_11.unity
     guid: 45f87dcd0b0ad204ea06fc40f5d16c8c
   - enabled: 1
-    path: Assets/Scenes/GameLevelsWithTranslation 3/Dmitry_Level_12.unity
+    path: Assets/Scenes/CurrentScenes/Dmitry_Level_12.unity
     guid: b9258d6c7652cc14f8386477d52c470a
   m_configObjects: {}
