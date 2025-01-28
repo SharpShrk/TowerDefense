@@ -2,7 +2,6 @@ using EnemyLogic;
 using System;
 using UnityEngine;
 using Wallets;
-using YG;
 
 namespace GameLogic
 {
