@@ -1,5 +1,3 @@
-using EnemyLogic;
-using System;
 using UnityEngine;
 using Wallets;
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2577439, g: 0.09538, b: 0.015638374, a: 1}
+  m_IndirectSpecularColor: {r: 0.25870612, g: 0.096038066, b: 0.015723042, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20270,7 +20270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846405a3fbab39c49b97f2c558816a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMetalValue: 500
+  _startValue: 0
 --- !u!1 &1255090942
 GameObject:
   m_ObjectHideFlags: 0
@@ -20723,7 +20723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8580f0632e43404891d883b01e6d487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEnergyValue: 50
+  _startValue: 0
 --- !u!1 &1289521271
 GameObject:
   m_ObjectHideFlags: 0
@@ -32757,7 +32757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyTargetHealth: {fileID: 1935500221}
   _upgradeData: {fileID: 11400000, guid: bca495454a3675e4eabda9a348fbe095, type: 2}
-  _wallet: {fileID: 1254956610}
+  _wallet: {fileID: 0}
   _costUpgrade: 3000
   _upgradePanel: {fileID: 1579707996}
   _costUpgradeText: {fileID: 1837292622}

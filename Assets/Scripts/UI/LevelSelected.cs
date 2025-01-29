@@ -18,7 +18,7 @@ namespace GameLogic
         [SerializeField] private Button _playButton;
         [SerializeField] private Image _image;
 
-        private int _levelReached = 2;
+        private int _levelReached = 1;
         private int _numberOne = 1;
 
         public event Action PlayButtonClick;
