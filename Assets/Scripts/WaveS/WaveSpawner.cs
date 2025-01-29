@@ -27,6 +27,8 @@ namespace GameLogic
         private WaitForSeconds _waitForSecoundsWave;
         private WaitForSeconds _waitForSecoundsEnemy;
         private int _waveIndex;
+        private int _numberOne = 1;
+        private int _zero = 0;
 
         public event Action<int, int> WaveChanger;
 
@@ -50,12 +52,12 @@ namespace GameLogic
 
         private void OnSpawnWaves()
         {
-            if (_enemyHandler.EnemiesIsAlive > 0)
+            if (_enemyHandler.EnemiesIsAlive > _zero)
             {
                 return;
             }
 
-            if (_waveIndex == _waves.Length-1)
+            if (_waveIndex == _waves.Length - _numberOne)
             {
                 enabled = false;
             }
@@ -88,7 +90,7 @@ namespace GameLogic
                 int countEnemies = enemy.Count;
                 _waitForSecoundsEnemy = new WaitForSeconds(enemy.Delay);
 
-                while (countEnemies > 0)
+                while (countEnemies > _zero)
                 {
                     SpawnEnemy(wave, enemy);
                     countEnemies--;
