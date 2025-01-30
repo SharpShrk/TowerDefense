@@ -9,13 +9,16 @@ namespace Audio
         private const string MusicVolume = "MusicVolume";
         private const string EffectsVolume = "EffectsVolume";
 
+        private const float DisabledVolume = -80f;
+        private const float Zero = 0;
+
         [SerializeField] private Slider _musicSlider;
         [SerializeField] private Slider _effectsSlider;
         [SerializeField] private AudioMixer _audioMixer;
 
-        private float _defaultVolume = 0.74f;
-        private float _startValue = -80f;
-        private float _endValue = 0;
+        private float _defaultVolume = 0.70f;
+        private float _minimumVolume = -20f;
+
 
         private void OnEnable()
         {
@@ -67,9 +70,20 @@ namespace Audio
 
         private void SetVolume(float volume, string nameVolume)
         {
+            float mixerVolume;
             PlayerPrefs.SetFloat(nameVolume, volume);
             PlayerPrefs.Save();
-            _audioMixer.SetFloat(nameVolume, Mathf.Lerp(_startValue, _endValue, volume));
+
+            if (volume == Zero)
+            {
+                mixerVolume = DisabledVolume;
+            }
+            else
+            {
+                mixerVolume = Mathf.Lerp(_minimumVolume, Zero, volume);
+            }
+
+            _audioMixer.SetFloat(nameVolume, mixerVolume);
         }
     }
 }
