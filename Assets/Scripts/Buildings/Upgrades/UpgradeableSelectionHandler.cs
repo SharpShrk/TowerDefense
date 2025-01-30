@@ -1,5 +1,6 @@
 using Interfaces;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Upgrades
 {
@@ -10,6 +11,11 @@ namespace Upgrades
 
         private void Update()
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit[] hits;

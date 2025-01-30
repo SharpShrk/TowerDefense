@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Wallets;
+using UnityEngine.EventSystems;
 
 namespace MainBaseUpgrade 
 {
@@ -39,6 +40,11 @@ namespace MainBaseUpgrade
 
         private void OnMouseDown()
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             OpenUpgradePanel();
         }
 
