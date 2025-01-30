@@ -13,6 +13,7 @@ namespace Upgrades
         public void OnBuildingSelected(GameObject building)
         {
             var upgradeable = building.GetComponent<IUpgradeable>();
+
             _view.ShowUpgradeOptions(upgradeable);
         }
 
