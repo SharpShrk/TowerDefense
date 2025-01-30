@@ -23,6 +23,7 @@ namespace Upgrades
         [SerializeField] private Button _closeUpgradePanelButton;
         [SerializeField] private Notifier _maxLevelNotification;
         [SerializeField] private EnergyWallet _energyWallet;
+        [SerializeField] private UpgradePanelStatusChecker _upgradeStatusChecker;
 
         private IUpgradeable _currentUpgradeableObject;
         private BuildingData _currentBuildingData;
@@ -47,8 +48,10 @@ namespace Upgrades
 
         public void ShowUpgradeOptions(IUpgradeable upgradeable)
         {
-            if (!_upgradePanel.activeSelf)
+            if (!_upgradePanel.activeSelf && _upgradeStatusChecker.CanOpenNewPanel())
             {
+                _upgradeStatusChecker.SetPanelOpen();
+
                 _currentUpgradeableObject = upgradeable;
                 _currentBuildingData = _currentUpgradeableObject.gameObject.GetComponent<BuildingData>();
 /*                _label.text = _currentBuildingData.BuidlingLabel; закомментил так как при переводе переводитс€ 
@@ -81,6 +84,7 @@ namespace Upgrades
 
         public void HideUpgradeOptions()
         {
+            _upgradeStatusChecker.SetPanelClosed();
             _upgradePanel?.SetActive(false);
         }
 

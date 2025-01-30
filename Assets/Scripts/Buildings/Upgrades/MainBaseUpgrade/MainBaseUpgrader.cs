@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using Wallets;
 using UnityEngine.EventSystems;
+using Upgrades;
 
 namespace MainBaseUpgrade 
 {
@@ -17,6 +18,8 @@ namespace MainBaseUpgrade
         [SerializeField] private TMP_Text _costUpgradeText;
         [SerializeField] private TMP_Text _levelText;
         [SerializeField] private Button _upgradeButton;
+        [SerializeField] private Button _closeButton;
+        [SerializeField] private UpgradePanelStatusChecker _upgradeStatusChecker;
 
         private int _level = 1;
         private int _maxLevel = 3;
@@ -31,11 +34,13 @@ namespace MainBaseUpgrade
         private void OnEnable()
         {
             _upgradeButton.onClick.AddListener(TryUpgrade);
+            _closeButton.onClick.AddListener(CloseUpgradePanel);
         }
 
         private void OnDisable()
         {
             _upgradeButton.onClick?.RemoveListener(TryUpgrade);
+            _closeButton.onClick?.RemoveListener(CloseUpgradePanel);
         }
 
         private void OnMouseDown()
@@ -45,7 +50,10 @@ namespace MainBaseUpgrade
                 return;
             }
 
-            OpenUpgradePanel();
+            if(_upgradeStatusChecker.CanOpenNewPanel())
+            {
+                OpenUpgradePanel();               
+            }
         }
 
         private void OpenUpgradePanel()
@@ -53,6 +61,8 @@ namespace MainBaseUpgrade
             _costUpgradeText.text = _costUpgrade.ToString();
             _levelText.text = _level.ToString();
             _upgradePanel.SetActive(true);
+
+            _upgradeStatusChecker.SetPanelOpen();
         }
 
         private void TryUpgrade()
@@ -71,6 +81,7 @@ namespace MainBaseUpgrade
         private void CloseUpgradePanel()
         {
             _upgradePanel.SetActive(false);
+            _upgradeStatusChecker.SetPanelClosed();
         }
 
         private void ApplyUpgrade()
