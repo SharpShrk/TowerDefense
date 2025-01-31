@@ -9,6 +9,8 @@ namespace Tutorial
         [SerializeField] private TutorialPanel _tutorialPanel;
         [SerializeField] private Button _nextButton;
         [SerializeField] private List<TutorialText> _tutorialTexts;
+        [SerializeField] private Canvas _pointerCanvas;
+        [SerializeField] private Canvas _walletCanvas;
 
         private int _currentText = 0;
 
@@ -41,6 +43,8 @@ namespace Tutorial
             if (_currentText >= _tutorialTexts.Count - 1)
             {
                 _tutorialPanel.gameObject.SetActive(false);
+                _pointerCanvas.gameObject.SetActive(true);
+                _walletCanvas.gameObject.SetActive(true);
             }
             else
             {

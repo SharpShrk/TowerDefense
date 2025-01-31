@@ -6,7 +6,6 @@ namespace CameraBehavior
     {
         private float _speed = 60f;
         private Vector3 _origin;
-        private Vector3 _limitedPosition;
         private Camera _camera;
 
         private void Awake()
