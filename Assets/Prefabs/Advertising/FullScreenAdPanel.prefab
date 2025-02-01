@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef3c7120cc13bf14e97473a6a169d045, type: 2}
-  m_sharedMaterial: {fileID: 598174558150613765, guid: ef3c7120cc13bf14e97473a6a169d045, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 23a6996f33108074c8a3f77a928d3e52, type: 2}
+  m_sharedMaterial: {fileID: -2109723836917656160, guid: 23a6996f33108074c8a3f77a928d3e52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_margin: {x: -339.17554, y: 0, z: 201.42969, w: -160.75482}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &609172593245597318
@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 4872459554852399281}
   - component: {fileID: 2652605009629797612}
   - component: {fileID: 8099934498624138206}
+  - component: {fileID: 8550659631634960186}
   m_Layer: 5
   m_Name: AdvText
   m_TagString: Untagged
@@ -264,8 +265,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430 \u0447\u0435\u0440\u0435\u0437: "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef3c7120cc13bf14e97473a6a169d045, type: 2}
-  m_sharedMaterial: {fileID: 598174558150613765, guid: ef3c7120cc13bf14e97473a6a169d045, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 23a6996f33108074c8a3f77a928d3e52, type: 2}
+  m_sharedMaterial: {fileID: -2109723836917656160, guid: 23a6996f33108074c8a3f77a928d3e52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -328,9 +329,61 @@ MonoBehaviour:
   m_margin: {x: -339.17554, y: 0, z: 0, w: -160.75482}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8550659631634960186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331230105893692960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 8099934498624138206}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430 \u0447\u0435\u0440\u0435\u0437:"
+  en: 'Advertising through:'
+  tr: 'Reklam:'
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &4094149923903683661
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +548,7 @@ GameObject:
   - component: {fileID: 7754135778966712674}
   - component: {fileID: 251618906862828430}
   - component: {fileID: 38725715645651847}
+  - component: {fileID: 4143512609494822402}
   m_Layer: 5
   m_Name: AdvTextHead
   m_TagString: Untagged
@@ -551,8 +605,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef3c7120cc13bf14e97473a6a169d045, type: 2}
-  m_sharedMaterial: {fileID: 598174558150613765, guid: ef3c7120cc13bf14e97473a6a169d045, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 23a6996f33108074c8a3f77a928d3e52, type: 2}
+  m_sharedMaterial: {fileID: -2109723836917656160, guid: 23a6996f33108074c8a3f77a928d3e52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -615,6 +669,58 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4143512609494822402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459969553277408644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 38725715645651847}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430"
+  en: Advertising
+  tr: Reklam
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3

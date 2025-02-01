@@ -41932,6 +41932,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4756823811137378, guid: d84f871bfe003ce448ead4b4b1081f63, type: 3}
   m_PrefabInstance: {fileID: 1281044806}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1285407250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1052907956591094028, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+  m_PrefabInstance: {fileID: 1438447999}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1289804097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47324,6 +47335,17 @@ MonoBehaviour:
   _resourceContainer: {fileID: 1425856916}
   _energyWallet: {fileID: 415167914}
   _metalWallet: {fileID: 765993070}
+--- !u!114 &1428249064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4611348023120413218, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+  m_PrefabInstance: {fileID: 1438447999}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4eac96c48905624faf1206c4a0ab3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1428589951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47771,6 +47793,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3917618142601119841, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4315154168642739045, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
@@ -47803,6 +47829,14 @@ PrefabInstance:
       propertyPath: _constructionZone
       value: 
       objectReference: {fileID: 1983458602}
+    - target: {fileID: 4478954679765017323, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513608593599659360, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5479837556788403739, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
@@ -47819,6 +47853,10 @@ PrefabInstance:
       propertyPath: _constructionZone
       value: 
       objectReference: {fileID: 1983458602}
+    - target: {fileID: 5639250336699862329, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5845194727685948267, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
@@ -47839,6 +47877,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6210801846663855565, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _metalWallet
+      value: 
+      objectReference: {fileID: 765993070}
+    - target: {fileID: 6210801846663855565, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _energyWallet
+      value: 
+      objectReference: {fileID: 415167914}
     - target: {fileID: 6731497164794926867, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _camera
       value: 
@@ -71826,15 +71872,15 @@ PrefabInstance:
     - target: {fileID: 2583659798004656615, guid: 553437366630dd24da5922e7411d5ab1, type: 3}
       propertyPath: _timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1285407250}
     - target: {fileID: 2583659798004656615, guid: 553437366630dd24da5922e7411d5ab1, type: 3}
       propertyPath: _adShowInterval
-      value: 120
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 2583659798004656615, guid: 553437366630dd24da5922e7411d5ab1, type: 3}
       propertyPath: _fullScreenAdPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1428249064}
     - target: {fileID: 3026818326423082300, guid: 553437366630dd24da5922e7411d5ab1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 65.999985
@@ -71894,6 +71940,7 @@ SceneRoots:
   - {fileID: 1244976526}
   - {fileID: 2110875587}
   - {fileID: 548474906}
+  - {fileID: 1438447999}
   - {fileID: 693078578}
   - {fileID: 1843220372}
   - {fileID: 567158980}
@@ -71915,4 +71962,3 @@ SceneRoots:
   - {fileID: 1365696725}
   - {fileID: 422888387}
   - {fileID: 82473284}
-  - {fileID: 1438447999}
