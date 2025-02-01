@@ -13,6 +13,7 @@ namespace Ui
         private float _delayBeforeHide = 2f;
         private float _hideLimit = 0.1f;
         private Coroutine _hideCoroutine;
+        private Camera _myCamera;
 
         private void OnEnable()
         {
@@ -33,6 +34,12 @@ namespace Ui
         private void Start()
         {
             _waitForSecounds = new WaitForSeconds(_delayBeforeHide);
+            _myCamera = Camera.main;
+        }
+
+        private void Update()
+        {
+            gameObject.transform.LookAt(transform.position + _myCamera.transform.rotation * Vector3.back, _myCamera.transform.rotation * Vector3.down);
         }
 
         private void OnSliderChanger(int value, int maxValue)
