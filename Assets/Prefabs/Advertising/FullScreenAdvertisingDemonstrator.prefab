@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fullScreenAdPanel: {fileID: 0}
   _timerText: {fileID: 0}
-  _adShowInterval: 50
+  _adShowInterval: 220
