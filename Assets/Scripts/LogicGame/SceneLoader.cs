@@ -58,8 +58,6 @@ namespace GameLogic
 
         private void OnExitButtonClick()
         {
-            _saveSystem.SaveLevel(_nextScene, _levelsOpen);
-
             _sceneFader.FadeTo(MainMenuIndex);
         }
 
