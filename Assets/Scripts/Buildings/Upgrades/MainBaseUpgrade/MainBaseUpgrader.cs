@@ -17,6 +17,8 @@ namespace MainBaseUpgrade
         [SerializeField] private GameObject _upgradePanel;
         [SerializeField] private TMP_Text _costUpgradeText;
         [SerializeField] private TMP_Text _levelText;
+        [SerializeField] private TMP_Text _upgradeButtonText;
+        [SerializeField] private TMP_Text _notEnoughEnergyText;
         [SerializeField] private Button _upgradeButton;
         [SerializeField] private Button _closeButton;
         [SerializeField] private UpgradePanelStatusChecker _upgradeStatusChecker;
@@ -60,6 +62,8 @@ namespace MainBaseUpgrade
         {
             _costUpgradeText.text = _costUpgrade.ToString();
             _levelText.text = _level.ToString();
+
+            SetUpgradeButtonState();
             _upgradePanel.SetActive(true);
 
             _upgradeStatusChecker.SetPanelOpen();
@@ -75,6 +79,22 @@ namespace MainBaseUpgrade
             else
             {
                 CloseUpgradePanel();
+            }
+        }
+
+        private void SetUpgradeButtonState()
+        {
+            if (_wallet.CurrentValue < _costUpgrade)
+            {
+                _upgradeButton.interactable = false;
+                _upgradeButtonText.gameObject.SetActive(false);
+                _notEnoughEnergyText.gameObject.SetActive(true);
+            }
+            else
+            {
+                _upgradeButton.interactable = true;
+                _upgradeButtonText.gameObject.SetActive(true);
+                _notEnoughEnergyText.gameObject.SetActive(false);
             }
         }
 
