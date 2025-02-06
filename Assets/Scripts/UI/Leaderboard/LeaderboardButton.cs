@@ -13,6 +13,7 @@ namespace UI.Leaderboard
         [SerializeField] private LeaderboardPanel _leaderboardPanel;
         [SerializeField] private AuthorizationPanel _authorizationPanel;
 
+        private int _exclusiveMinScore = 0;
         private Button _leaderboardButton;
 
         private void Awake()
@@ -30,7 +31,13 @@ namespace UI.Leaderboard
         {
             if (YandexGame.auth)
             {
-                YandexGame.NewLeaderboardScores(LeaderboardName, PlayerPrefs.GetInt(AllScore));
+                int score = PlayerPrefs.GetInt(AllScore);
+
+                if (score > _exclusiveMinScore)
+                {
+                    YandexGame.NewLeaderboardScores(LeaderboardName, score);
+                }
+
                 _leaderboardPanel.gameObject.SetActive(true);
             }
             else
