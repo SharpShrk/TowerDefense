@@ -1,7 +1,7 @@
-using GameLogic;
+using LogicGame;
 using UnityEngine;
 
-namespace Ui
+namespace UI.Bars
 {
     public class WavesBar : Bar
     {

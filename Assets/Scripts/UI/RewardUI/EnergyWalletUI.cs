@@ -1,17 +1,20 @@
 using UnityEngine;
 using Wallets;
 
-public class EnergyWalletUI : RewardUI
+namespace UI.RewardUI
 {
-    [SerializeField] private EnergyWallet _energyWallet;
-
-    protected override void OnEnable()
+    public class EnergyWalletUI : RewardUI
     {
-        _energyWallet.ValueChanged += SetValue;
-    }
+        [SerializeField] private EnergyWallet _energyWallet;
 
-    protected override void OnDisable()
-    {
-        _energyWallet.ValueChanged -= SetValue;
+        protected override void OnEnable()
+        {
+            _energyWallet.ValueChanged += SetValue;
+        }
+
+        protected override void OnDisable()
+        {
+            _energyWallet.ValueChanged -= SetValue;
+        }
     }
 }

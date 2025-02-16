@@ -1,7 +1,7 @@
 using UnityEngine;
 using YG;
 
-namespace GameLogic
+namespace LogicGame
 {
     public class GamePaused : MonoBehaviour
     {
@@ -39,7 +39,7 @@ namespace GameLogic
             }
         }
 
-        void OnVisibilityWindowGame(bool visible)
+        private void OnVisibilityWindowGame(bool visible)
         {
             if (visible)
             {

@@ -23,13 +23,13 @@ namespace Advertising
 
         private void OnEnable()
         {
-            YandexGame.RewardVideoEvent += Rewarded;
+            YandexGame.RewardVideoEvent += OnRewarded;
             YandexGame.ErrorVideoEvent += OnErrorVideoEvent;
         }
 
         private void OnDisable()
         {
-            YandexGame.RewardVideoEvent -= Rewarded;
+            YandexGame.RewardVideoEvent -= OnRewarded;
             YandexGame.ErrorVideoEvent -= OnErrorVideoEvent;
         }
 
@@ -46,7 +46,7 @@ namespace Advertising
             YandexGame.RewVideoShow(_advertisingId);
         }
 
-        private void Rewarded(int id)
+        private void OnRewarded(int id)
         {
             if (id == _advertisingId)
             {

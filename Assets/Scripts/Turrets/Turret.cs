@@ -1,8 +1,8 @@
+using System.Collections;
 using Buildings;
 using EnemyLogic;
-using GameResources;
 using Interfaces;
-using System.Collections;
+using ObjectPools;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -45,9 +45,7 @@ namespace Turrets
         {
             Data = GetComponent<TurretData>();            
             Data.OnParametersUpdated += SetParameters;
-
             IsPlaced = false;
-
             PlaceTurret();
         }
 
@@ -60,16 +58,13 @@ namespace Turrets
         {
             IsPlaced = true;
             gameObject.SetActive(true);
-
             SetParameters();
-
             StartCoroutine(Attack());
         }
 
         protected void SetParameters()
         {
             Data = GetComponent<TurretData>();
-
             AttackRange = Data.AttackRange;
             CurrentAttackCooldown = Data.AttackCooldown;
             Damage = Data.Damage;
@@ -113,14 +108,16 @@ namespace Turrets
             float yRotation = targetRotation.eulerAngles.y;
             Vector3 newRotationEuler = new Vector3(currentRotationEuler.x, yRotation, currentRotationEuler.z);
             Quaternion newTargetRotation = Quaternion.Euler(newRotationEuler);
-            RotatingPlatform.transform.rotation = Quaternion.Lerp(currentRotation, newTargetRotation, Time.deltaTime * RotationSpeed);
-
+            RotatingPlatform.transform.rotation = Quaternion.Lerp(
+                currentRotation,
+                newTargetRotation,
+                Time.deltaTime *
+                RotationSpeed);
             Vector3 directionToTarget = targetPoint.position - Gun.transform.position;
             float yDifference = directionToTarget.y;
             float distanceToTarget = directionToTarget.magnitude;
             float angleToTarget = Mathf.Atan2(yDifference, distanceToTarget) * Mathf.Rad2Deg;
             angleToTarget = Mathf.Clamp(angleToTarget, -75f, 75f);
-
             Gun.transform.localRotation = Quaternion.Euler(-angleToTarget, 0, 0);
         }
 

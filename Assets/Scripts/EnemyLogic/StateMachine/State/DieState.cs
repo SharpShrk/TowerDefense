@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
-namespace EnemyLogic
+namespace EnemyLogic.StateMachine.State
 {
     [RequireComponent(typeof(Animator), typeof(Enemy))]
     public class DieState : EnemyState
@@ -38,7 +37,11 @@ namespace EnemyLogic
         {
             Died?.Invoke();
             _animator.SetTrigger(Die);
-            _particleSystemDie = Instantiate(_enemy.EnemyCard.ParticleSystemDie, transform.position, transform.rotation, transform);
+            _particleSystemDie = Instantiate(
+                _enemy.EnemyCard.ParticleSystemDie,
+                transform.position,
+                transform.rotation,
+                transform);
             _particleSystemDie.Play();
             StartCoroutine(WaitForDieAnimationEnd());
         }

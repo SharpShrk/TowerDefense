@@ -1,6 +1,6 @@
+using YG;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using YG;
 
 namespace CameraBehavior
 {
@@ -19,18 +19,8 @@ namespace CameraBehavior
             {
                 _playerInput = new PlayerInput();
                 _playerInput.Camera.Move.performed += OnMove;
-                _playerInput.Camera.Move.canceled += ResetMoveDirection;
+                _playerInput.Camera.Move.canceled += OnResetMoveDirection;
             }
-        }
-
-        private void OnMove(InputAction.CallbackContext context)
-        {
-            _moveDirection = context.action.ReadValue<Vector3>();
-        }
-
-        private void ResetMoveDirection(InputAction.CallbackContext context)
-        {
-            _moveDirection = Vector3.zero;
         }
 
         private void LateUpdate()
@@ -55,6 +45,16 @@ namespace CameraBehavior
             {
                 _playerInput.Disable();
             }
+        }
+
+        private void OnMove(InputAction.CallbackContext context)
+        {
+            _moveDirection = context.action.ReadValue<Vector3>();
+        }
+
+        private void OnResetMoveDirection(InputAction.CallbackContext context)
+        {
+            _moveDirection = Vector3.zero;
         }
     }
 }

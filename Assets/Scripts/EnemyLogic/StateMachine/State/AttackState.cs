@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace EnemyLogic
+namespace EnemyLogic.StateMachine.State
 {
     [RequireComponent(typeof(Enemy))]
     public class AttackState : EnemyState
@@ -29,12 +29,6 @@ namespace EnemyLogic
         private void OnDisable()
         {
            StopCoroutineDie();
-        }
-
-        private void Start()
-        {
-            //_waitForSecounds = new WaitForSeconds(_enemy.EnemyCard.AttackSpeed);
-            //AttackTarget();
         }
 
         private void AttackTarget()

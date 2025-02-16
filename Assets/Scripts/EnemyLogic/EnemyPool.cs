@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using GameLogic;
+using LogicGame;
 using UnityEngine;
 
 namespace EnemyLogic

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EnemyLogic
+namespace EnemyLogic.StateMachine.Transition
 {
     public class DistanceTransition : EnemyTransition
     {
@@ -16,7 +16,8 @@ namespace EnemyLogic
         {
             if (EnemyTarget != null)
             {
-                if (Vector3.Distance(Target.position, transform.position) < _transitionRange)
+                if (Vector3.Distance(Target.position, transform.position)
+                    < _transitionRange)
                     NeedTransit = true;
             }
         }

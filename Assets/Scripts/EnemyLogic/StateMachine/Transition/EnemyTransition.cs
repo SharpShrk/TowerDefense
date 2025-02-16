@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using EnemyLogic.StateMachine.State;
 using UnityEngine;
 
-namespace EnemyLogic
+namespace EnemyLogic.StateMachine.Transition
 {
     public class EnemyTransition : MonoBehaviour
     {

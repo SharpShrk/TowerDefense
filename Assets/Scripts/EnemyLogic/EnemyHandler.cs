@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using GameLogic;
+using LogicGame;
 using UnityEngine;
 
 namespace EnemyLogic
@@ -13,7 +13,6 @@ namespace EnemyLogic
         private int _enemiesIsAlive;
 
         public event Action AllEnemiesKilled;
-
         public event Action AliveEnemiesKilled;
 
         public int EnemiesIsAlive => _enemiesIsAlive;

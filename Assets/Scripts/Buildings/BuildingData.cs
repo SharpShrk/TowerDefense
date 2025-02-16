@@ -7,9 +7,9 @@ namespace Buildings
         [SerializeField] protected int Level;
         [SerializeField] protected int CostUpgrade;
         [SerializeField] protected string Label;
-        [SerializeField] private Sprite Icon;
         [SerializeField] protected BuildType Type;
         [SerializeField] protected GameObject Prefab;
+        [SerializeField] private Sprite Icon;
 
         protected int MaxLevel = 3;
 

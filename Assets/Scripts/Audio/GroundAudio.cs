@@ -1,6 +1,6 @@
-using EnemyLogic;
 using System.Collections;
 using System.Collections.Generic;
+using EnemyLogic;
 using UnityEngine;
 
 namespace Audio
@@ -61,6 +61,13 @@ namespace Audio
             StartCoroutine(WaitForClipToEnd(nextClip));
         }
 
+        private void PlayAudioClip(AudioClip clip, bool flag)
+        {
+            _audioSource.clip = clip;
+            _audioSource.loop = flag;
+            _audioSource.Play();
+        }
+
         private IEnumerator WaitForClipToEnd(AudioClip clip)
         {
             yield return new WaitForSeconds(clip.length);
@@ -75,13 +82,6 @@ namespace Audio
         private void OnDefeatClip()
         {
             PlayAudioClip(_defeatClip, false);
-        }
-
-        private void PlayAudioClip(AudioClip clip, bool flag)
-        {
-            _audioSource.clip = clip;
-            _audioSource.loop = flag;
-            _audioSource.Play();
         }
     }
 }

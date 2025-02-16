@@ -18,12 +18,6 @@ namespace Wallets
             SetStartValue(_startValue);
         }
 
-        private void SetStartValue(int value)
-        {
-            _currentValue = value;
-            ValueChanged?.Invoke(_currentValue);
-        }
-
         public void AddResource(int amount)
         {
             _currentValue += amount;
@@ -40,6 +34,12 @@ namespace Wallets
             _currentValue -= amount;
             ValueChanged?.Invoke(_currentValue);
             return true;
+        }
+
+        private void SetStartValue(int value)
+        {
+            _currentValue = value;
+            ValueChanged?.Invoke(_currentValue);
         }
     }
 }

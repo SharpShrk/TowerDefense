@@ -1,5 +1,5 @@
-using Interfaces;
 using System;
+using Interfaces;
 using UnityEngine;
 
 namespace EnemyLogic
@@ -16,26 +16,6 @@ namespace EnemyLogic
         public int Health => _health;
 
         public int MaxHealth => _maxHealth;
-
-        protected void Init(int health)
-        {
-            _maxHealth = health;
-            _health = _maxHealth;
-        }
-
-        protected void AddHealth(int addedHealth)
-        {
-            if (_health + addedHealth > _maxHealth)
-            {
-                _health = _maxHealth;
-            }
-            else
-            {
-                _health += addedHealth;
-            }
-
-            HealthChanged?.Invoke(_health, _maxHealth);
-        }
 
         public void TakeDamage(int damage)
         {
@@ -59,6 +39,26 @@ namespace EnemyLogic
         {
             _health = maxHealth;
             _maxHealth = maxHealth;
+
+            HealthChanged?.Invoke(_health, _maxHealth);
+        }
+
+        protected void Init(int health)
+        {
+            _maxHealth = health;
+            _health = _maxHealth;
+        }
+
+        protected void AddHealth(int addedHealth)
+        {
+            if (_health + addedHealth > _maxHealth)
+            {
+                _health = _maxHealth;
+            }
+            else
+            {
+                _health += addedHealth;
+            }
 
             HealthChanged?.Invoke(_health, _maxHealth);
         }

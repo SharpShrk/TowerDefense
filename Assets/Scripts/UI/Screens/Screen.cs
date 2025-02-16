@@ -2,13 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI.Screens
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class Screen : MonoBehaviour
     {
         [SerializeField] private CanvasGroup _panel;
-
         [SerializeField] protected Button _exitButton;
         [SerializeField] protected Button _restartButton;
 
@@ -38,21 +37,21 @@ namespace Ui
             Time.timeScale = 0;
         }
 
-       protected void CloseScreen()
+        protected void CloseScreen()
         {
             _panel.blocksRaycasts = false;
             _panel.alpha = 0;
             Time.timeScale = 1;
         }
 
-       protected void OnOpen()
-       {
+        protected void OnOpen()
+        {
             OpenScreen();
-       }
+        }
 
-       protected void OnClose()
-       {
+        protected void OnClose()
+        {
             CloseScreen();
-       }
+        }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine;
 
 namespace EnemyLogic
 {
@@ -41,16 +41,6 @@ namespace EnemyLogic
         {
             int indexPoint = Random.Range(0, _pointsAttack.Length);
             return _pointsAttack[indexPoint];
-        }
-
-        public bool IsAlive()
-        {
-            if (_enemyTargetHealth.Health <= 0)
-            {
-                return false;
-            }
-
-            return true;
         }
 
         private void OnDied()

@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Buildings
 {
@@ -11,23 +11,6 @@ namespace Buildings
         private void Awake()
         {
             FindAndAddAllBuildingPlaces();
-        }
-
-        private void FindAndAddAllBuildingPlaces()
-        {
-            BuildingPlace[] places = GetComponentsInChildren<BuildingPlace>();
-
-            foreach (BuildingPlace place in places)
-            {
-                if (place.IsTurretPlace == true)
-                {
-                    _turretPlaces.Add(place);
-                }
-                else
-                {
-                    _resourcePlaces.Add(place);
-                }
-            }
         }
 
         public void HighlightAvailableTurretPlaces()
@@ -62,6 +45,23 @@ namespace Buildings
             foreach (var place in _resourcePlaces)
             {
                 place.ClearHighlight();
+            }
+        }
+
+        private void FindAndAddAllBuildingPlaces()
+        {
+            BuildingPlace[] places = GetComponentsInChildren<BuildingPlace>();
+
+            foreach (BuildingPlace place in places)
+            {
+                if (place.IsTurretPlace == true)
+                {
+                    _turretPlaces.Add(place);
+                }
+                else
+                {
+                    _resourcePlaces.Add(place);
+                }
             }
         }
     }

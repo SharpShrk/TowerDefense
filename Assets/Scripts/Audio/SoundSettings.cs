@@ -8,7 +8,6 @@ namespace Audio
     {
         private const string MusicVolume = "MusicVolume";
         private const string EffectsVolume = "EffectsVolume";
-
         private const float DisabledVolume = -80f;
         private const float Zero = 0;
 
@@ -56,18 +55,6 @@ namespace Audio
             }
         }
 
-        private void OnSetMusicSlider(float volume)
-        {
-            _musicSlider.value = volume;
-            SetVolume(volume, MusicVolume);
-        }
-
-        private void OnSetEffectsSlider(float volume)
-        {
-            _effectsSlider.value = volume;
-            SetVolume(volume, EffectsVolume);
-        }
-
         private void SetVolume(float volume, string nameVolume)
         {
             float mixerVolume;
@@ -84,6 +71,18 @@ namespace Audio
             }
 
             _audioMixer.SetFloat(nameVolume, mixerVolume);
+        }
+
+        private void OnSetMusicSlider(float volume)
+        {
+            _musicSlider.value = volume;
+            SetVolume(volume, MusicVolume);
+        }
+
+        private void OnSetEffectsSlider(float volume)
+        {
+            _effectsSlider.value = volume;
+            SetVolume(volume, EffectsVolume);
         }
     }
 }

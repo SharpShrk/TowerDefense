@@ -1,4 +1,4 @@
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     [System.Serializable]
     public class TurretUpgradeLevelData

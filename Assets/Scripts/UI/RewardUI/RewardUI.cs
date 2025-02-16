@@ -1,16 +1,19 @@
 using TMPro;
 using UnityEngine;
 
-public abstract class RewardUI : MonoBehaviour
+namespace UI.RewardUI
 {
-    [SerializeField] protected TMP_Text _text;
-
-    protected abstract void OnEnable();
-
-    protected abstract void OnDisable();
-
-    protected void SetValue(int value)
+    public abstract class RewardUI : MonoBehaviour
     {
-        _text.text = value.ToString();
+        [SerializeField] protected TMP_Text _text;
+
+        protected abstract void OnEnable();
+
+        protected abstract void OnDisable();
+
+        protected void SetValue(int value)
+        {
+            _text.text = value.ToString();
+        }
     }
 }

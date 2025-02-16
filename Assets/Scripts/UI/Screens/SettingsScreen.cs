@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI.Screens
 {
     public class SettingsScreen : Screen
     {

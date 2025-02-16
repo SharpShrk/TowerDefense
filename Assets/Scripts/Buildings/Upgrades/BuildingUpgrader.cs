@@ -1,8 +1,7 @@
-using Buildings;
 using Interfaces;
 using UnityEngine;
 
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     [RequireComponent(typeof(BuildingData))]
     public class BuildingUpgrader : MonoBehaviour, IUpgradeable

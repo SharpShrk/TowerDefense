@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class AbilitiesPanel : MonoBehaviour
+namespace Abilities
 {
+    public class AbilitiesPanel : MonoBehaviour
+    {
+    }
 }

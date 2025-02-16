@@ -3,7 +3,7 @@ using Abilities;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace EnemyLogic
+namespace EnemyLogic.StateMachine.State
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class MoveState : EnemyState

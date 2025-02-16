@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MainBaseUpgrade
+namespace Buildings.Upgrades.MainBaseUpgrade
 {
     [CreateAssetMenu(fileName = "NewBaseUpgradeData", menuName = "Upgrades/MainBase")]
     public class MainBaseUpgradeData : ScriptableObject

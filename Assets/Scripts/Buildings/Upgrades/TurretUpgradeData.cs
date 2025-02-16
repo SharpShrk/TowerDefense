@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     [CreateAssetMenu(fileName = "NewTurretUpgradeData", menuName = "Upgrades/Turret")]
     public class TurretUpgradeData : ScriptableObject

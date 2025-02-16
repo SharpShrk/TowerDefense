@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     public class UpgradePanelStatusChecker : MonoBehaviour
     {

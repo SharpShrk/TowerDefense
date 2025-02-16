@@ -1,3 +1,4 @@
+using Abilities;
 using UnityEngine;
 
 public class AbilitiesText : TutorialText

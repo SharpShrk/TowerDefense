@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     [CreateAssetMenu(fileName = "NewFactoryUpgradeData", menuName = "Upgrades/Factory")]
     public class FactoryUpgradeData : ScriptableObject
