@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI
 {
-    public class MainMenu : Screen
+    public class MainMenu : Screens.Screen
     {
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _settingsButton;

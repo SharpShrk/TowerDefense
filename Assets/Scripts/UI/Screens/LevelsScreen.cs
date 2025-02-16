@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI.Screens
 {
     public class LevelsScreen : Screen
     {

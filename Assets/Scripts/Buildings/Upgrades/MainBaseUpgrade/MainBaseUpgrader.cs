@@ -1,12 +1,11 @@
 using EnemyLogic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Wallets;
 using UnityEngine.EventSystems;
-using Upgrades;
+using Wallets;
 
-namespace MainBaseUpgrade 
+namespace Buildings.Upgrades.MainBaseUpgrade
 {
     public class MainBaseUpgrader : MonoBehaviour
     {

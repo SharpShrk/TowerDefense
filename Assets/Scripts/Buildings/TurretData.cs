@@ -1,6 +1,6 @@
 using System;
+using Buildings.Upgrades;
 using UnityEngine;
-using Upgrades;
 
 namespace Buildings
 {

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI.Bars
 {
     public abstract class Bar : MonoBehaviour
     {

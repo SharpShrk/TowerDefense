@@ -1,5 +1,6 @@
 using System;
 using Abilities;
+using EnemyLogic.StateMachine.State;
 using UnityEngine;
 using Wallets;
 
@@ -15,7 +16,7 @@ namespace EnemyLogic
         [SerializeField] private MoveState _moveState;
         [SerializeField] private Transform _targetShoot;
         [SerializeField] private AttackState _attackState;
-        
+
         private int _damageDivider = 3;
         private EnemyState _currentState;
         private Animator _animator;
@@ -68,7 +69,7 @@ namespace EnemyLogic
 
         private void OnDisable()
         {
-            if(_destroyEnemiesAbility != null)
+            if (_destroyEnemiesAbility != null)
             {
                 _destroyEnemiesAbility.EnemiesDestroyed -= OnEnemyDied;
             }
@@ -132,17 +133,6 @@ namespace EnemyLogic
             _moveState.Init(freezeEnemiesAbility);
         }
 
-        private void OnEnemyDied()
-        {
-            EnemyDied();
-            _score.AddScore(EnemyCard.Reward);
-        }
-
-        private void OnEnemyDestruction()
-        {
-           EnemyDied();
-        }
-
         private void EnemyDied()
         {
             if (gameObject.activeSelf)
@@ -168,9 +158,20 @@ namespace EnemyLogic
                 _currentState.Enter(_targetPoint, _animator, _target);
         }
 
+        private void OnEnemyDied()
+        {
+            EnemyDied();
+            _score.AddScore(EnemyCard.Reward);
+        }
+
+        private void OnEnemyDestruction()
+        {
+            EnemyDied();
+        }
+
         private void OnEnemyStriked()
         {
-            if(gameObject.activeSelf)
+            if (gameObject.activeSelf)
                 _enemyHealth.TakeDamage(_enemyHealth.MaxHealth / _damageDivider);
         }
     }

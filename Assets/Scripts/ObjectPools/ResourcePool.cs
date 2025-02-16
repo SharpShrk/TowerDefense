@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using GameResources;
 using UnityEngine;
 using Wallets;
 
-namespace GameResources
+namespace ObjectPools
 {
     public class ResourcePool : MonoBehaviour
     {

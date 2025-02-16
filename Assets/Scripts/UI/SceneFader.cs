@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI
 {
     public class SceneFader : MonoBehaviour
     {

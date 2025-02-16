@@ -2,7 +2,7 @@ using EnemyLogic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Ui
+namespace UI.Screens
 {
     public class VictoryScreen : Screen
     {
@@ -13,7 +13,7 @@ namespace Ui
 
         private void OnEnable()
         {
-            _enemyHandler.AllEnemiesKilled += OpenVictoryScreen;
+            _enemyHandler.AllEnemiesKilled += OnVictoryScreen;
             _handlerUI.OpenAfterFightVictoryClick += OnClose;
             _restartButton.onClick.AddListener(OnRestartButton);
             _exitButton.onClick.AddListener(OnExitButton);
@@ -21,14 +21,14 @@ namespace Ui
 
         private void OnDisable()
         {
-            _enemyHandler.AllEnemiesKilled -= OpenVictoryScreen;
+            _enemyHandler.AllEnemiesKilled -= OnVictoryScreen;
             _handlerUI.OpenAfterFightVictoryClick -= OnClose;
 
             _restartButton.onClick.RemoveListener(OnRestartButton);
             _exitButton.onClick.RemoveListener(OnExitButton);
         }
 
-        private void OpenVictoryScreen()
+        private void OnVictoryScreen()
         {
             OpenScreen();
             Winned?.Invoke();

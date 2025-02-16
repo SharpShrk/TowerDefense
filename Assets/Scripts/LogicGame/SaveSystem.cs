@@ -1,7 +1,7 @@
 using UnityEngine;
 using Wallets;
 
-namespace GameLogic
+namespace LogicGame
 {
     public class SaveSystem : MonoBehaviour
     {

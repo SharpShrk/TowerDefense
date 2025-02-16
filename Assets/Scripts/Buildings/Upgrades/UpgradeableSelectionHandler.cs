@@ -2,7 +2,7 @@ using Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     public class UpgradeableSelectionHandler : MonoBehaviour
     {

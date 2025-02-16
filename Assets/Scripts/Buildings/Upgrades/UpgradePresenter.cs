@@ -1,9 +1,8 @@
-using Buildings;
 using Interfaces;
 using UnityEngine;
 using Wallets;
 
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     public class UpgradePresenter : MonoBehaviour
     {

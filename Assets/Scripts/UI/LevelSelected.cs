@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Ui;
+using UI.Levels;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameLogic
+namespace UI
 {
     public class LevelSelected : MonoBehaviour
     {

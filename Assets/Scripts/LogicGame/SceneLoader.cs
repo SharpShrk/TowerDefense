@@ -1,8 +1,9 @@
-using Ui;
+using UI;
+using UI.Screens;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameLogic
+namespace LogicGame
 {
     public class SceneLoader : MonoBehaviour
     {
@@ -27,7 +28,6 @@ namespace GameLogic
             _victoryScreen.Winned += OnWinned;
             _pauseScreen.RestartButtonClick += OnRestarButtonClick;
             _pauseScreen.ExitButtonClick += OnExitButtonClick;
-
             _defeatScreen.RestartButtonClick += OnRestarButtonClick;
             _defeatScreen.ExitButtonClick += OnExitButtonClick;
         }
@@ -39,7 +39,6 @@ namespace GameLogic
             _victoryScreen.Winned -= OnWinned;
             _pauseScreen.RestartButtonClick -= OnRestarButtonClick;
             _pauseScreen.ExitButtonClick -= OnExitButtonClick;
-
             _defeatScreen.RestartButtonClick -= OnRestarButtonClick;
             _defeatScreen.ExitButtonClick -= OnExitButtonClick;
         }

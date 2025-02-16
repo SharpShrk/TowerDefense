@@ -65,7 +65,6 @@ namespace EnemyLogic
 
         public void RemoveFromList(EnemyPointer enemyPointer)
         {
-            //_dictionary[enemyPointer].gameObject.SetActive(false);
             Destroy(_dictionary[enemyPointer].gameObject);
             _dictionary.Remove(enemyPointer);
         }

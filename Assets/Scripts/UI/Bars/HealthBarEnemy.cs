@@ -1,8 +1,9 @@
 using System.Collections;
 using EnemyLogic;
+using EnemyLogic.StateMachine.State;
 using UnityEngine;
 
-namespace Ui
+namespace UI.Bars
 {
     public class HealthBarEnemy : Bar
     {

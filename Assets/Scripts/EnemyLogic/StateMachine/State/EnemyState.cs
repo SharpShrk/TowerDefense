@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using EnemyLogic.StateMachine.Transition;
 using UnityEngine;
 
-namespace EnemyLogic
+namespace EnemyLogic.StateMachine.State
 {
     public class EnemyState : MonoBehaviour
     {
@@ -11,8 +10,6 @@ namespace EnemyLogic
         public EnemyTarget EnemyTarget { get; private set; }
 
         public Animator Animator { get; private set; }
-
-       // public Rigidbody Rigidbody { get; private set; }
 
         public Transform Target { get; private set; }
 
@@ -24,7 +21,6 @@ namespace EnemyLogic
             {
                 EnemyTarget = enemyTarget;
                 Animator = animator;
-                //Rigidbody = rigidbody;
                 Target = target;
 
                 enabled = true;

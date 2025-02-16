@@ -1,7 +1,7 @@
 using System.Collections;
 using TMPro;
-using YG;
 using UnityEngine;
+using YG;
 
 namespace Advertising
 {
@@ -32,6 +32,28 @@ namespace Advertising
             YandexGame.CloseFullAdEvent -= OnCloseFullAd;
         }
 
+        private void ShowFullScreenAd()
+        {
+            YandexGame.FullscreenShow();
+            _fullScreenAdPanel.gameObject.SetActive(false);
+        }
+
+        private void StartCountTime()
+        {
+            StopCountTime();
+            _isCounterOn = true;
+            _countTime = StartCoroutine(CountTime());
+        }
+
+        private void StopCountTime()
+        {
+            if (_countTime != null)
+            {
+                _isCounterOn = false;
+                StopCoroutine(_countTime);
+            }
+        }
+
         private IEnumerator CountTime()
         {
             var waitForSeconds = new WaitForSeconds(_adShowInterval);
@@ -53,27 +75,6 @@ namespace Advertising
                 }
 
                 ShowFullScreenAd();
-            }
-        }
-
-        private void ShowFullScreenAd()
-        {
-            YandexGame.FullscreenShow();
-            _fullScreenAdPanel.gameObject.SetActive(false);
-        }
-
-        private void StartCountTime()
-        {
-            StopCountTime();
-            _isCounterOn = true;
-            _countTime = StartCoroutine(CountTime());
-        }
-
-        private void StopCountTime()
-        {
-            if (_countTime != null)
-            {
-                StopCoroutine(_countTime);
             }
         }
 

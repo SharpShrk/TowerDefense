@@ -1,7 +1,7 @@
 using EnemyLogic;
 using UnityEngine;
 
-namespace GameLogic
+namespace LogicGame
 {
     [System.Serializable]
     public class Wave

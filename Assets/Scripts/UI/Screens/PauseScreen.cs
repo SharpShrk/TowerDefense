@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI.Screens
 {
     public class PauseScreen : Screen
     {
@@ -16,7 +16,6 @@ namespace Ui
             _closeButton.onClick.AddListener(OnCloseButton);
             _handlerUI.OpenPauseMenu += OnOpen;
             _handlerUI.ClosePauseMenu += OnClose;
-
             _restartButton.onClick.AddListener(OnRestartButton);
             _exitButton.onClick.AddListener(OnExitButton);
         }
@@ -26,7 +25,6 @@ namespace Ui
             _closeButton.onClick.RemoveListener(OnCloseButton);
             _handlerUI.OpenPauseMenu -= OnOpen;
             _handlerUI.ClosePauseMenu -= OnClose;
-
             _restartButton.onClick.RemoveListener(OnRestartButton);
             _exitButton.onClick.RemoveListener(OnExitButton);
         }

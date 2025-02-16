@@ -1,4 +1,3 @@
-using Buildings;
 using Interfaces;
 using TMPro;
 using UI;
@@ -6,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Wallets;
 
-namespace Upgrades
+namespace Buildings.Upgrades
 {
     public class UpgradeView : MonoBehaviour
     {

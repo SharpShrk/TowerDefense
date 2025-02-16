@@ -1,6 +1,7 @@
+using UI;
 using UnityEngine;
 
-namespace GameLogic
+namespace LogicGame
 {
     public class MainSaveSystem : SaveSystem
     {
@@ -23,5 +24,4 @@ namespace GameLogic
         }
 
     }
-
 }

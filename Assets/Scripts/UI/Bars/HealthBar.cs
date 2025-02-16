@@ -1,7 +1,7 @@
 using EnemyLogic;
 using UnityEngine;
 
-namespace Ui
+namespace UI.Bars
 {
     public class HealthBar : Bar
     {

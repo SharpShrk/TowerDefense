@@ -2,7 +2,7 @@ using System;
 using EnemyLogic;
 using UnityEngine;
 
-namespace Ui
+namespace UI.Screens
 {
     public class DefeatScreen : Screen
     {

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Ui
+namespace UI.Levels
 {
     public class LevelData : MonoBehaviour
     {

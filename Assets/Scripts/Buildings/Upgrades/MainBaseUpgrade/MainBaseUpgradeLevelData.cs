@@ -1,4 +1,4 @@
-namespace MainBaseUpgrade
+namespace Buildings.Upgrades.MainBaseUpgrade
 {
     [System.Serializable]
     public class MainBaseUpgradeLevelData

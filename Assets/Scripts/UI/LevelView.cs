@@ -1,9 +1,10 @@
-using GameLogic;
+using LogicGame;
 using TMPro;
+using UI.Levels;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui
+namespace UI
 {
     public class LevelView : MonoBehaviour
     {

@@ -1,3 +1,4 @@
+using Bullets;
 using UnityEngine;
 
 namespace Turrets
@@ -12,14 +13,10 @@ namespace Turrets
         {
             Bullet bullet = Pool.GetBullet();
             bullet.GetComponent<Bullet>().SetDamage((int)Damage);
-
             ShootPoint = _shootPoints[_currentShootPointIndex];
-
             bullet.transform.position = ShootPoint.position;
             bullet.transform.rotation = ShootPoint.rotation;
-
             _currentShootPointIndex = (_currentShootPointIndex + 1) % _shootPoints.Length;
-
             PlayShootSound();
         }
     }

@@ -1,7 +1,8 @@
 using System;
+using UI.Screens;
 using UnityEngine;
 
-namespace Ui
+namespace UI
 {
     public class HandlerUI : MonoBehaviour
     {

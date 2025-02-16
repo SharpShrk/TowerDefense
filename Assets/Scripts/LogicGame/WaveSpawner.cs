@@ -5,7 +5,7 @@ using EnemyLogic;
 using UnityEngine;
 using Wallets;
 
-namespace GameLogic
+namespace LogicGame
 {
     public class WaveSpawner : MonoBehaviour
     {

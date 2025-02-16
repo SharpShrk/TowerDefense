@@ -16,6 +16,7 @@ namespace Abilities
 
         private int _initialIndex = 0;
         private int _currentIndex;
+
         private void OnEnable()
         {
             _closeButton.onClick.AddListener(OnCloseButtonClick);

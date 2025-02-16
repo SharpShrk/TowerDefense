@@ -1,9 +1,10 @@
-using Abilities;
 using System.Collections;
 using System.Collections.Generic;
+using Abilities;
+using Bullets;
 using UnityEngine;
 
-namespace GameResources
+namespace ObjectPools
 {
     public class BulletPool : MonoBehaviour
     {
@@ -27,20 +28,6 @@ namespace GameResources
         {
             _increasedTurretDamageAbility.DamageIncreased -= OnDamageIncreased;
             StopIncreaseDamage();
-        }
-
-        private void InitializePool()
-        {
-            _bulletPoolQueue = new Queue<Bullet>();
-
-            for (int i = 0; i < _initialPoolSize; i++)
-            {
-                Bullet bullet = Instantiate(_bulletPrefab);
-                bullet.gameObject.SetActive(false);
-                bullet.transform.SetParent(_bulletContainer.transform);
-                bullet.GetComponent<Bullet>().Init(this);
-                _bulletPoolQueue.Enqueue(bullet);
-            }
         }
 
         public Bullet GetBullet()
@@ -81,6 +68,20 @@ namespace GameResources
             else
             {
                 Destroy(bullet);
+            }
+        }
+
+        private void InitializePool()
+        {
+            _bulletPoolQueue = new Queue<Bullet>();
+
+            for (int i = 0; i < _initialPoolSize; i++)
+            {
+                Bullet bullet = Instantiate(_bulletPrefab);
+                bullet.gameObject.SetActive(false);
+                bullet.transform.SetParent(_bulletContainer.transform);
+                bullet.GetComponent<Bullet>().Init(this);
+                _bulletPoolQueue.Enqueue(bullet);
             }
         }
 

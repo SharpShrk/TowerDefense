@@ -11,8 +11,12 @@ namespace CameraBehavior
 
         private float _zOffset = 17;
         private float _xOffset = 24;
-        private Vector3 _origin;
         private Vector3 _limitedPosition;
+
+        private void Update()
+        {
+            RestrictPosition();
+        }
 
         private void RestrictPosition()
         {
@@ -29,11 +33,6 @@ namespace CameraBehavior
                     _rightBorder.transform.position.z -
                     _zOffset));
             gameObject.transform.position = _limitedPosition;
-        }
-
-        private void Update()
-        {
-            RestrictPosition();
         }
     }
 }
