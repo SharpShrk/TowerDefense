@@ -105,10 +105,11 @@ namespace LogicGame
             {
                 _pointerHandler.AddToList(enemySpawn.GetComponent<EnemyPointer>());
                 float rotationY = wave.StartPoint.localRotation.y;
-                enemySpawn.gameObject.transform.rotation = new Quaternion(0, rotationY,0,0);
+                enemySpawn.gameObject.transform.rotation = new Quaternion(0, rotationY, 0, 0);
                 enemySpawn.GetComponent<EnemyHealth>().Initialize();
                 enemySpawn.GetComponent<EnemyPointer>().Init(_pointerHandler);
-                enemySpawn.Init(_enemyTarget,
+                enemySpawn.Init(
+                    _enemyTarget,
                     _enemyTarget.GetPoint(),
                     _score,
                     _destroyEnemiesAbility,

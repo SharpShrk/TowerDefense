@@ -48,9 +48,8 @@ namespace Buildings.Upgrades
         public void ShowUpgradeOptions(IUpgradeable upgradeable)
         {
             if (!_upgradePanel.activeSelf && _upgradeStatusChecker.CanOpenNewPanel())
-            {               
+            {
                 _upgradeStatusChecker.SetPanelOpen();
-
                 _currentUpgradeableObject = upgradeable;
                 _currentBuildingData = _currentUpgradeableObject.gameObject.GetComponent<BuildingData>();
                 _level.text = _currentBuildingData.BuidlingLevel.ToString();

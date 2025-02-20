@@ -13,12 +13,12 @@ namespace Buildings
         private float _damage;
         private float _rotationSpeed;
 
+        public event Action OnParametersUpdated;
+
         public float AttackRange => _attackRange;
         public float AttackCooldown => _attackCooldown;
         public float Damage => _damage;
         public float RotationSpeed => _rotationSpeed;
-
-        public event Action OnParametersUpdated;
 
         private void Awake()
         {

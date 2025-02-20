@@ -118,7 +118,8 @@ namespace EnemyLogic
             _dieState.Enter(_targetPoint, _animator, _target);
         }
 
-        public void Init(EnemyTarget targetPoint,
+        public void Init(
+            EnemyTarget targetPoint,
             Transform target,
             Score score,
             DestroyEnemiesAbility destroyEnemiesAbility,

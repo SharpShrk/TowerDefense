@@ -21,7 +21,7 @@ namespace Audio
             ShuffleFightClips();
             PlayNextFightClip();
         }
-        
+
         private void OnEnable()
         {
             _enemyHandler.AllEnemiesKilled += OnVictoryClip;

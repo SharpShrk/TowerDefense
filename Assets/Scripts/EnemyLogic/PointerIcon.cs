@@ -48,7 +48,7 @@ namespace EnemyLogic
             StartCoroutine(HideProcess());
         }
 
-        IEnumerator ShowProcess()
+        private IEnumerator ShowProcess()
         {
             _image.enabled = true;
             transform.localScale = Vector3.zero;
@@ -62,7 +62,7 @@ namespace EnemyLogic
             transform.localScale = Vector3.one;
         }
 
-        IEnumerator HideProcess()
+        private IEnumerator HideProcess()
         {
             for (float t = 0; t < 1f; t += Time.deltaTime * 4f)
             {

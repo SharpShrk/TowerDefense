@@ -18,7 +18,6 @@ namespace Audio
         private float _defaultVolume = 0.70f;
         private float _minimumVolume = -20f;
 
-
         private void OnEnable()
         {
             _musicSlider.onValueChanged.AddListener(OnSetMusicSlider);

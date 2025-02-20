@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using Random = UnityEngine.Random;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace EnemyLogic
 {
@@ -10,7 +10,7 @@ namespace EnemyLogic
     {
         [SerializeField] private Transform[] _pointsAttack;
         [SerializeField] private ParticleSystem _particleSystemExplosion;
-        
+
         private EnemyTargetHealth _enemyTargetHealth;
         private float _delayDeath = 3f;
         private WaitForSeconds _waitForSecounds;

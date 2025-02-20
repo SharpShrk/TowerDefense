@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 
 namespace Turrets
 {
-    [RequireComponent(typeof(AudioSource))] 
+    [RequireComponent(typeof(AudioSource))]
     public abstract class Turret : MonoBehaviour, IBuilding, IPoolable
     {
         [SerializeField] protected GameObject RotatingPlatform;
@@ -43,7 +43,7 @@ namespace Turrets
 
         protected void Start()
         {
-            Data = GetComponent<TurretData>();            
+            Data = GetComponent<TurretData>();
             Data.OnParametersUpdated += SetParameters;
             IsPlaced = false;
             PlaceTurret();
@@ -111,8 +111,7 @@ namespace Turrets
             RotatingPlatform.transform.rotation = Quaternion.Lerp(
                 currentRotation,
                 newTargetRotation,
-                Time.deltaTime *
-                RotationSpeed);
+                Time.deltaTime * RotationSpeed);
             Vector3 directionToTarget = targetPoint.position - Gun.transform.position;
             float yDifference = directionToTarget.y;
             float distanceToTarget = directionToTarget.magnitude;

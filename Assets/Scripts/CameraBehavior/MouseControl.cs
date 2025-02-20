@@ -27,7 +27,7 @@ namespace CameraBehavior
             }
 
             Vector3 difference = _camera.ScreenToViewportPoint(Input.mousePosition - _origin);
-            Vector3 targetPosition = new Vector3(difference.y, 0, -(difference.x));
+            Vector3 targetPosition = new Vector3(difference.y, 0, -difference.x);
             transform.Translate(targetPosition * _speed * Time.deltaTime, Space.World);
         }
     }

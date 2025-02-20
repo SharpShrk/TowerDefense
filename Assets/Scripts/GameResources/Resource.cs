@@ -28,7 +28,7 @@ namespace GameResources
 
         private void OnDisable()
         {
-            if(_countLifeTime != null)
+            if (_countLifeTime != null)
             {
                 StopCoroutine(_countLifeTime);
             }
@@ -36,8 +36,8 @@ namespace GameResources
 
         protected abstract void AddValueInWallet();
 
-        protected abstract void ReturnToPool();        
-
+        protected abstract void ReturnToPool();
+        
         private IEnumerator CountLifeTime()
         {
             var waitForSeconds = new WaitForSeconds(_lifeTime);

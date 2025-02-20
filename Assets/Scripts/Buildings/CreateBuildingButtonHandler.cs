@@ -66,6 +66,7 @@ namespace Buildings
             {
                 return true;
             }
+
             return false;
         }
 
@@ -93,7 +94,6 @@ namespace Buildings
                             buildingPlace.CloseCell();
                             break;
                         }
-
                     }
                 }
             }
