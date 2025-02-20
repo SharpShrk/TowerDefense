@@ -31,18 +31,22 @@ namespace Buildings
                 _machineGunTurretPrefab,
                 pos,
                 _machinegunBulletPool);
+
             _factoryMethods[BuildType.LaserGun] = pos => CreateBuilding<Turret>(
                 _laserGunTurretPrefab,
                 pos,
                 _laserBulletPool);
+
             _factoryMethods[BuildType.LargeCaliber] = pos => CreateBuilding<Turret>(
                 _largeCaliberTurretPrefab,
                 pos,
                 _largeCaliberbulletPool);
+
             _factoryMethods[BuildType.MetalFactory] = pos => CreateBuilding<ResourcesFactory>(
                 _metalFactoryPrefab,
                 pos,
                 _metalPool);
+
             _factoryMethods[BuildType.EnergyFactory] = pos => CreateBuilding<ResourcesFactory>(
                 _energyFactoryPrefab,
                 pos,

@@ -11,12 +11,8 @@ namespace Buildings.Upgrades
 
         private void Update()
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-
-            if (Input.GetMouseButtonDown(0))
+            if (!EventSystem.current.IsPointerOverGameObject() &&
+                Input.GetMouseButtonDown(0))
             {
                 RaycastHit[] hits;
                 Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -24,14 +20,10 @@ namespace Buildings.Upgrades
 
                 foreach (RaycastHit hit in hits)
                 {
-                    if (!hit.collider.isTrigger)
+                    if (!hit.collider.isTrigger &&
+                        hit.collider.TryGetComponent<IUpgradeable>(out var upgradeableComponent))
                     {
-                        var upgradeableComponent = hit.collider.GetComponent<IUpgradeable>();
-
-                        if (upgradeableComponent != null)
-                        {
-                            _upgradePresenter.OnBuildingSelected(hit.collider.gameObject);
-                        }
+                        _upgradePresenter.OnBuildingSelected(hit.collider.gameObject);
                     }
                 }
             }
