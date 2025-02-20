@@ -15,13 +15,14 @@ namespace Buildings.Upgrades
 
         public void Upgrade()
         {
-            if (_data is TurretData turretData)
+            switch (_data)
             {
-                turretData.LevelUp(turretData.BuidlingLevel + 1);
-            }
-            else if (_data is ResourcesFactoryData factoryData)
-            {
-                factoryData.LevelUp(factoryData.BuidlingLevel + 1);
+                case TurretData turretData:
+                    turretData.LevelUp(turretData.BuidlingLevel + 1);
+                    break;
+                case ResourcesFactoryData factoryData:
+                    factoryData.LevelUp(factoryData.BuidlingLevel + 1);
+                    break;
             }
         }
     }

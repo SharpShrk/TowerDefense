@@ -86,14 +86,11 @@ namespace Buildings
 
                 if (buildingPlace != null && buildingPlace.IsCellFree)
                 {
-                    if (CanPlaceBuilding(buildingPlace))
+                    if (CanPlaceBuilding(buildingPlace) && _wallet.SpendResource(_buildingCostConstruction))
                     {
-                        if (_wallet.SpendResource(_buildingCostConstruction))
-                        {
-                            _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
-                            buildingPlace.CloseCell();
-                            break;
-                        }
+                        _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
+                        buildingPlace.CloseCell();
+                        break;
                     }
                 }
             }
