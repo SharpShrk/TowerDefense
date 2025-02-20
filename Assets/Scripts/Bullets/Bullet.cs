@@ -16,6 +16,7 @@ namespace Bullets
 
         private int _damage;
         private int _splashDamage;
+        private int _damageMultiplier = 2;
         private Rigidbody _rigidbody;
         private BulletPool _bulletPool;
         private bool _isIncreasedDamage = false;
@@ -72,7 +73,7 @@ namespace Bullets
         {
             if (_isIncreasedDamage)
             {
-                _damage = damage * 2;
+                _damage = damage * _damageMultiplier;
             }
             else
             {

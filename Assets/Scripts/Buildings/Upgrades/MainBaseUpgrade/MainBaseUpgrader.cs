@@ -73,12 +73,9 @@ namespace Buildings.Upgrades.MainBaseUpgrade
             if (_wallet.SpendResource(_costUpgrade))
             {
                 ApplyUpgrade();
-                CloseUpgradePanel();
             }
-            else
-            {
-                CloseUpgradePanel();
-            }
+
+            CloseUpgradePanel();
         }
 
         private void SetUpgradeButtonState()
