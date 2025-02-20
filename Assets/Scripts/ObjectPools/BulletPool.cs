@@ -21,6 +21,10 @@ namespace ObjectPools
         private void Awake()
         {
             InitializePool();
+        }
+
+        private void OnEnable()
+        {
             _increasedTurretDamageAbility.DamageIncreased += OnDamageIncreased;
         }
 
