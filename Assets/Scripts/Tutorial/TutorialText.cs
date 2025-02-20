@@ -7,5 +7,7 @@ public abstract class TutorialText : MonoBehaviour
         Activate();
     }
 
-    public virtual void Activate() { }
+    public virtual void Activate()
+    {
+    }
 }

@@ -15,7 +15,7 @@ namespace UI
         private LevelData _levelData;
 
         public Button ButtonLevel => _buttonLevel;
-        
+
         private void OnEnable()
         {
             _buttonLevel.onClick.AddListener(OnButtonClick);
@@ -40,7 +40,7 @@ namespace UI
         private void OnButtonClick()
         {
             _levelSelected.ShowLevel(_levelData);
-           _levelSelected.PlayButtonClick += OnPlayButtonClick;
+            _levelSelected.PlayButtonClick += OnPlayButtonClick;
         }
 
         private void OnPlayButtonClick()

@@ -4,5 +4,5 @@ public enum BuildType
     LaserGun,
     LargeCaliber,
     EnergyFactory,
-    MetalFactory
+    MetalFactory,
 }

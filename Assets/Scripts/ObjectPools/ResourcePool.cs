@@ -71,7 +71,7 @@ namespace ObjectPools
             {
                 energyResource.Initialize(_energyWallet, this);
             }
-            else if(resource is Metal metalResource)
+            else if (resource is Metal metalResource)
             {
                 metalResource.Initialize(_metalWallet, this);
             }

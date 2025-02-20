@@ -45,6 +45,7 @@ namespace ObjectPools
                 newBullet.GetComponent<Bullet>().Init(this);
                 return newBullet;
             }
+
             return null;
         }
 

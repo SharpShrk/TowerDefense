@@ -7,7 +7,7 @@ namespace Buildings.Upgrades
     public class UpgradeableSelectionHandler : MonoBehaviour
     {
         [SerializeField] private Camera _mainCamera;
-        [SerializeField] private UpgradePresenter _upgradePresenter;        
+        [SerializeField] private UpgradePresenter _upgradePresenter;
 
         private void Update()
         {

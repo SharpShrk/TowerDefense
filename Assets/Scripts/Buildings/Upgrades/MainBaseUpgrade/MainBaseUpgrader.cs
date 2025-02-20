@@ -1,8 +1,8 @@
 using EnemyLogic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Wallets;
 
 namespace Buildings.Upgrades.MainBaseUpgrade
@@ -51,9 +51,9 @@ namespace Buildings.Upgrades.MainBaseUpgrade
                 return;
             }
 
-            if(_upgradeStatusChecker.CanOpenNewPanel())
+            if (_upgradeStatusChecker.CanOpenNewPanel())
             {
-                OpenUpgradePanel();               
+                OpenUpgradePanel();
             }
         }
 

@@ -61,7 +61,10 @@ namespace Buildings
             }
         }
 
-        private T CreateBuilding<T>(GameObject prefab, Vector3 position, object pool = null) where T : Component
+        private T CreateBuilding<T>(GameObject prefab,
+            Vector3 position,
+            object pool = null)
+            where T : Component
         {
             var buildingObject = Instantiate(prefab, position, Quaternion.identity);
             var buildingComponent = buildingObject.GetComponent<T>();

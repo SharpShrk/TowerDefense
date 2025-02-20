@@ -5,9 +5,9 @@ namespace EnemyLogic
 {
     public class PointerHandler : MonoBehaviour
     {
-        [SerializeField] PointerIcon _pointerPrefab;
-        [SerializeField] Transform _target;
-        [SerializeField] Camera _camera;
+        [SerializeField] private PointerIcon _pointerPrefab;
+        [SerializeField] private Transform _target;
+        [SerializeField] private Camera _camera;
 
         private Dictionary<EnemyPointer, PointerIcon> _dictionary = new Dictionary<EnemyPointer, PointerIcon>();
 

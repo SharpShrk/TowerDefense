@@ -1,4 +1,6 @@
 namespace Wallets
 {
-    public class EnergyWallet : ResourceWallet{}
+    public class EnergyWallet : ResourceWallet
+    {
+    }
 }

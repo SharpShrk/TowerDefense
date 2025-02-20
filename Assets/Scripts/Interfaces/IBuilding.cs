@@ -1,4 +1,6 @@
 namespace Interfaces
 {
-    public interface IBuilding { }
+    public interface IBuilding
+    {
+    }
 }

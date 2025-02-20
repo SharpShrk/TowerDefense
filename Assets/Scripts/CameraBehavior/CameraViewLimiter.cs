@@ -20,18 +20,17 @@ namespace CameraBehavior
 
         private void RestrictPosition()
         {
-            _limitedPosition = new Vector3(Mathf.Clamp(
+            _limitedPosition = new Vector3(
+                Mathf.Clamp(
                 transform.position.x,
-                _upperBorder.transform.position.x +
-                _xOffset,
-                _downBorder.transform.position.x),
+                _upperBorder.transform.position.x + _xOffset,
+                _downBorder.transform.position.x
+                ),
                 transform.position.y,
                 Mathf.Clamp(
                     transform.position.z,
-                    _leftBorder.transform.position.z +
-                    _zOffset,
-                    _rightBorder.transform.position.z -
-                    _zOffset));
+                    _leftBorder.transform.position.z + _zOffset,
+                    _rightBorder.transform.position.z - _zOffset));
             gameObject.transform.position = _limitedPosition;
         }
     }

@@ -8,12 +8,13 @@ namespace EnemyLogic.StateMachine.State
     [RequireComponent(typeof(NavMeshAgent))]
     public class MoveState : EnemyState
     {
+        private const float SpeedStart = 0.01f;
+        private const string Run = "Run";
+        private const float SpeedEnd = 0f;
+
         private FreezeEnemiesAbility _freezeEnemiesAbility;
         private float _freezeDuration;
         private float _defaultSpeed;
-        private const string Run = "Run";
-        private const float SpeedStart = 0.01f;
-        private const float SpeedEnd = 0f;
         private float _frozenSpeed = 0f;
         private Coroutine _freeze;
         private NavMeshAgent _agent;

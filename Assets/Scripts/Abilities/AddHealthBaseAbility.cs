@@ -13,7 +13,7 @@ namespace Abilities
 
         private void OnValidate()
         {
-            if(_addedHealth < _minAddedHealth)
+            if (_addedHealth < _minAddedHealth)
                 _addedHealth = _minAddedHealth;
         }
 

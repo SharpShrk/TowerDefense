@@ -6,7 +6,7 @@ namespace EnemyLogic
     public class EnemyCard : ScriptableObject
     {
         [SerializeField] private int _id = 0;
-        [SerializeField] private int _health=0;
+        [SerializeField] private int _health = 0;
         [SerializeField] private int _damage = 10;
         [SerializeField] private int _reward = 1;
         [SerializeField] private float _attackSpeed = 1;

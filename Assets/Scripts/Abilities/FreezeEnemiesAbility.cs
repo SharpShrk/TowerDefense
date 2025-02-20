@@ -13,7 +13,7 @@ namespace Abilities
 
         private void OnValidate()
         {
-            if(_duration < _minDuration)
+            if (_duration < _minDuration)
                 _duration = _minDuration;
         }
 

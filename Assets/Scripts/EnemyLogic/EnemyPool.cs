@@ -10,7 +10,7 @@ namespace EnemyLogic
         [SerializeField] private GameObject _enemyContainer;
         [SerializeField] private WaveSpawner _waveSpawner;
         [SerializeField] private EnemyHandler _enemyHandler;
-        
+
         private Wave[] _waves;
         private EnemyCount[] _enemyCounts;
         private List<Enemy> _enemies;
@@ -44,7 +44,7 @@ namespace EnemyLogic
             }
         }
 
-        public bool TryGetObject(int id,out Enemy result)
+        public bool TryGetObject(int id, out Enemy result)
         {
             result = _enemies.FirstOrDefault(enemy => enemy.gameObject.activeSelf == false && enemy.EnemyCard.Id == id);
             _enemies.Remove(result);
