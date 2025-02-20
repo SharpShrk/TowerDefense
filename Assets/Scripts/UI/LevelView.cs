@@ -12,7 +12,7 @@ namespace UI
         [SerializeField] private Button _buttonLevel;
 
         private LevelSelected _levelSelected;
-        private LevelData _levelData;
+        private LevelConfig _levelData;
 
         public Button ButtonLevel => _buttonLevel;
 
@@ -26,12 +26,12 @@ namespace UI
             _buttonLevel.onClick.RemoveListener(OnButtonClick);
         }
 
-        public void RenderLevelText(LevelData level)
+        public void RenderLevelText(LevelConfig level)
         {
             _levelText.text = level.Id.ToString();
         }
 
-        public void Init(LevelSelected levelSelected, LevelData levelData)
+        public void Init(LevelSelected levelSelected, LevelConfig levelData)
         {
             _levelSelected = levelSelected;
             _levelData = levelData;

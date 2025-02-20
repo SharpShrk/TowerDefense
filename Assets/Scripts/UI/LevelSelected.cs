@@ -9,7 +9,7 @@ namespace UI
 {
     public class LevelSelected : MonoBehaviour
     {
-        [SerializeField] private List<LevelData> _levels;
+        [SerializeField] private List<LevelConfig> _levels;
         [SerializeField] private Transform _container;
         [SerializeField] private SceneFader _sceneFader;
 
@@ -51,7 +51,7 @@ namespace UI
             }
         }
 
-        public void ShowLevel(LevelData level)
+        public void ShowLevel(LevelConfig level)
         {
             HideLevel(true);
             _textLevelName.text = level.LevelName.text;
@@ -60,7 +60,7 @@ namespace UI
             _playButton.onClick.AddListener(OnPlayButtonClick);
         }
 
-        public void LoadLevel(LevelData levelData)
+        public void LoadLevel(LevelConfig levelData)
         {
             Time.timeScale = _numberOne;
             _sceneFader.FadeTo(levelData.SceneIndex);
@@ -75,7 +75,7 @@ namespace UI
             }
         }
 
-        private void AddLevel(LevelData level)
+        private void AddLevel(LevelConfig level)
         {
             var view = Instantiate(level.Template, _container);
             view.RenderLevelText(level);
