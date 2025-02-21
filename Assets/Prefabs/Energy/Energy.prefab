@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2693614814438372725}
   - component: {fileID: 8743755045633261979}
   - component: {fileID: 3873798585111435159}
-  - component: {fileID: 3411272576684414163}
   - component: {fileID: 3290526614006807274}
   - component: {fileID: 4529314124440085600}
+  - component: {fileID: 6589484721265289952}
   m_Layer: 0
   m_Name: Energy
   m_TagString: Untagged
@@ -108,19 +108,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.54, y: 0.68, z: 0.46}
   m_Center: {x: 0, y: 0.34, z: 0}
---- !u!114 &3411272576684414163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3133646198208810411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a87063584464944b544d66ac74f6c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _volume: 10
 --- !u!95 &3290526614006807274
 Animator:
   serializedVersion: 5
@@ -154,3 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7a8b0beb7e7ce40914c0da5e9d897e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6589484721265289952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133646198208810411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4cf03d21b6d184eb0fe34a84f21458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resourceType: 1
+  _value: 25

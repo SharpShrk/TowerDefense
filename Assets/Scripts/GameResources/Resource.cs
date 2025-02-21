@@ -1,20 +1,31 @@
+using ObjectPools;
 using System.Collections;
 using UnityEngine;
+using Wallets;
 
 namespace GameResources
 {
+    public enum ResourceType
+    {
+        Metal,
+        Energy
+    }
+
     [RequireComponent(typeof(ResourceAnimator))]
     [RequireComponent(typeof(Collider))]
-    public abstract class Resource : MonoBehaviour
+    public class Resource : MonoBehaviour
     {
-        [SerializeField] private int _volume;
+        [SerializeField] private ResourceType _resourceType;
+        [SerializeField] private int _value;
 
         private ResourceAnimator _animator;
         private int _lifeTime = 1;
         private int _hideAnimationDuration = 1;
         private Coroutine _countLifeTime;
+        private ResourceWallet _wallet;
+        private ResourcePool _pool;
 
-        public int Volume => _volume;
+        public ResourceType ResourceType => _resourceType;
 
         private void Awake()
         {
@@ -34,9 +45,21 @@ namespace GameResources
             }
         }
 
-        protected abstract void AddValueInWallet();
+        public void Initialize(ResourceWallet wallet, ResourcePool pool)
+        {
+            _wallet = wallet;
+            _pool = pool;
+        }
 
-        protected abstract void ReturnToPool();
+        private void AddValueInWallet()
+        {
+            _wallet.AddResource(_value);
+        }
+
+        private void ReturnToPool()
+        {
+            _pool.ReturnResource(this);
+        }
         
         private IEnumerator CountLifeTime()
         {

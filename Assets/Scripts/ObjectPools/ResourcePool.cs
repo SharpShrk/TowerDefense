@@ -67,13 +67,16 @@ namespace ObjectPools
 
         private void AssignWallet(Resource resource)
         {
-            if (resource is Energy energyResource)
+            switch (resource.ResourceType)
             {
-                energyResource.Initialize(_energyWallet, this);
-            }
-            else if (resource is Metal metalResource)
-            {
-                metalResource.Initialize(_metalWallet, this);
+                case ResourceType.Energy:
+                    resource.Initialize(_energyWallet, this);
+                    break;
+                case ResourceType.Metal:
+                    resource.Initialize(_metalWallet, this);
+                    break;
+                default:
+                    break;
             }
         }
     }
