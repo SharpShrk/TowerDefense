@@ -2997,12 +2997,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c2106d202d8e4295a110d3840dd57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourcePrefab: {fileID: 3411272576684414163, guid: 380f7270a449be643bbd7254706ed59f, type: 3}
+  _resourcePrefab: {fileID: 6589484721265289952, guid: 380f7270a449be643bbd7254706ed59f, type: 3}
   _initialPoolSize: 10
   _maxPoolSize: 50
   _resourceContainer: {fileID: 176985532}
-  _energyWallet: {fileID: 0}
-  _metalWallet: {fileID: 0}
+  _energyWallet: {fileID: 415167914}
+  _metalWallet: {fileID: 765993070}
 --- !u!1001 &181783253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20033,6 +20033,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7737797860367709598, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _wallet
+      value: 
+      objectReference: {fileID: 765993070}
     - target: {fileID: 7838051926998173302, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _metalWallet
       value: 
@@ -20073,11 +20077,45 @@ PrefabInstance:
       propertyPath: _isAvailableOnStart
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8481824337248345086, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4612429457399599918, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1148686931}
   m_SourcePrefab: {fileID: 100100000, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+--- !u!114 &1148686929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7349753532412895784, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+  m_PrefabInstance: {fileID: 1148686928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1148686930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4612429457399599918, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+  m_PrefabInstance: {fileID: 1148686928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1148686931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148686930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856fef78134f0fd43b9f7e8fe8f657c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1148686929}
+  _wallet: {fileID: 415167914}
 --- !u!1001 &1150078756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25101,12 +25139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c2106d202d8e4295a110d3840dd57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourcePrefab: {fileID: -8099563999215240467, guid: d0bdb3af2a3c3194699e22ab850c1cb1, type: 3}
+  _resourcePrefab: {fileID: 7239780632112865523, guid: d0bdb3af2a3c3194699e22ab850c1cb1, type: 3}
   _initialPoolSize: 10
   _maxPoolSize: 50
   _resourceContainer: {fileID: 1425856916}
-  _energyWallet: {fileID: 0}
-  _metalWallet: {fileID: 0}
+  _energyWallet: {fileID: 415167914}
+  _metalWallet: {fileID: 765993070}
 --- !u!1001 &1433635430
 PrefabInstance:
   m_ObjectHideFlags: 0

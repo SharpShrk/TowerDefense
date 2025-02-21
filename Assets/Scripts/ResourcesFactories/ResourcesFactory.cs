@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ResourcesFactories
 {
     [RequireComponent(typeof(ResourcesFactoryData))]
-    public abstract class ResourcesFactory : MonoBehaviour, IBuilding, IPoolable
+    public class ResourcesFactory : MonoBehaviour, IBuilding, IPoolable
     {
         [SerializeField] private Resource _spawningResource;
         [SerializeField] private SpawnPoint _spawnPoint;
