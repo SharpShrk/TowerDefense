@@ -12,7 +12,7 @@ namespace Buildings
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private BuildType _buildType;
         [SerializeField] private ConstructionZone _constructionZone;
-        [SerializeField] private MetalWallet _wallet;
+        [SerializeField] private ResourceWallet _metallWallet;
         [SerializeField] private int _buildingCostConstruction;
 
         private Button _buildingButton;
@@ -86,7 +86,7 @@ namespace Buildings
 
                 if (buildingPlace != null && buildingPlace.IsCellFree)
                 {
-                    if (CanPlaceBuilding(buildingPlace) && _wallet.SpendResource(_buildingCostConstruction))
+                    if (CanPlaceBuilding(buildingPlace) && _metallWallet.SpendResource(_buildingCostConstruction))
                     {
                         _buildFactory.CreateBuild(_buildType, buildingPlace.InstallationPoint.position);
                         buildingPlace.CloseCell();

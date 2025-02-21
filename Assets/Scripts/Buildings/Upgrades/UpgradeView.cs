@@ -21,7 +21,7 @@ namespace Buildings.Upgrades
         [SerializeField] private TMP_Text _notEnoughEnergyText;
         [SerializeField] private Button _closeUpgradePanelButton;
         [SerializeField] private Notifier _maxLevelNotification;
-        [SerializeField] private EnergyWallet _energyWallet;
+        [SerializeField] private ResourceWallet _energyWallet;
         [SerializeField] private UpgradePanelStatusChecker _upgradeStatusChecker;
 
         private IUpgradeable _currentUpgradeableObject;

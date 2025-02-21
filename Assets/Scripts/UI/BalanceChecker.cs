@@ -9,7 +9,7 @@ namespace UI
     [RequireComponent(typeof(CreateBuildingButtonHandler))]
     public class BalanceChecker : MonoBehaviour
     {
-        [SerializeField] private MetalWallet _metalWallet;
+        [SerializeField] private ResourceWallet _metalWallet;
         [SerializeField] private Image _curtain;
 
         private CreateBuildingButtonHandler _buildButtonHandler;

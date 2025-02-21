@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Wallets
 {
-    public abstract class ResourceWallet : MonoBehaviour
+    public class ResourceWallet : MonoBehaviour
     {
         [SerializeField] private int _startValue;
 
@@ -13,7 +13,7 @@ namespace Wallets
 
         public int CurrentValue => _currentValue;
 
-        protected virtual void Start()
+        private void Start()
         {
             SetStartValue(_startValue);
         }

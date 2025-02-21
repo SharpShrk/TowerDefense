@@ -11,7 +11,7 @@ namespace Buildings.Upgrades.MainBaseUpgrade
     {
         [SerializeField] private EnemyTargetHealth _enemyTargetHealth;
         [SerializeField] private MainBaseUpgradeData _upgradeData;
-        [SerializeField] private EnergyWallet _wallet;
+        [SerializeField] private ResourceWallet _energyWallet;
         [SerializeField] private int _costUpgrade;
         [SerializeField] private GameObject _upgradePanel;
         [SerializeField] private TMP_Text _costUpgradeText;
@@ -70,7 +70,7 @@ namespace Buildings.Upgrades.MainBaseUpgrade
 
         private void TryUpgrade()
         {
-            if (_wallet.SpendResource(_costUpgrade))
+            if (_energyWallet.SpendResource(_costUpgrade))
             {
                 ApplyUpgrade();
             }
@@ -80,7 +80,7 @@ namespace Buildings.Upgrades.MainBaseUpgrade
 
         private void SetUpgradeButtonState()
         {
-            if (_wallet.CurrentValue < _costUpgrade)
+            if (_energyWallet.CurrentValue < _costUpgrade)
             {
                 _upgradeButton.interactable = false;
                 _upgradeButtonText.gameObject.SetActive(false);

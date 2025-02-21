@@ -1,6 +1,8 @@
+using UnityEngine;
+
 namespace Wallets
 {
-    public class MetalWallet : ResourceWallet
+    public class MetalWallet : MonoBehaviour
     {
     }
 }

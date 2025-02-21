@@ -7033,8 +7033,8 @@ MonoBehaviour:
   _initialPoolSize: 10
   _maxPoolSize: 50
   _resourceContainer: {fileID: 176985532}
-  _energyWallet: {fileID: 415167914}
-  _metalWallet: {fileID: 765993070}
+  _energyWallet: {fileID: 0}
+  _metalWallet: {fileID: 0}
 --- !u!1001 &177766986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16258,7 +16258,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 415167912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8580f0632e43404891d883b01e6d487, type: 3}
+  m_Script: {fileID: 11500000, guid: dc53acd197ffb30469802bc53cfb3b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _startValue: 300
@@ -22310,7 +22310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyTargetHealth: {fileID: 601941198}
   _upgradeData: {fileID: 11400000, guid: bca495454a3675e4eabda9a348fbe095, type: 2}
-  _wallet: {fileID: 415167914}
+  _energyWallet: {fileID: 415167914}
   _costUpgrade: 500
   _upgradePanel: {fileID: 450385213}
   _costUpgradeText: {fileID: 608074257}
@@ -29558,7 +29558,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 765993068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846405a3fbab39c49b97f2c558816a69, type: 3}
+  m_Script: {fileID: 11500000, guid: dc53acd197ffb30469802bc53cfb3b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _startValue: 500
@@ -53101,8 +53101,8 @@ MonoBehaviour:
   _initialPoolSize: 10
   _maxPoolSize: 50
   _resourceContainer: {fileID: 1425856916}
-  _energyWallet: {fileID: 415167914}
-  _metalWallet: {fileID: 765993070}
+  _energyWallet: {fileID: 0}
+  _metalWallet: {fileID: 0}
 --- !u!1001 &1428112346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60574,7 +60574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1181816480}
-  _wallet: {fileID: 415167914}
+  _energyWallet: {fileID: 415167914}
 --- !u!114 &1675000249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69779,7 +69779,7 @@ PrefabInstance:
     - target: {fileID: 4315154168642739045, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
-      objectReference: {fileID: 765993070}
+      objectReference: {fileID: 0}
     - target: {fileID: 4315154168642739045, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _mainCamera
       value: 
@@ -69788,6 +69788,10 @@ PrefabInstance:
       propertyPath: _buildFactory
       value: 
       objectReference: {fileID: 974292777}
+    - target: {fileID: 4315154168642739045, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _metallWallet
+      value: 
+      objectReference: {fileID: 765993070}
     - target: {fileID: 4315154168642739045, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _constructionZone
       value: 
@@ -69795,7 +69799,7 @@ PrefabInstance:
     - target: {fileID: 4398466186514383747, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
-      objectReference: {fileID: 765993070}
+      objectReference: {fileID: 0}
     - target: {fileID: 4398466186514383747, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _mainCamera
       value: 
@@ -69804,6 +69808,10 @@ PrefabInstance:
       propertyPath: _buildFactory
       value: 
       objectReference: {fileID: 974292777}
+    - target: {fileID: 4398466186514383747, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _metallWallet
+      value: 
+      objectReference: {fileID: 765993070}
     - target: {fileID: 4398466186514383747, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _constructionZone
       value: 
@@ -69831,7 +69839,7 @@ PrefabInstance:
     - target: {fileID: 5479837556788403739, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
-      objectReference: {fileID: 765993070}
+      objectReference: {fileID: 0}
     - target: {fileID: 5479837556788403739, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _mainCamera
       value: 
@@ -69840,6 +69848,10 @@ PrefabInstance:
       propertyPath: _buildFactory
       value: 
       objectReference: {fileID: 974292777}
+    - target: {fileID: 5479837556788403739, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _metallWallet
+      value: 
+      objectReference: {fileID: 765993070}
     - target: {fileID: 5479837556788403739, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _constructionZone
       value: 
@@ -69847,7 +69859,7 @@ PrefabInstance:
     - target: {fileID: 5845194727685948267, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
-      objectReference: {fileID: 765993070}
+      objectReference: {fileID: 0}
     - target: {fileID: 5845194727685948267, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _mainCamera
       value: 
@@ -69856,6 +69868,10 @@ PrefabInstance:
       propertyPath: _buildFactory
       value: 
       objectReference: {fileID: 974292777}
+    - target: {fileID: 5845194727685948267, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _metallWallet
+      value: 
+      objectReference: {fileID: 765993070}
     - target: {fileID: 5845194727685948267, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _constructionZone
       value: 
@@ -69887,7 +69903,7 @@ PrefabInstance:
     - target: {fileID: 6880474283440083286, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _wallet
       value: 
-      objectReference: {fileID: 765993070}
+      objectReference: {fileID: 0}
     - target: {fileID: 6880474283440083286, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _mainCamera
       value: 
@@ -69896,6 +69912,10 @@ PrefabInstance:
       propertyPath: _buildFactory
       value: 
       objectReference: {fileID: 974292777}
+    - target: {fileID: 6880474283440083286, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
+      propertyPath: _metallWallet
+      value: 
+      objectReference: {fileID: 765993070}
     - target: {fileID: 6880474283440083286, guid: d934b456cf2a4a84cb2d2ef5c796ae43, type: 3}
       propertyPath: _constructionZone
       value: 
