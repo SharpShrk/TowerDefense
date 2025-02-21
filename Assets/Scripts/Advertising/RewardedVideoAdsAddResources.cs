@@ -15,8 +15,8 @@ namespace Advertising
         [SerializeField] private TMP_Text _metalAdditionText;
         [SerializeField] private TMP_Text _energyAdditionText;
         [SerializeField] private Notifier _errorVideoEventText;
-        [SerializeField] private EnergyWallet _energyWallet;
-        [SerializeField] private MetalWallet _metalWallet;
+        [SerializeField] private ResourceWallet _energyWallet;
+        [SerializeField] private ResourceWallet _metalWallet;
 
         private Button _addResourcesButton;
         private int _advertisingId = 0;

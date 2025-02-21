@@ -5,7 +5,7 @@ namespace UI.RewardUI
 {
     public class MetalWalletUI : RewardUI
     {
-        [SerializeField] private MetalWallet _metalWallet;
+        [SerializeField] private ResourceWallet _metalWallet;
 
         protected override void OnEnable()
         {

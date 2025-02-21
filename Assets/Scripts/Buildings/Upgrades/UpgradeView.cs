@@ -21,7 +21,7 @@ namespace Buildings.Upgrades
         [SerializeField] private TMP_Text _notEnoughEnergyText;
         [SerializeField] private Button _closeUpgradePanelButton;
         [SerializeField] private Notifier _maxLevelNotification;
-        [SerializeField] private EnergyWallet _energyWallet;
+        [SerializeField] private ResourceWallet _energyWallet;
         [SerializeField] private UpgradePanelStatusChecker _upgradeStatusChecker;
 
         private IUpgradeable _currentUpgradeableObject;
@@ -47,35 +47,40 @@ namespace Buildings.Upgrades
 
         public void ShowUpgradeOptions(IUpgradeable upgradeable)
         {
-            if (!_upgradePanel.activeSelf && _upgradeStatusChecker.CanOpenNewPanel())
+            if (_upgradePanel.activeSelf || !_upgradeStatusChecker.CanOpenNewPanel())
             {
-                _upgradeStatusChecker.SetPanelOpen();
-                _currentUpgradeableObject = upgradeable;
-                _currentBuildingData = _currentUpgradeableObject.gameObject.GetComponent<BuildingData>();
-                _level.text = _currentBuildingData.BuidlingLevel.ToString();
-                _cost.text = _currentBuildingData.BuildinCostUpgrade.ToString();
+                return;
+            }
 
-                if (_currentBuildingData is TurretData turretData)
-                {
+            _upgradeStatusChecker.SetPanelOpen();
+            _currentUpgradeableObject = upgradeable;
+            _currentBuildingData = _currentUpgradeableObject.gameObject.GetComponent<BuildingData>();
+            _level.text = _currentBuildingData.BuidlingLevel.ToString();
+            _cost.text = _currentBuildingData.BuildinCostUpgrade.ToString();
+
+            switch (_currentBuildingData)
+            {
+                case TurretData turretData:
                     _turretUpgradeParametersDescription.enabled = true;
                     _factoryUpgradeParametersDescription.enabled = false;
-                }
-                else if (_currentBuildingData is ResourcesFactoryData factoryData)
-                {
+                    break;
+                case ResourcesFactoryData factoryData:
                     _turretUpgradeParametersDescription.enabled = false;
                     _factoryUpgradeParametersDescription.enabled = true;
-                }
+                    break;
+                default:
+                    break;
+            }
 
-                if (_currentBuildingData.BuidlingLevel < _currentBuildingData.BuidingMaxLevel)
-                {
-                    _upgradePanel.SetActive(true);
-                    SetUpgradeButtonState(_energyWallet.CurrentValue);
-                }
-                else
-                {
-                    _maxLevelNotification.gameObject.SetActive(true);
-                    _upgradeStatusChecker.SetPanelClosed();
-                }
+            if (_currentBuildingData.BuidlingLevel < _currentBuildingData.BuidingMaxLevel)
+            {
+                _upgradePanel.SetActive(true);
+                SetUpgradeButtonState(_energyWallet.CurrentValue);
+            }
+            else
+            {
+                _maxLevelNotification.gameObject.SetActive(true);
+                _upgradeStatusChecker.SetPanelClosed();
             }
         }
 

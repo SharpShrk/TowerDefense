@@ -1,6 +1,8 @@
+using UnityEngine;
+
 namespace Wallets
 {
-    public class EnergyWallet : ResourceWallet
+    public class EnergyWallet : MonoBehaviour
     {
     }
 }

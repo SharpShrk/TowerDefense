@@ -11,8 +11,8 @@ namespace ObjectPools
         [SerializeField] private int _initialPoolSize = 10;
         [SerializeField] private int _maxPoolSize = 50;
         [SerializeField] private GameObject _resourceContainer;
-        [SerializeField] private EnergyWallet _energyWallet;
-        [SerializeField] private MetalWallet _metalWallet;
+        [SerializeField] private ResourceWallet _energyWallet;
+        [SerializeField] private ResourceWallet _metalWallet;
 
         private Queue<Resource> _resourcePoolQueue;
 

@@ -7,7 +7,7 @@ namespace Buildings.Upgrades
     public class UpgradePresenter : MonoBehaviour
     {
         [SerializeField] private UpgradeView _view;
-        [SerializeField] private EnergyWallet _wallet;
+        [SerializeField] private ResourceWallet _energyWallet;
 
         public void OnBuildingSelected(GameObject building)
         {
@@ -20,7 +20,7 @@ namespace Buildings.Upgrades
         {
             BuildingData buildingData = building.gameObject.GetComponent<BuildingData>();
 
-            if (_wallet.SpendResource(buildingData.BuildinCostUpgrade))
+            if (_energyWallet.SpendResource(buildingData.BuildinCostUpgrade))
             {
                 UpgradeBuidlding(building);
             }

@@ -6,18 +6,18 @@ namespace GameResources
     public class Metal : Resource
     {
         private int _value = 50;
-        private MetalWallet _wallet;
+        private ResourceWallet _metallWallet;
         private ResourcePool _pool;
 
-        public void Initialize(MetalWallet metalWallet, ResourcePool pool)
+        public void Initialize(ResourceWallet metalWallet, ResourcePool pool)
         {
-            _wallet = metalWallet;
+            _metallWallet = metalWallet;
             _pool = pool;
         }
 
         protected override void AddValueInWallet()
         {
-            _wallet.AddResource(_value);
+            _metallWallet.AddResource(_value);
         }
 
         protected override void ReturnToPool()
